@@ -1,0 +1,20 @@
+.footer-list {
+  list-style: none;
+}
+.footer-link {
+  text-decoration: none;
+  color: black;
+}
+.font-weight-bold {
+  font-weight: bold;
+  font-size: 18px !important;
+}
+.footer-input {
+  border: none;
+  outline: none;
+  width: 80%;
+}
+.footer-newsletter {
+  max-width: 250px;
+  border-radius: 5px;
+}

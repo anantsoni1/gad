@@ -1,12 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./global.css";
 import reportWebVitals from "./reportWebVitals";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Footer from "./components/footer/index";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <div>Hello</div>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <Footer />
+    </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

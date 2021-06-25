@@ -1,0 +1,18 @@
+#covid{
+    background: url('../../assets/green_bg.svg');
+    height: 60vh;
+}
+
+.main-heading{
+    font-weight: 900;
+    font-size: 64px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sub-heading{
+    font-size: 18px;
+}

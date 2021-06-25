@@ -5,10 +5,12 @@ import reportWebVitals from "./reportWebVitals";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/footer/index";
 import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
+      <App />
       <Footer />
     </React.StrictMode>
   </BrowserRouter>,

@@ -1,0 +1,46 @@
+#container {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+#image {
+  min-height: 200px;
+  min-width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#text {
+  z-index: 100;
+  position: absolute;
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 768px) {
+  #text {
+    font-size: 34px;
+  }
+}
+@media (max-width: 425px) {
+  #text {
+    font-size: 26px;
+  }
+  #container {
+    height: 100px;
+  }
+  #image {
+    min-height: 100px;
+  }
+}
+@media (min-width: 1023px) {
+  #container {
+    height: 250px;
+  }
+  #image {
+    min-height: 250px;
+  }
+}

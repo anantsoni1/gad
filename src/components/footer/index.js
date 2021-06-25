@@ -5,8 +5,8 @@ import "./style.css";
 
 function Footer(props) {
   return (
-    <div>
-      <div className="row pb-5 pt-4 my-2 px-5 border-bottom">
+    <div className="container">
+      <div className="row pb-5 pt-5 my-3 px-5 border-bottom">
         <div className="col-md-6 col-lg-3 col-sm-12 col-xs-12 d-flex align-items-center py-3">
           <img className="" src={Group_59} alt="Group_59"></img>
         </div>

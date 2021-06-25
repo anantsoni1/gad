@@ -1,0 +1,22 @@
+.about-text {
+  text-align: justify;
+}
+.about {
+  background-color: #e5e5e5;
+}
+.about img {
+  min-height: 100%;
+  max-height: 700px;
+  min-width: 350px;
+  max-width: 350px;
+}
+.hr {
+  background-color: #965aa2;
+  height: 10px;
+}
+@media (max-width: 991px) {
+  .about img {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}

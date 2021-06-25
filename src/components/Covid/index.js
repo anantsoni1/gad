@@ -14,8 +14,8 @@ function Covid() {
         </div>
       </h1>
       <div className="container">
-        <div className="row">
-          <div className="col-md-12 my-5">
+        <div className="row d-flex justify-content-center">
+          <div className="col-lg-10 col-md-12 my-5">
             <div className="font-regular my-5">
               <p>
                 Our top priority is the health and safety of all of our
@@ -44,22 +44,22 @@ function Covid() {
                 social contact, to have your children stay at home if they are
                 unwell and to keep open communication with the school.
               </p>
-              <p className="mb-2">
+              <p>
                 Click here to use the K-12 Daily Health Check website and app –
                 an easy way to decide if your child should attend school based
                 on their symptoms.
               </p>
             </div>
             <div className="d-flex justify-content-center">
-              <button className="btn text-white text-center btn-covid-purple mt-5">
+              <button className="btn text-white text-center btn-covid-purple mt-3">
                 Updated COVID-19 Health and Safety Plan 2021
               </button>
-              </div>
-              <div className="d-flex justify-content-center">
+            </div>
+            <div className="d-flex justify-content-center">
               <button className="btn text-white text-center btn-covid-blue my-3">
                 Fraser Health Back to School Plan-Winter 2021
               </button>
-              </div>
+            </div>
           </div>
         </div>
       </div>

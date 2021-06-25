@@ -4,11 +4,13 @@ import "./global.css";
 import reportWebVitals from "./reportWebVitals";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/footer/index";
+import About from "./components/about/index";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
+      <About />
       <Footer />
     </React.StrictMode>
   </BrowserRouter>,

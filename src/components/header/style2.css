@@ -1,16 +1,16 @@
-#container {
+#container2 {
   height: 200px;
   position: relative;
   overflow: hidden;
 }
-#image {
+#image2 {
   min-height: 200px;
   min-width: 100%;
   position: absolute;
   left: 0;
   top: 0;
 }
-#text {
+#text2 {
   z-index: 100;
   position: absolute;
   color: white;
@@ -22,22 +22,28 @@
   min-width: 540px;
 }
 @media (max-width: 768px) {
-  #text {
+  #text2 {
     font-size: 28px;
     min-width: 400px;
   }
 }
 @media (max-width: 425px) {
-  #text {
+  #text2 {
     font-size: 18px;
     min-width: 260px;
   }
+  #container2 {
+    height: 100px;
+  }
+  #image2 {
+    min-height: 100px;
+  }
 }
 @media (min-width: 1023px) {
-  #container {
+  #container2 {
     height: 250px;
   }
-  #image {
+  #image2 {
     min-height: 250px;
   }
 }

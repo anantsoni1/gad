@@ -3,7 +3,7 @@ import "./style.css";
 
 function Covid() {
   return (
-    <>
+    <div className="covid">
       <h1 id="covid" className=" text-center center">
         <div>
           <div className="text-white main-heading">COVID 19 UPDATES</div>
@@ -44,16 +44,26 @@ function Covid() {
                 social contact, to have your children stay at home if they are
                 unwell and to keep open communication with the school.
               </p>
-              <p>
+              <p className="mb-2">
                 Click here to use the K-12 Daily Health Check website and app –
                 an easy way to decide if your child should attend school based
                 on their symptoms.
               </p>
             </div>
+            <div className="d-flex justify-content-center">
+              <button className="btn text-white text-center btn-covid-purple mt-5">
+                Updated COVID-19 Health and Safety Plan 2021
+              </button>
+              </div>
+              <div className="d-flex justify-content-center">
+              <button className="btn text-white text-center btn-covid-blue my-3">
+                Fraser Health Back to School Plan-Winter 2021
+              </button>
+              </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,8 +1,10 @@
 #covid{
     background: url('../../assets/green_bg.svg');
-    height: 60vh;
+    height: 50vh;
 }
-
+.covid {
+    background-color: #e5e5e5;
+  }
 .main-heading{
     font-weight: 900;
     font-size: 64px;
@@ -15,4 +17,14 @@
 }
 .sub-heading{
     font-size: 18px;
+}
+.btn-covid-purple{
+    background: #965AA2;
+    border-radius: 37.5px;
+    padding: 0.7rem 2rem;
+}
+.btn-covid-blue{
+    background: #3DACEB;
+    border-radius: 37.5px;
+    padding: 0.7rem 2rem;
 }

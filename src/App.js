@@ -4,6 +4,9 @@ import Home from "./components/home";
 import About from "./components/about";
 import Covid from "./components/Covid";
 import PrincipalDesk from "./components/principalDesk/index";
+import Admissions from "./components/addmission/index";
+import Career from "./components/career/index";
+import Team from "./components/team/index";
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
       <Route exact path="/covid" component={Covid} />
       <Route exact path="/about" component={About} />
       <Route exact path="/principal" component={PrincipalDesk} />
+      <Route exact path="/admissions" component={Admissions} />
+      <Route exact path="/career" component={Career} />
+      <Route exact path="/team" component={Team} />
     </div>
   );
 }

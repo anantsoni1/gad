@@ -19,6 +19,29 @@
   text-align: center;
   text-shadow: 0px 4px 4px #00000040;
 }
+@media (max-width: 768px){
+  .main-heading {
+    font-size: 40px !important;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 40px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-shadow: 0px 4px 4px #00000040;
+  }
+}
+@media (max-width: 768px){
+  .home-sub-heading {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 40px;
+    margin-top: 15px;
+    letter-spacing: 0.16em;
+    text-align: center;
+    text-shadow: 0px 4px 4px #00000040;
+  }
+}
 .update-home-heading {
   color: #18191f;
   font-size: 48px;

@@ -188,7 +188,7 @@ function Home() {
             <div className="col-lg-10 col-md-12 col-sm-12 col-12">
               <div className="row">
                 <div className="col-lg-4 col-md-4 col-sm-12 col-12">
-                  <div className="feature-image">
+                  <div className="feature-image text-center mt-3">
                     <img
                       src={featureOne}
                       alt=""
@@ -197,7 +197,7 @@ function Home() {
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-4 col-sm-12 col-12">
-                  <div className="feature-image">
+                  <div className="feature-image text-center mt-3">
                     <img
                       src={featureTwo}
                       alt=""
@@ -206,7 +206,7 @@ function Home() {
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-4 col-sm-12 col-12">
-                  <div className="feature-image">
+                  <div className="feature-image text-center mt-3">
                     <img
                       src={featureThree}
                       alt=""

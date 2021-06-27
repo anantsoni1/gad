@@ -9,10 +9,12 @@ import Career from "./components/career/index";
 import Team from "./components/team/index";
 import Contact from "./components/contact/index";
 import Footer from "./components/footer";
+import NavbarComponent from "./components/navbar";
 
 function App() {
   return (
     <div>
+      <NavbarComponent />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/covid" component={Covid} />

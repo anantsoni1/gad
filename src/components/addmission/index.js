@@ -3,7 +3,6 @@ import Header from "../header/index";
 import Group8921 from "../../assets/Group8921.svg";
 import image22 from "../../assets/image22.jpg";
 import { Link } from "react-router-dom";
-import Footer from "../footer/index";
 import "./style.css";
 
 const Addmission = () => {
@@ -123,7 +122,6 @@ const Addmission = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

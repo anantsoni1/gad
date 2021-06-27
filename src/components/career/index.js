@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../header/index";
-import Footer from "../footer/index";
 import Group8922 from "../../assets/Group8922.svg";
 import "./style.css";
 
@@ -111,7 +110,6 @@ const Career = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

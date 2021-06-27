@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../header/index";
-import Group8917 from "../../assets/Group8917.svg";
-import Footer from "../footer/index";
+import purpleBg from "../../assets/purple-bg.svg";
 import Image1 from "../../assets/image1.jpg";
 import Image2 from "../../assets/image2.jpg";
 import Image3 from "../../assets/image3.jpg";
@@ -13,7 +12,7 @@ const About = () => {
     <>
       <div className="about">
         <div className="pb-lg-5 pb-1">
-          <Header img={Group8917} heading="ABOUT US" />
+          <Header img={purpleBg} heading="ABOUT US" />
         </div>
         <div className="container">
           <div className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5">
@@ -163,7 +162,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

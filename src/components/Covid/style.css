@@ -1,6 +1,15 @@
 #covid{
     background: url('../../assets/green_bg.svg');
-    height: 50vh;
+    min-height: 50vh;
+}
+@media(max-width:768px){
+    #covid{
+        background: url('../../assets/green_bg.svg');
+        min-height: 65vh;
+    }
+}
+.text-underline{
+    border-bottom: 2px solid #fff;
 }
 .covid {
     background-color: #e5e5e5;

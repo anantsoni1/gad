@@ -7,9 +7,24 @@ function Covid() {
       <h1 id="covid" className=" text-center center">
         <div>
           <div className="text-white main-heading">COVID 19 UPDATES</div>
-          <div className="text-center text-white mt-3 sub-heading">
+          <div className="text-center text-white mt-3 sub-heading px-3">
             If you have any questions about COVID-19, please see the following
             links:
+          </div>
+          <div className="text-center text-white mt-5 sub-heading d-flex justify-content-between">
+            <div className="text-white text-center px-lg-0 px-3 text-underline pb-2">
+              QUICK LINKS: COVID-19 Resources
+            </div>
+            <div className="text-white text-center px-lg-0 px-3 text-underline pb-2">
+
+              LINKS
+
+            </div>
+            <div className="text-white text-center px-lg-0 px-3 text-underline pb-2">
+
+              COVID19 SAFETY
+
+            </div>
           </div>
         </div>
       </h1>

@@ -4,13 +4,12 @@ import Nav from "react-bootstrap/Nav";
 import "./style.css";
 import { NavLink, Link } from "react-router-dom";
 import Logo from "../../assets/Group_59.svg";
-import NavDropdown from "react-bootstrap/NavDropdown";
 
 function NavbarComponent() {
   return (
     <React.Fragment>
       <Navbar
-        expand="lg"
+        expand="xl"
         className="nav-background py-0"
         sticky="top"
         collapseOnSelect={true}
@@ -48,6 +47,14 @@ function NavbarComponent() {
                 className="px-4 navbar-item text-center"
               >
                 admissions
+              </Nav.Link>
+            </NavLink>
+            <NavLink to="/principal" activeClassName="activeNav">
+              <Nav.Link
+                href="/principal"
+                className="px-4 navbar-item text-center"
+              >
+                Principal
               </Nav.Link>
             </NavLink>
             <NavLink to="/career" activeClassName="activeNav">

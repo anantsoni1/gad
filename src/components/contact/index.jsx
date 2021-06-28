@@ -39,18 +39,18 @@ function Contact() {
             </form>
           </div>
           <div className="col-lg-5 col-md-5 col-sm-12 col-12 mt-5">
-            <p className="h2 mt-5">Reach Us At</p>
+            <p className="h2 mt-lg-5">Reach Us At</p>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5450831368353!2d77.35827651455917!3d28.61342119169757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5992452d761%3A0xaaa44725147c1507!2sJSS%20Academy%20of%20Technical%20Education!5e0!3m2!1sen!2sin!4v1579253775872!5m2!1sen!2sin"
-              width="600"
-              height="300"
+              width="100%"
+              height="380"
               frameborder="0"
               allowfullscreen
               loading="lazy"
               title="map"
               className="mt-5"
             />
-            <div className="mt-5">
+            <div className="mt-lg-5 mt-3">
               <div className="d-flex mt-2">
                 <div className="logo">
                   <img src={pointer} alt="contact" className="img-fluid pt-2" />

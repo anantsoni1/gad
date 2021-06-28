@@ -49,8 +49,8 @@
   text-align: center;
 }
 .new-updates {
-  margin-top: 90px;
-  margin-bottom: 100px;
+  margin-top: 80px;
+  margin-bottom: 90px;
 }
 .update-card {
   background: #fff;
@@ -124,7 +124,7 @@
   text-align: center;
 }
 .comprehensive-btn {
-  min-height: 60px;
+  min-height: 55px;
   width: 262px;
   border-radius: 37.5px;
   background: #30357d;
@@ -163,7 +163,22 @@
 .feature-image {
   border-radius: 50%;
 }
-@media (max-width: 768px) {
+#home-carousel{
+  background-image: url('../../assets/green_bg.svg');
+  background-size: cover;
+}
+.carousel-flex {
+  display: flex;
+  justify-content: center;
+}
+.flex-content{
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 900px) {
   .home-sub-heading {
     font-size: 24px;
     font-style: normal;
@@ -181,5 +196,20 @@
     font-weight: 700;
     line-height: 40px;
     text-align: center;
+  }
+  .wrapper{
+    margin-top: 20px;
+    font-style: normal;
+    text-align: justify;
+  }
+  .carousel-flex {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: justify;
+  }
+  .flex-content{
+    margin-left: 0px;
+    margin-top: 20px;
   }
 }

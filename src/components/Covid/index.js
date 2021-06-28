@@ -16,14 +16,10 @@ function Covid() {
               QUICK LINKS: COVID-19 Resources
             </div>
             <div className="text-white text-center px-lg-0 px-3 text-underline pb-2">
-
               LINKS
-
             </div>
             <div className="text-white text-center px-lg-0 px-3 text-underline pb-2">
-
               COVID19 SAFETY
-
             </div>
           </div>
         </div>
@@ -31,7 +27,7 @@ function Covid() {
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-10 col-md-12 my-5">
-            <div className="font-regular my-5">
+            <div className="font-regular my-lg-5">
               <p>
                 Our top priority is the health and safety of all of our
                 students, staff, and the school community. Under the guidance of

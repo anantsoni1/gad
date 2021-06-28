@@ -11,14 +11,14 @@ function Covid() {
             If you have any questions about COVID-19, please see the following
             links:
           </div>
-          <div className="text-center text-white mt-5 sub-heading d-flex justify-content-between">
-            <div className="text-white text-center px-lg-0 px-3 text-underline pb-2">
+          <div className="text-center text-white mt-5 sub-heading carousel-flex">
+            <div className="text-white text-center px-lg-0 mt-md-0 mt-3 mx-3 text-underline pb-2">
               QUICK LINKS: COVID-19 Resources
             </div>
-            <div className="text-white text-center px-lg-0 px-3 text-underline pb-2">
+            <div className="text-white text-center px-lg-0 mt-md-0 mt-3 mx-3 text-underline pb-2">
               LINKS
             </div>
-            <div className="text-white text-center px-lg-0 px-3 text-underline pb-2">
+            <div className="text-white text-center px-lg-0 mt-md-0 mt-3 mx-3 text-underline pb-2">
               COVID19 SAFETY
             </div>
           </div>
@@ -27,7 +27,7 @@ function Covid() {
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-10 col-md-12 my-5">
-            <div className="font-regular my-lg-5">
+            <div className="font-regular my-md-5 wrapper">
               <p>
                 Our top priority is the health and safety of all of our
                 students, staff, and the school community. Under the guidance of

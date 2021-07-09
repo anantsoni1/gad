@@ -6,8 +6,8 @@ import "./style.css";
 function Footer(props) {
   return (
     <div className="container">
-      <div className="row pb-5 pt-5 my-3 px-5 border-bottom">
-        <div className="col-md-6 col-lg-3 col-sm-12 col-xs-12 d-flex align-items-center py-3">
+      <div className="row pb-5 pt-5 my-3 border-bottom">
+        <div className="col-md-6 col-lg-3 col-sm-12 px-4 col-xs-12 d-flex align-items-center py-3">
           <img className="" src={Group_59} alt="Group_59"></img>
         </div>
         <div className="col-md-6 col-lg-3 col-sm-12 col-xs-12 py-3">
@@ -66,7 +66,7 @@ function Footer(props) {
             </li>
             <li>
               <div className="footer-newsletter border px-2 py-1">
-                <div className="d-flex flex-row justify-content-between">
+                <div className="d-flex flex-row justify-content-between align-items-center">
                   <div>
                     <input
                       className="footer-input"

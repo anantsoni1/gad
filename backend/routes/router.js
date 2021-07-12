@@ -9,7 +9,15 @@ const routes = [
   "payment",
   "ride",
   "address",
+  "about",
   "home",
+  "career",
+  "principal",
+  "team",
+  "contactDetails",
+  "contactForm",
+  "admission",
+  "covid",
 ];
 
 module.exports = {

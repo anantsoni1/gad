@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../header/index2";
-import Footer from "../footer/index";
 import Group8918 from "../../assets/Group8918.svg";
 import PrincipalImage from "../../assets/principal.jpg";
 import "./style.css";
@@ -114,7 +113,6 @@ const PrincipalDesk = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

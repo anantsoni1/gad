@@ -16,7 +16,7 @@ function Footer(props) {
               <p className="font-weight-bold">Usefull Links</p>
             </li>
             <li className="py-1">
-              <Link className="footer-link" to="/home">
+              <Link className="footer-link" to="/">
                 Home
               </Link>
             </li>
@@ -31,12 +31,12 @@ function Footer(props) {
               </Link>
             </li>
             <li className="py-1">
-              <Link className="footer-link" to="/Home">
+              <Link className="footer-link" to="/">
                 Latest Activities
               </Link>
             </li>
             <li className="py-1">
-              <Link className="footer-link" to="/Home">
+              <Link className="footer-link" to="/">
                 Events
               </Link>
             </li>
@@ -48,14 +48,10 @@ function Footer(props) {
               <p className="font-weight-bold">Contact</p>
             </li>
             <li className="py-1">
-              <Link className="footer-link" to="/home">
-                info@gadschool.com
-              </Link>
+              <span>info@gadschool.com</span>
             </li>
             <li className="py-1">
-              <Link className="footer-link" to="/about">
-                (604) 595-0888
-              </Link>
+              <span>(604) 595-0888</span>
             </li>
           </ul>
         </div>

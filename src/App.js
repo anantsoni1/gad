@@ -10,6 +10,7 @@ import Team from "./components/team/index";
 import Contact from "./components/contact/index";
 import Footer from "./components/footer";
 import NavbarComponent from "./components/navbar";
+import Dashboard from "./components/Admin/dashboard/index";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/career" component={Career} />
         <Route exact path="/team" component={Team} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/admin/dashboard" component={Dashboard} />
       </Switch>
       <Footer />
     </div>

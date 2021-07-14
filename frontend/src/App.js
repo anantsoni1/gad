@@ -11,6 +11,7 @@ import Contact from "./components/contact/index";
 import Footer from "./components/footer";
 import NavbarComponent from "./components/navbar";
 import Dashboard from "./components/Admin/dashboard/index";
+import Parents from "./components/parents";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/covid" component={Covid} />
+        <Route exact path="/parents" component={Parents} />
         <Route exact path="/about" component={About} />
         <Route exact path="/principal" component={PrincipalDesk} />
         <Route exact path="/admissions" component={Admissions} />

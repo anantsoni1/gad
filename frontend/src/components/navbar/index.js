@@ -41,6 +41,11 @@ function NavbarComponent() {
                 about
               </Nav.Link>
             </NavLink>
+            <NavLink to="/parents" activeClassName="activeNav">
+              <Nav.Link href="/parents" className="px-4 navbar-item text-center">
+                parents
+              </Nav.Link>
+            </NavLink>
             <NavLink to="/admissions" activeClassName="activeNav">
               <Nav.Link
                 href="/admissions"

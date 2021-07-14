@@ -19,6 +19,7 @@ import AdminCareer from "./components/Admin/career";
 import AdminAbout from "./components/Admin/about";
 import AdminTeam from "./components/Admin/team";
 import AdminPrincipal from "./components/Admin/principal";
+import AdminParents from "./components/Admin/parents";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route exact path="/admin/about" component={AdminAbout} />
         <Route exact path="/admin/team" component={AdminTeam} />
         <Route exact path="/admin/principal" component={AdminPrincipal} />
+        <Route exact path="/admin/parents" component={AdminParents} />
       </Switch>
       <Footer />
     </div>

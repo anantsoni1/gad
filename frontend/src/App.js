@@ -12,6 +12,13 @@ import Footer from "./components/footer";
 import NavbarComponent from "./components/navbar";
 import Dashboard from "./components/Admin/dashboard/index";
 import Parents from "./components/parents/index";
+import AdminAdmission from "./components/Admin/admission";
+import AdminContact from "./components/Admin/contact";
+import AdminMedical from "./components/Admin/medical";
+import AdminCareer from "./components/Admin/career";
+import AdminAbout from "./components/Admin/about";
+import AdminTeam from "./components/Admin/team";
+import AdminPrincipal from "./components/Admin/principal";
 
 function App() {
   return (
@@ -28,6 +35,13 @@ function App() {
         <Route exact path="/team" component={Team} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/admin/dashboard" component={Dashboard} />
+        <Route exact path="/admin/admission" component={AdminAdmission} />
+        <Route exact path="/admin/contact" component={AdminContact} />
+        <Route exact path="/admin/medical" component={AdminMedical} />
+        <Route exact path="/admin/career" component={AdminCareer} />
+        <Route exact path="/admin/about" component={AdminAbout} />
+        <Route exact path="/admin/team" component={AdminTeam} />
+        <Route exact path="/admin/principal" component={AdminPrincipal} />
       </Switch>
       <Footer />
     </div>

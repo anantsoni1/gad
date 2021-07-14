@@ -26,7 +26,7 @@ function Parents() {
                 </p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 View File
               </button>
@@ -42,7 +42,7 @@ function Parents() {
                 </p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 View File
               </button>
@@ -58,7 +58,7 @@ function Parents() {
                 </p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 View File
               </button>
@@ -74,7 +74,7 @@ function Parents() {
                 </p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 View File
               </button>
@@ -90,7 +90,7 @@ function Parents() {
                 </p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 View File
               </button>
@@ -128,7 +128,7 @@ function Parents() {
                 <p className="h3">Grade K.G.</p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 Download
               </button>
@@ -140,7 +140,7 @@ function Parents() {
                 <p className="h3">Grade 1</p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 Download
               </button>
@@ -152,7 +152,7 @@ function Parents() {
                 <p className="h3">Grade 2</p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 Download
               </button>
@@ -164,7 +164,7 @@ function Parents() {
                 <p className="h3">Grade 3</p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 Download
               </button>
@@ -176,7 +176,7 @@ function Parents() {
                 <p className="h3">Grade 4</p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 Download
               </button>
@@ -188,7 +188,7 @@ function Parents() {
                 <p className="h3">Grade 5</p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 Download
               </button>
@@ -200,7 +200,7 @@ function Parents() {
                 <p className="h3">Grade 6</p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 Download
               </button>
@@ -212,7 +212,7 @@ function Parents() {
                 <p className="h3">Grade 7</p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end">
               <button type="submit" className="btn-contact text-white btn px-5">
                 Download
               </button>
@@ -224,7 +224,7 @@ function Parents() {
                 <p className="h3">Grade 8</p>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-end">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-sm-start justify-content-lg-end ">
               <button type="submit" className="btn-contact text-white btn px-5">
                 Download
               </button>

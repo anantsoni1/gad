@@ -16,7 +16,9 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ContactMailIcon from '@material-ui/icons/ContactMail';
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
@@ -162,25 +164,94 @@ export default function MiniDrawer(props) {
           </ListItem> */}
           <ListItem button>
             <ListItemIcon>
-              <Link to="/admin/all-rides">
+              <Link to="/admin/dashboard">
+               <HomeIcon />
+              </Link>
+            </ListItemIcon>
+            <Link to="/admin/dashboard">
+              <ListItemText primary="Home" />
+            </Link>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <Link to="/admin/contact">
+                <ContactMailIcon />
+              </Link>
+            </ListItemIcon>
+            <Link to="/admin/contact">
+              <ListItemText primary="Contact" />
+            </Link>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <Link to="/admin/admission">
                 <strong>
-                  <i class="fa fa-car text-20"></i>
+                 <i class="fas fa-tools text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
-            <Link to="/admin/all-rides">
-              <ListItemText primary="All Rides" />
+            <Link to="/admin/admission">
+              <ListItemText primary="Admission" />
             </Link>
           </ListItem>
-
           <ListItem button>
             <ListItemIcon>
-              <Link to="/admin/users">
-                <AccountCircleIcon />
+              <Link to="/admin/career">
+                <strong>
+                 <i class="fas fa-bullseye text-20"></i>
+                </strong>
               </Link>
             </ListItemIcon>
-            <Link to="/admin/users">
-              <ListItemText primary="User" />
+            <Link to="/admin/career">
+              <ListItemText primary="Career" />
+            </Link>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <Link to="/admin/medical">
+                <strong>
+                 <i class="fas fa-user-nurse text-20"></i>
+                </strong>
+              </Link>
+            </ListItemIcon>
+            <Link to="/admin/medical">
+              <ListItemText primary="Medical" />
+            </Link>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <Link to="/admin/team">
+                <strong>
+                 <i class="fas fa-users text-20"></i>
+                </strong>
+              </Link>
+            </ListItemIcon>
+            <Link to="/admin/team">
+              <ListItemText primary="Team" />
+            </Link>
+          </ListItem>
+           <ListItem button>
+            <ListItemIcon>
+              <Link to="/admin/principal">
+                <strong>
+                 <i class="fas fa-user-circle text-20"></i>
+                </strong>
+              </Link>
+            </ListItemIcon>
+            <Link to="/admin/principal">
+              <ListItemText primary="Principal" />
+            </Link>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <Link to="/admin/about">
+                <strong>
+                 <i class="fas fa-money-check text-20"></i>
+                </strong>
+              </Link>
+            </ListItemIcon>
+            <Link to="/admin/about">
+              <ListItemText primary="About" />
             </Link>
           </ListItem>
           <ListItem button>

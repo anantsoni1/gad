@@ -11,7 +11,7 @@ import Contact from "./components/contact/index";
 import Footer from "./components/footer";
 import NavbarComponent from "./components/navbar";
 import Dashboard from "./components/Admin/dashboard/index";
-import Parents from "./components/parents";
+import Parents from "./components/parents/index";
 
 function App() {
   return (

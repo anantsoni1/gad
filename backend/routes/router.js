@@ -1,14 +1,7 @@
 const router = require("express").Router();
 const routes = [
   "auth",
-  "verify",
-  "admin",
   "contact",
-  "slot",
-  "instructor",
-  "payment",
-  "ride",
-  "address",
   "about",
   "home",
   "career",

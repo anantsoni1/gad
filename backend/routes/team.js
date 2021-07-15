@@ -3,7 +3,7 @@ const team = require("../controllers/team");
 
 router.post("/addTeamPageData", team.addTeamPageData);
 router.put("/modifyTeamPageData", team.modifyTeamPageData);
-router.get("/getCareerPageData", team.getCareerPageData);
+router.get("/getTeamPageData", team.getTeamPageData);
 
 module.exports = {
   router: router,

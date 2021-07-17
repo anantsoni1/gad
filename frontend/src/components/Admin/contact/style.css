@@ -1,0 +1,9 @@
+.customContainer {
+  margin-left: 73px;
+}
+
+@media only screen and (max-width: 599px) {
+  .customContainer {
+    margin-left: 57px;
+  }
+}

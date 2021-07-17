@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
+import Header from "../../header/index";
+import purpleBg from "../../../assets/purple-bg.svg";
 import "./style.css";
 
 function AdminContact() {
@@ -9,10 +11,11 @@ function AdminContact() {
     address: "",
   });
   return (
-    <div>
+    <div className="customContainer">
       <Sidebar />
-      <div className="customContainer">
-        <p className="h2">Contact Details</p>
+      <Header img={purpleBg} heading="CONTACT" />
+      <div className="container">
+        <p className="h2 my-2">Contact Details</p>
         <form>
           <div class="form-group col-md-6 py-2">
             <label class="py-2">Email</label>

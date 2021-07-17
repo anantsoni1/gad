@@ -1,6 +1,6 @@
 module.exports = {
-    jwtSecret: 'roadrules',
-    db: 'mongodb+srv://roadrules:roadrules@cluster0.xmzxo.mongodb.net/road-rules'
+  jwtSecret: "roadrules",
+  db: "mongodb+srv://roadrules:roadrules@cluster0.xmzxo.mongodb.net/gad",
 };
 
 //test commit

@@ -1,7 +1,9 @@
 const CareerPage = require("../models/career");
 
 exports.addCareerPageData = async (req, res) => {
-  let careerPage = CareerPage(...req.body);
+  console.log("test");
+  console.log(req.body);
+  let careerPage = CareerPage(req.body);
   careerPage.save().then((data, error) => {
     if (error) {
       return res.status(400).send({
@@ -32,7 +34,7 @@ exports.getCareerPageData = async (req, res) => {
 };
 
 exports.modifyCareerPageData = async (req, res) => {
-  CareerPage.findByIdAndUpdate(req.query.id, ...req.body, (err, data) => {
+  CareerPage.findByIdAndUpdate(req.query.id, req.body, (err, data) => {
     if (err) {
       return res.status(400).json({ msg: err.message });
     }

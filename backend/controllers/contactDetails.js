@@ -4,7 +4,7 @@ exports.addContactDetails = async (req, res) => {
   if (!req.body.email || !req.body.phone || !req.body.address) {
     return res.status(400).json({ msg: "Invalid data" });
   }
-  let data = ContactDetails(...req.body);
+  let data = ContactDetails(req.body);
   data.save((err, data) => {
     if (err) {
       return res.status(400).json({ msg: err.message });
@@ -17,7 +17,7 @@ exports.modifyContactDetails = async (req, res) => {
   if (!req.body.email || !req.body.phone || !req.body.address) {
     return res.status(400).json({ msg: "Invalid data" });
   }
-  ContactDetails.findByIdAndUpdate(req.query.id, ...req.body, (err, data) => {
+  ContactDetails.findByIdAndUpdate(req.query.id, req.body, (err, data) => {
     if (err) {
       return res.status(400).json({ msg: err.message });
     }
@@ -32,6 +32,6 @@ exports.getContactDetails = (req, res) => {
     if (err) {
       return res.status(400).json({ msg: err.message });
     }
-    return res.status(201).json({ slots: data });
+    return res.status(201).json({ data: data });
   });
 };

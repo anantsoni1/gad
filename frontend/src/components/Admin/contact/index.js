@@ -11,7 +11,7 @@ function AdminContact() {
   return (
     <div>
       <Sidebar />
-      <div className="container">
+      <div className="customContainer">
         <p className="h2">Contact Details</p>
         <form>
           <div class="form-group col-md-6 py-2">

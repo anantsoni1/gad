@@ -34,6 +34,7 @@ const AdmissionPageSchema = new mongoose.Schema({
     required: true,
   },
   steps: [Step],
+  links: [Link],
 });
 
 module.exports = mongoose.model("AdmissionPage", AdmissionPageSchema);

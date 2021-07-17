@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import "./style.css";
 
 function AdminAbout() {
-  const [formData, setFormData] = useState({
-    email: "",
-    phone: "",
-    address: "",
-  });
   return (
     <div>
       <Sidebar />

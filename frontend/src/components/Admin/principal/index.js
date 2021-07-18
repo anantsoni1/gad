@@ -5,10 +5,6 @@ import Group8918 from "../../../assets/Group8918.svg";
 import "./style.css";
 
 function AdminPrincipal() {
-  let [inputPoints, setInputPoints] = useState([1]);
-  function increment() {
-    setInputPoints([...inputPoints, 1]);
-  }
   return (
     <div className="customContainer">
       <Sidebar />
@@ -37,16 +33,7 @@ function AdminPrincipal() {
             <div className="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12 px-lg-4 py-md-3 py-sm-5 py-xs-5 px-md-5 px-4">
               <p className="about-text">
                 <textarea className="h-200"></textarea>
-                <button className="btn btn-primary my-4" onClick={increment}>
-                  Add Points
-                </button>
-                {inputPoints.map(() => {
-                  return (
-                    <li className="py-1">
-                      <input type="text" />
-                    </li>
-                  );
-                })}
+
                 <textarea
                   className="h-200 my-4"
                   placeholder="Enter Thank Note"

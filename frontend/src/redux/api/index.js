@@ -8,6 +8,9 @@ export const modifyCareerData = (id, data) =>
 export const getContactData = () => axios.get(`${url}/getContactDetails`);
 export const modifyContactData = (id, data) =>
   axios.put(`${url}/modifyContactDetails?id=${id}`, data);
+export const getPrincipalData = () => axios.get(`${url}/getPrincipalData`);
+export const modifyPrincipalData = (id, data) =>
+  axios.put(`${url}/modifyPrincipalData?id=${id}`, data);
 
 //
 //

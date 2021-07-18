@@ -24,6 +24,10 @@ const PrincipalPageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  thankText: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("PrincipalPage", PrincipalPageSchema);

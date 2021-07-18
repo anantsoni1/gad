@@ -24,7 +24,7 @@ import AdminParents from "./components/Admin/parents";
 function App() {
   return (
     <div>
-      <NavbarComponent />
+      {/* <NavbarComponent /> */}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/covid" component={Covid} />
@@ -45,7 +45,7 @@ function App() {
         <Route exact path="/admin/principal" component={AdminPrincipal} />
         <Route exact path="/admin/parents" component={AdminParents} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

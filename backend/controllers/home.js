@@ -6,9 +6,13 @@ exports.addHomeData = async (req, res) => {
     !req.body.subHeading ||
     !req.body.curriculaHeading ||
     !req.body.curriculaSubHeading ||
-    !req.body.discoverTitle ||
+    !req.body.discoverHeading ||
+    !req.body.discoverSubHeading ||
     !req.body.discoverText ||
-    !req.body.applicationsAnnouncement
+    !req.body.kindergarten ||
+    !req.body.discoverMoreHeading ||
+    !req.body.discoverMoreSubHeading ||
+    !req.body.discoverMoreText
   ) {
     return res.status(400).json({ msg: "Invalid data" });
   }
@@ -26,9 +30,13 @@ exports.modifyHomeData = async (req, res) => {
     !req.body.subHeading ||
     !req.body.curriculaHeading ||
     !req.body.curriculaSubHeading ||
-    !req.body.discoverTitle ||
+    !req.body.discoverHeading ||
+    !req.body.discoverSubHeading ||
     !req.body.discoverText ||
-    !req.body.applicationsAnnouncement
+    !req.body.kindergarten ||
+    !req.body.discoverMoreHeading ||
+    !req.body.discoverMoreSubHeading ||
+    !req.body.discoverMoreText
   ) {
     return res.status(400).json({ msg: "Invalid data" });
   }

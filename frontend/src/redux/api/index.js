@@ -5,6 +5,12 @@ export const url = "http://localhost:8080/api";
 export const getCareerData = () => axios.get(`${url}/getCareerPageData`);
 export const modifyCareerData = (id, data) =>
   axios.put(`${url}/modifyCareerPageData?id=${id}`, data);
+export const getContactData = () => axios.get(`${url}/getContactDetails`);
+export const modifyContactData = (id, data) =>
+  axios.put(`${url}/modifyContactDetails?id=${id}`, data);
+export const getPrincipalData = () => axios.get(`${url}/getPrincipalData`);
+export const modifyPrincipalData = (id, data) =>
+  axios.put(`${url}/modifyPrincipalData?id=${id}`, data);
 
 //
 //

@@ -60,7 +60,7 @@ exports.getPrincipalData = async (req, res) => {
 };
 
 exports.modifyPrincipalData = async (req, res) => {
-  PrincipalPage.findByIdAndUpdate(req.query.id, ...req.body, (err, data) => {
+  PrincipalPage.findByIdAndUpdate(req.query.id, req.body, (err, data) => {
     if (err) {
       return res.status(400).json({ msg: err.message });
     }

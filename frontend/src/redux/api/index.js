@@ -2,12 +2,23 @@ import axios from "axios";
 
 export const url = "http://localhost:8080/api";
 export const imageUrl = "http://localhost:8080/";
+
+// HOME
 export const getHomeData = () => axios.get(`${url}/getHomeData`);
 export const modifyHomeData = (id, data) =>
   axios.put(`${url}/modifyHomeData?id=${id}`, data);
+
+// ABOUT
+export const getAboutData = () => axios.get(`${url}/getAboutPageData`);
+export const modifyAboutData = (id, data) =>
+  axios.put(`${url}/modifyAboutPageData?id=${id}`, data);
+
+// CAREER
 export const getCareerData = () => axios.get(`${url}/getCareerPageData`);
 export const modifyCareerData = (id, data) =>
   axios.put(`${url}/modifyCareerPageData?id=${id}`, data);
+
+// CONTACT
 export const getContactData = () => axios.get(`${url}/getContactDetails`);
 export const modifyContactData = (id, data) =>
   axios.put(`${url}/modifyContactDetails?id=${id}`, data);

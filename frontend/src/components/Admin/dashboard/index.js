@@ -352,7 +352,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <button onClick={updateData} className="btn btn-primary my-4">
+            <button onClick={updateData} className="btn btn-primary my-5 w-100">
               Update
             </button>
           </div>

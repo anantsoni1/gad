@@ -1,90 +1,117 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Header from "../../header/index";
 import purpleBg from "../../../assets/purple-bg.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { GetAboutData, ModifyAboutData } from "../../../redux/actions/about";
+import { imageUrl } from "../../../redux/api/index";
+
 import "./style.css";
 
 function AdminAbout() {
+  const [singlePost, setSinglePost] = useState({
+    heading: "",
+    points: [],
+    img: ""
+  });
+  const handleChange = (e) => {
+
+  };
+  const aboutData = useSelector((state) => state?.about?.getAboutData);
+  const [id, setId] = useState();
+  const [posts, setPosts] = useState([]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(GetAboutData())
+      .then((res) => {
+        setId(res.data[0].id);
+        setPosts(res.data[0].posts);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
+  function updateData() {
+    dispatch(ModifyAboutData(id, posts))
+      .then(() => {
+        dispatch(GetAboutData())
+          .then((res) => {
+            console.log(res);
+          })
+          .catch(() => {});
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
   return (
     <div className="customContainer">
       <Sidebar />
       <div className="pb-lg-5 pb-1">
         <Header img={purpleBg} heading="ABOUT US" />
       </div>
-      <div className="container">
-        <h1 className="px-lg-4 px-md-5">About</h1>
-        <div className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5">
-          <div className="col-12 col-md-12 col-lg-7 col-sm-12 col-xs-12 px-lg-4 pt-md-3 pt-sm-5 pt-xs-5 px-md-5 px-4">
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Enter Heading"
-            />
-          </div>
+      {aboutData && aboutData?.data?.length > 0 && (
+        <div className="container">
+          {posts && posts.length > 0 && (
+            <>
+              {posts.map((post) => (
+                <>
+                  <div
+                    className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5"
+                    key={post?.id}
+                  >
+                    <div className="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12 px-lg-4 pt-md-3 pt-sm-5 pt-xs-5 px-md-5 px-4">
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Enter Heading"
+                        name="heading"
+                        value={post?.heading}
+                        onChange={(e) => handleChange(e)}
+                      />
+                    </div>
+                  </div>
+                  <div className="row pt-1 px-lg-4 px-md-5">
+                    <div className="col-12 col-md-12 col-lg-7 col-sm-12 col-xs-12 px-lg-4 py-md-3 py-sm-5 py-xs-5 px-md-5 px-4">
+                      {post?.points && post?.points?.length > 0 && (
+                        <>
+                          {post.points.map((point) => (
+                            <div key={point._id}>
+                              <textarea
+                                className="form-control mt-3"
+                                rows="3"
+                                placeholder="Enter Heading"
+                                value={point.point}
+                              ></textarea>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                    </div>
+                    <div className="col-12 col-md-12 col-lg-4 col-sm-12 col-xs-12 px-lg-2 px-md-5 px-4">
+                      <img
+                        src={`${imageUrl}${post.img}`}
+                        className="img-fluid"
+                      />
+                      <input
+                        type="file"
+                        className="form-control py-0 mt-3"
+                        accept=".png, .jpg, .jpeg"
+                        max-size="2000"
+                        onChange
+                      />
+                    </div>
+                  </div>
+                  <div className="hr mt-5 mb-2"></div>
+                </>
+              ))}
+            </>
+          )}
+          <button onClick={updateData} className="btn btn-primary my-5 w-100">
+            Update
+          </button>
         </div>
-        <div className="row pt-1 px-lg-4 px-md-5">
-          <div className="col-12 col-md-12 col-lg-7 col-sm-12 col-xs-12 px-lg-4 py-md-3 py-sm-5 py-xs-5 px-md-5 px-4">
-            <textarea className="form-control" rows="7"></textarea>
-          </div>
-          <div className="align-items-center d-flex col-12 col-md-12 col-lg-4 col-sm-12 col-xs-12 px-lg-2 py-md-3 py-sm-2 py-xs-2 py-2 px-md-5 px-4">
-            <input type="file" className="form-control py-0" />
-          </div>
-        </div>
-        <div className="hr mt-5 mb-2"></div>
-        <div className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5">
-          <div className="col-12 col-md-12 col-lg-7 col-sm-12 col-xs-12 px-lg-4 pt-md-3 pt-sm-5 pt-xs-5 px-md-5 px-4">
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Enter Heading"
-            />
-          </div>
-        </div>
-        <div className="row pt-1 px-lg-4 px-md-5">
-          <div className="col-12 col-md-12 col-lg-7 col-sm-12 col-xs-12 px-lg-4 py-md-3 py-sm-5 py-xs-5 px-md-5 px-4">
-            <textarea className="form-control" rows="7"></textarea>
-          </div>
-          <div className="align-items-center d-flex col-12 col-md-12 col-lg-4 col-sm-12 col-xs-12 px-lg-2 py-md-3 py-sm-2 py-xs-2 py-2 px-md-5 px-4">
-            <input type="file" className="form-control py-0" />
-          </div>
-        </div>
-        <div className="hr mt-5 mb-2"></div>
-        <div className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5">
-          <div className="col-12 col-md-12 col-lg-7 col-sm-12 col-xs-12 px-lg-4 pt-md-3 pt-sm-5 pt-xs-5 px-md-5 px-4">
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Enter Heading"
-            />
-          </div>
-        </div>
-        <div className="row pt-1 px-lg-4 px-md-5">
-          <div className="col-12 col-md-12 col-lg-7 col-sm-12 col-xs-12 px-lg-4 py-md-3 py-sm-5 py-xs-5 px-md-5 px-4">
-            <textarea className="form-control" rows="7"></textarea>
-          </div>
-          <div className="align-items-center d-flex col-12 col-md-12 col-lg-4 col-sm-12 col-xs-12 px-lg-2 py-md-3 py-sm-2 py-xs-2 py-2 px-md-5 px-4">
-            <input type="file" className="form-control py-0" />
-          </div>
-        </div>
-        <div className="hr mt-5 mb-2"></div>
-        <div className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5">
-          <div className="col-12 col-md-12 col-lg-7 col-sm-12 col-xs-12 px-lg-4 pt-md-3 pt-sm-5 pt-xs-5 px-md-5 px-4">
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Enter Heading"
-            />
-          </div>
-        </div>
-        <div className="row pt-1 pb-5 px-lg-4 px-md-5">
-          <div className="col-12 col-md-12 col-lg-7 col-sm-12 col-xs-12 px-lg-4 py-md-3 py-sm-5 py-xs-5 px-md-5 px-4">
-            <textarea className="form-control" rows="7"></textarea>
-          </div>
-          <div className="align-items-center d-flex col-12 col-md-12 col-lg-4 col-sm-12 col-xs-12 px-lg-2 py-md-3 py-sm-2 py-xs-2 py-2 px-md-5 px-4">
-            <input type="file" className="form-control py-0" />
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

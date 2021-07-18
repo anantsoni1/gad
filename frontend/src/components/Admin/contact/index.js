@@ -50,8 +50,8 @@ function AdminContact() {
           <div className="container">
             <p className="h2 my-2">Contact Details</p>
             <form>
-              <div class="form-group col-md-6 py-2">
-                <label class="py-2">Email</label>
+              <div className="form-group col-md-6 py-2">
+                <label className="py-2">Email</label>
                 <input
                   onChange={(e) => {
                     setFormData({
@@ -61,12 +61,12 @@ function AdminContact() {
                   }}
                   value={formData?.email}
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Email"
                 />
               </div>
-              <div class="form-group col-md-6 py-2">
-                <label class="py-2">Phone</label>
+              <div className="form-group col-md-6 py-2">
+                <label className="py-2">Phone</label>
                 <input
                   onChange={(e) => {
                     setFormData({
@@ -76,12 +76,12 @@ function AdminContact() {
                   }}
                   value={formData?.phone}
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Phone"
                 />
               </div>
-              <div class="form-group col-md-6 py-2">
-                <label class="pUpdateDatay-2">Address</label>
+              <div className="form-group col-md-6 py-2">
+                <label className="pUpdateDatay-2">Address</label>
                 <input
                   onChange={(e) => {
                     setFormData({
@@ -91,14 +91,14 @@ function AdminContact() {
                   }}
                   value={formData?.address}
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Address"
                 />
               </div>
               <button
                 onClick={UpdateData}
                 type="submit"
-                class="btn btn-primary my-3"
+                className="btn btn-primary my-3"
               >
                 Update
               </button>

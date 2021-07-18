@@ -16,7 +16,7 @@ exports.addPrincipalPageData = async (req, res) => {
   let imageBuffer = decodedImg.data;
   let type = decodedImg.type;
   let extension = mime.extension(type);
-  let fileName = req.body.fullName + "." + extension;
+  let fileName = req.body.principalName.replace(/\s/g, "") + "." + extension;
   try {
     fs.writeFileSync("./assets/images/" + fileName, imageBuffer, "utf8");
     let product = {
@@ -75,7 +75,7 @@ exports.modifyPrincipalData = async (req, res) => {
     let imageBuffer = decodedImg.data;
     let type = decodedImg.type;
     let extension = mime.extension(type);
-    let fileName = req.body.fullName + "." + extension;
+    let fileName = req.body.principalName.replace(/\s/g, "") + "." + extension;
     fs.writeFileSync("./assets/images/" + fileName, imageBuffer, "utf8");
     product = {
       ...req.body,

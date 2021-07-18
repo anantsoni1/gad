@@ -7,7 +7,7 @@ const Dashboard = () => {
       <Sidebar />
       <div className="sidebar-left-margin my-5">
         <div className="container">
-          <h1 className="px-lg-4 px-md-5">Home</h1>
+          <h1>Home</h1>
           <div className="home">
             <div className="home-banner">
               <div className="home-heading text-white text-center">

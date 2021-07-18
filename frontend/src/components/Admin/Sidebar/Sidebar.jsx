@@ -186,7 +186,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link to="/admin/admission">
                 <strong>
-                 <i class="fas fa-tools text-20"></i>
+                 <i className="fas fa-tools text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -198,7 +198,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link to="/admin/career">
                 <strong>
-                 <i class="fas fa-bullseye text-20"></i>
+                 <i className="fas fa-bullseye text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -210,7 +210,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link to="/admin/medical">
                 <strong>
-                 <i class="fas fa-user-nurse text-20"></i>
+                 <i className="fas fa-user-nurse text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -222,7 +222,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link to="/admin/team">
                 <strong>
-                 <i class="fas fa-users text-20"></i>
+                 <i className="fas fa-users text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -234,7 +234,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link to="/admin/principal">
                 <strong>
-                 <i class="fas fa-user-circle text-20"></i>
+                 <i className="fas fa-user-circle text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -246,7 +246,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link to="/admin/about">
                 <strong>
-                 <i class="fas fa-money-check text-20"></i>
+                 <i className="fas fa-money-check text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -258,7 +258,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link>
                 <strong>
-                  <i class="fas fa-sign-out-alt text-20" onClick={logout}></i>
+                  <i className="fas fa-sign-out-alt text-20" onClick={logout}></i>
                 </strong>
               </Link>
             </ListItemIcon>

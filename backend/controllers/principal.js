@@ -60,12 +60,44 @@ exports.getPrincipalData = async (req, res) => {
 };
 
 exports.modifyPrincipalData = async (req, res) => {
-  PrincipalPage.findByIdAndUpdate(req.query.id, req.body, (err, data) => {
-    if (err) {
-      return res.status(400).json({ msg: err.message });
+  let product;
+  if (req.body.img) {
+    var matches = req.body.img.match(/^data:([A-Za-z-+/]+);base64,(.+)$/),
+      response = {};
+    if (matches?.length !== 3) {
+      return res.status(400).send({
+        msg: "Invalid Image",
+      });
     }
-    return res
-      .status(201)
-      .json({ msg: "Updated Data successfully", data: data });
-  });
+    response.type = matches[1];
+    response.data = new Buffer(matches[2], "base64");
+    let decodedImg = response;
+    let imageBuffer = decodedImg.data;
+    let type = decodedImg.type;
+    let extension = mime.extension(type);
+    let fileName = req.body.fullName + "." + extension;
+    fs.writeFileSync("./assets/images/" + fileName, imageBuffer, "utf8");
+    product = {
+      ...req.body,
+      img: "images/" + fileName,
+    };
+    console.log(product);
+    PrincipalPage.findByIdAndUpdate(req.query.id, product, (err, data) => {
+      if (err) {
+        return res.status(400).json({ msg: err.message });
+      }
+      return res
+        .status(201)
+        .json({ msg: "Updated Data successfully", data: data });
+    });
+  } else {
+    PrincipalPage.findByIdAndUpdate(req.query.id, req.body, (err, data) => {
+      if (err) {
+        return res.status(400).json({ msg: err.message });
+      }
+      return res
+        .status(201)
+        .json({ msg: "Updated Data successfully", data: data });
+    });
+  }
 };

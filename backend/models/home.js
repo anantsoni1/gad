@@ -17,7 +17,11 @@ const HomePageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  discoverTitle: {
+  discoverHeading: {
+    type: String,
+    required: true,
+  },
+  discoverSubHeading: {
     type: String,
     required: true,
   },
@@ -25,7 +29,19 @@ const HomePageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  applicationsAnnouncement: {
+  kindergarten: {
+    type: String,
+    required: true,
+  },
+  discoverMoreHeading: {
+    type: String,
+    required: true,
+  },
+  discoverMoreSubHeading: {
+    type: String,
+    required: true,
+  },
+  discoverMoreText: {
     type: String,
     required: true,
   },

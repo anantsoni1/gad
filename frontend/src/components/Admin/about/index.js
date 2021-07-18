@@ -9,6 +9,14 @@ import { imageUrl } from "../../../redux/api/index";
 import "./style.css";
 
 function AdminAbout() {
+  const [singlePost, setSinglePost] = useState({
+    heading: "",
+    points: [],
+    img: ""
+  });
+  const handleChange = (e) => {
+
+  };
   const aboutData = useSelector((state) => state?.about?.getAboutData);
   const [id, setId] = useState();
   const [posts, setPosts] = useState([]);
@@ -57,7 +65,9 @@ function AdminAbout() {
                         className="form-control"
                         type="text"
                         placeholder="Enter Heading"
+                        name="heading"
                         value={post?.heading}
+                        onChange={(e) => handleChange(e)}
                       />
                     </div>
                   </div>
@@ -88,6 +98,7 @@ function AdminAbout() {
                         className="form-control py-0 mt-3"
                         accept=".png, .jpg, .jpeg"
                         max-size="2000"
+                        onChange
                       />
                     </div>
                   </div>

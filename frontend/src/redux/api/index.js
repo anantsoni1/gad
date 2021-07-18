@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const url = "http://localhost:8080/api";
-
+export const imageUrl = "http://localhost:8080/";
 export const getCareerData = () => axios.get(`${url}/getCareerPageData`);
 export const modifyCareerData = (id, data) =>
   axios.put(`${url}/modifyCareerPageData?id=${id}`, data);

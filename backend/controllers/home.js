@@ -13,7 +13,7 @@ exports.addHomeData = async (req, res) => {
     return res.status(400).json({ msg: "Invalid data" });
   }
 
-  let data = HomePage(...req.body);
+  let data = HomePage(req.body);
   data.save((err, data) => {
     return res.status(201).json(data);
   });
@@ -32,7 +32,7 @@ exports.modifyHomeData = async (req, res) => {
   ) {
     return res.status(400).json({ msg: "Invalid data" });
   }
-  HomePage.findByIdAndUpdate(req.query.id, ...req.body, (err, data) => {
+  HomePage.findByIdAndUpdate(req.query.id, req.body, (err, data) => {
     if (err) {
       return res.status(400).json({ msg: err.message });
     }

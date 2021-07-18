@@ -191,10 +191,10 @@ function AdminCareer() {
                     </p>
                   </p>
                 </div>
+                <button onClick={updateData} className="btn btn-primary my-4">
+                  Update
+                </button>
               </div>
-              <button onClick={updateData} className="btn btn-primary my-4">
-                Update
-              </button>
             </div>
           </div>
         </div>

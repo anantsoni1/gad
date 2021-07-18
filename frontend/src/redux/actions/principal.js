@@ -23,6 +23,7 @@ export const ModifyPrincipalData = (id, formData) => async (dispatch) => {
       text: "Data Updated!",
       icon: "success",
     });
+    return data;
   } catch (e) {
     swal({
       text: e?.response?.data?.msg,

@@ -4,3 +4,7 @@
 .h-400 {
   height: 400px;
 }
+.principalImage {
+  max-width: 280px;
+  max-height: 300px;
+}

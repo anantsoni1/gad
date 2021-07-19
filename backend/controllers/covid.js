@@ -1,7 +1,7 @@
 const Covid = require("../models/covid");
 
 exports.addCovid = async (req, res) => {
-  if (!req.body.text || !req.body.link1 || !req.body.link2) {
+  if (!req.body.paragraphOne || !req.body.paragraphTwo || !req.body.paragraphThree) {
     return res.status(400).json({ msg: "Invalid data" });
   }
   let data = Covid(...req.body);
@@ -14,7 +14,7 @@ exports.addCovid = async (req, res) => {
 };
 
 exports.modifyCovid = async (req, res) => {
-  if (!req.body.text || !req.body.link1 || !req.body.link2) {
+  if (!req.body.paragraphOne || !req.body.paragraphTwo || !req.body.paragraphThree) {
     return res.status(400).json({ msg: "Invalid data" });
   }
   Covid.findByIdAndUpdate(req.query.id, ...req.body, (err, data) => {

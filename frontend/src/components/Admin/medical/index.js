@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  GetPrincipalData,
+  ModifyPrincipalData,
+} from "../../../redux/actions/principal";
 import Sidebar from "../Sidebar/Sidebar";
 import "./style.css";
 
@@ -31,24 +36,20 @@ function AdminMedical() {
           <div className="row d-flex justify-content-center">
             <div className="col-lg-10 col-md-12 my-5">
               <div className="font-regular my-md-5 wrapper">
-                <textarea className="h-200 my-4"></textarea>{" "}
+                <textarea className="mt-4" rows="5"></textarea>
+                <textarea className="mt-3" rows="5"></textarea>
+                <textarea className="mt-3" rows="5"></textarea>
               </div>
               <div className="d-flex justify-content-center">
                 <button className="btn text-white text-center btn-covid-purple mt-3">
                   Updated COVID-19 Health and Safety Plan 2021
                 </button>
               </div>
-              <p>
-                <input type="text" className="my-2" />
-              </p>
               <div className="d-flex justify-content-center">
                 <button className="btn text-white text-center btn-covid-blue my-3">
                   Fraser Health Back to School Plan-Winter 2021
                 </button>
               </div>
-              <p>
-                <input type="text" className="my-2" />
-              </p>
             </div>
           </div>
         </div>

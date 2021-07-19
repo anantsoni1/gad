@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
 
 const CovidSchema = new mongoose.Schema({
-  text: {
+  paragraphOne: {
     type: String,
     required: true,
   },
-  link1: {
+  paragraphTwo: {
     type: String,
     required: true,
   },
-  link2: {
+  paragraphThree: {
     type: String,
     required: true,
   },

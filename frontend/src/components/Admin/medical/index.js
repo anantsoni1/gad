@@ -1,13 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  GetPrincipalData,
-  ModifyPrincipalData,
-} from "../../../redux/actions/principal";
+import { GetCovidData, ModifyCovidData } from "../../../redux/actions/covid";
 import Sidebar from "../Sidebar/Sidebar";
 import "./style.css";
 
 function AdminMedical() {
+  const initialState = {
+    id: "",
+    paragraphOne: "",
+    paragraphTwo: "",
+    paragraphThree: "",
+  };
+  const [formData, setFormData] = useState(initialState);
+  const covidData = useSelector((state) => state.covid?.getPrincipalData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(GetCovidData())
+      .then((res) => {
+        const data = res.slots[0];
+        return setFormData(() => ({
+          ...formData,
+          id: data?._id,
+          paragraphOne: data?.paragraphOne,
+          paragraphTwo: data?.paragraphTwo,
+          paragraphThree: data?.paragraphThree,
+        }));
+      })
+      .catch(() => {});
+  }, []);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   return (
     <div className="customContainer">
       <Sidebar />
@@ -36,9 +59,27 @@ function AdminMedical() {
           <div className="row d-flex justify-content-center">
             <div className="col-lg-10 col-md-12 my-5">
               <div className="font-regular my-md-5 wrapper">
-                <textarea className="mt-4" rows="5"></textarea>
-                <textarea className="mt-3" rows="5"></textarea>
-                <textarea className="mt-3" rows="5"></textarea>
+                <textarea
+                  className="mt-4"
+                  rows="5"
+                  name="paragraphOne"
+                  value={formData.paragraphOne}
+                  onChange={(e) => handleChange(e)}
+                ></textarea>
+                <textarea
+                  className="mt-3"
+                  rows="5"
+                  name="paragraphTwo"
+                  value={formData.paragraphTwo}
+                  onChange={(e) => handleChange(e)}
+                ></textarea>
+                <textarea
+                  className="mt-3"
+                  rows="5"
+                  name="paragraphThree"
+                  value={formData.paragraphThree}
+                  onChange={(e) => handleChange(e)}
+                ></textarea>
               </div>
               <div className="d-flex justify-content-center">
                 <button className="btn text-white text-center btn-covid-purple mt-3">

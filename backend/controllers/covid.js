@@ -4,7 +4,7 @@ exports.addCovid = async (req, res) => {
   if (!req.body.paragraphOne || !req.body.paragraphTwo || !req.body.paragraphThree) {
     return res.status(400).json({ msg: "Invalid data" });
   }
-  let data = Covid(...req.body);
+  let data = Covid(req.body);
   data.save((err, data) => {
     if (err) {
       return res.status(400).json({ msg: err.message });

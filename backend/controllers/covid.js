@@ -17,7 +17,7 @@ exports.modifyCovid = async (req, res) => {
   if (!req.body.paragraphOne || !req.body.paragraphTwo || !req.body.paragraphThree) {
     return res.status(400).json({ msg: "Invalid data" });
   }
-  Covid.findByIdAndUpdate(req.query.id, ...req.body, (err, data) => {
+  Covid.findByIdAndUpdate(req.query.id, req.body, (err, data) => {
     if (err) {
       return res.status(400).json({ msg: err.message });
     }

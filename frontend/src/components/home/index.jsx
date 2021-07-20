@@ -9,6 +9,7 @@ import featureTwo from "../../assets/featureTwo.svg";
 import featureThree from "../../assets/featureThree.svg";
 import { Carousel } from "react-bootstrap";
 import person from "../../assets/person.svg";
+import { imageUrl } from "../../redux/api/index";
 
 function Home() {
   const dispatch = useDispatch();
@@ -184,7 +185,7 @@ function Home() {
                     <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                       <div className="feature-image text-center mt-3">
                         <img
-                          src={featureOne}
+                          src={`${imageUrl}${homeData.slots[0].featureOne}`}
                           alt="features"
                           className="img-fluid feature-image"
                         />
@@ -193,7 +194,7 @@ function Home() {
                     <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                       <div className="feature-image text-center mt-3">
                         <img
-                          src={featureTwo}
+                          src={`${imageUrl}${homeData.slots[0].featureTwo}`}
                           alt="features"
                           className="img-fluid feature-image"
                         />
@@ -202,7 +203,7 @@ function Home() {
                     <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                       <div className="feature-image text-center mt-3">
                         <img
-                          src={featureThree}
+                          src={`${imageUrl}${homeData.slots[0].featureThree}`}
                           alt="features"
                           className="img-fluid feature-image"
                         />

@@ -26,6 +26,11 @@ export const getPrincipalData = () => axios.get(`${url}/getPrincipalData`);
 export const modifyPrincipalData = (id, data) =>
   axios.put(`${url}/modifyPrincipalData?id=${id}`, data);
 
+// COVID
+export const getCovidData = () => axios.get(`${url}/getCovid`);
+export const modifyCovidData = (id, data) =>
+  axios.put(`${url}/modifyCovid?id=${id}`, data);
+
 //
 //
 //

@@ -5,11 +5,13 @@ import careeer from "./career";
 import pricipal from "./principal";
 import home from "./home";
 import about from "./about";
+import covid from "./covid";
 
 export default combineReducers({
   contact,
   careeer,
   pricipal,
   home,
-  about
+  about,
+  covid
 });

@@ -8,3 +8,5 @@ export const GET_HOME_DATA = "GET_HOME_DATA";
 export const POST_HOME_DATA = "POST_HOME_DATA";
 export const GET_ABOUT_DATA = "GET_ABOUT_DATA";
 export const POST_ABOUT_DATA = "POST_ABOUT_DATA";
+export const GET_COVID_DATA = "GET_COVID_DATA";
+export const POST_COVID_DATA = "POST_COVID_DATA";

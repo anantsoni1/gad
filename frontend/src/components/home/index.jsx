@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { GetHomeData, ModifyHomeData } from "../../redux/actions/home";
+import { GetHomeData } from "../../redux/actions/home";
 import Discover from "../../assets/discover.svg";
 import Kindergarten from "../../assets/kindergarten.svg";
 import featureOne from "../../assets/featureOne.svg";

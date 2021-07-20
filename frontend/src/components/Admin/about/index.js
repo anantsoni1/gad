@@ -9,17 +9,24 @@ import { imageUrl } from "../../../redux/api/index";
 import "./style.css";
 
 function AdminAbout() {
-  const [singlePost, setSinglePost] = useState({
-    heading: "",
-    points: [],
-    img: ""
-  });
-  const handleChange = (e) => {
-
+  const [posts, setPosts] = useState([]);
+  const handleChange = (e, id, pointId) => {
+    let updatePost = [];
+    posts.forEach((post) => {
+      if (post._id === id) {
+        updatePost.push({
+          ...post,
+          [e.target.name]: e.target.value,
+        });
+      } else {
+        updatePost.push(post);
+      }
+    });
+    setPosts(updatePost);
   };
+  console.log(posts);
   const aboutData = useSelector((state) => state?.about?.getAboutData);
   const [id, setId] = useState();
-  const [posts, setPosts] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetAboutData())
@@ -58,7 +65,7 @@ function AdminAbout() {
                 <>
                   <div
                     className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5"
-                    key={post?.id}
+                    key={post?._id}
                   >
                     <div className="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12 px-lg-4 pt-md-3 pt-sm-5 pt-xs-5 px-md-5 px-4">
                       <input
@@ -67,7 +74,7 @@ function AdminAbout() {
                         placeholder="Enter Heading"
                         name="heading"
                         value={post?.heading}
-                        onChange={(e) => handleChange(e)}
+                        onChange={(e) => handleChange(e, post?._id)}
                       />
                     </div>
                   </div>
@@ -75,13 +82,16 @@ function AdminAbout() {
                     <div className="col-12 col-md-12 col-lg-7 col-sm-12 col-xs-12 px-lg-4 py-md-3 py-sm-5 py-xs-5 px-md-5 px-4">
                       {post?.points && post?.points?.length > 0 && (
                         <>
-                          {post.points.map((point) => (
+                          {post?.points?.map((point, index) => (
                             <div key={point._id}>
                               <textarea
                                 className="form-control mt-3"
                                 rows="3"
-                                placeholder="Enter Heading"
+                                placeholder={`Point-${index + 1}`}
                                 value={point.point}
+                                onChange={(e) =>
+                                  handleChange(e, post?._id, point?._id)
+                                }
                               ></textarea>
                             </div>
                           ))}
@@ -98,7 +108,6 @@ function AdminAbout() {
                         className="form-control py-0 mt-3"
                         accept=".png, .jpg, .jpeg"
                         max-size="2000"
-                        onChange
                       />
                     </div>
                   </div>

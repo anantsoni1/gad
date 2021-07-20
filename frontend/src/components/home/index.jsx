@@ -4,14 +4,63 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetHomeData } from "../../redux/actions/home";
 import Discover from "../../assets/discover.svg";
 import Kindergarten from "../../assets/kindergarten.svg";
-import featureOne from "../../assets/featureOne.svg";
-import featureTwo from "../../assets/featureTwo.svg";
-import featureThree from "../../assets/featureThree.svg";
 import { Carousel } from "react-bootstrap";
 import person from "../../assets/person.svg";
 import { imageUrl } from "../../redux/api/index";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 function Home() {
+  const images = [
+    {
+      original: "https://picsum.photos/id/1018/1000/600/",
+      thumbnail: "https://picsum.photos/id/1018/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1018/1000/600/",
+      thumbnail: "https://picsum.photos/id/1018/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1018/1000/600/",
+      thumbnail: "https://picsum.photos/id/1018/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1018/1000/600/",
+      thumbnail: "https://picsum.photos/id/1018/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+  ];
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetHomeData())
@@ -34,6 +83,14 @@ function Home() {
             </div>
           </div>
           <div className="container">
+            <div className="mt-5">
+              <ImageGallery
+                items={images}
+                fullscreen
+                lazyLoad
+                slideInterval="1000"
+              />
+            </div>
             <div className="row carousel-flex">
               <div className="col-lg-10 col-md-12 col-sm-12 col-12">
                 <div className="new-updates">

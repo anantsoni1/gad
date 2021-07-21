@@ -14,7 +14,6 @@ const Addmission = () => {
   console.log(admissionlData?.data, "s");
   const dispatch = useDispatch();
   const [formData, setformData] = useState({});
-  const [fileOneValue, setFileOneValue] = useState("");
   const [fileOne, setFileOne] = useState("");
   useEffect(() => {
     dispatch(GetAdmissionData())

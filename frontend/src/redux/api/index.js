@@ -22,9 +22,16 @@ export const modifyCareerData = (id, data) =>
 export const getContactData = () => axios.get(`${url}/getContactDetails`);
 export const modifyContactData = (id, data) =>
   axios.put(`${url}/modifyContactDetails?id=${id}`, data);
+
+// PRINCIPAL
 export const getPrincipalData = () => axios.get(`${url}/getPrincipalData`);
 export const modifyPrincipalData = (id, data) =>
   axios.put(`${url}/modifyPrincipalData?id=${id}`, data);
+
+// ADMISSION
+export const getAdmissionData = () => axios.get(`${url}/getAdmissionPageData`);
+export const modifyAdmissionData = (id, data) =>
+  axios.put(`${url}/modifyAdmissionPageData?id=${id}`, data);
 
 // COVID
 export const getCovidData = () => axios.get(`${url}/getCovid`);

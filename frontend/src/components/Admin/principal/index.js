@@ -103,7 +103,7 @@ function AdminPrincipal() {
                     }}
                     accept=".png, .jpg, .jpeg"
                     type="file"
-                    className="my-4"
+                    className="my-4 principalImage"
                     name="Principal Image"
                   />
                   <input

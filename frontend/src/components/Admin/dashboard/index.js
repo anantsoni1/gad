@@ -2,8 +2,16 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { GetHomeData, ModifyHomeData } from "../../../redux/actions/home";
+import { imageUrl } from "../../../redux/api/index";
 
 const Dashboard = () => {
+  const toBase64 = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
   const initialState = {
     id: "",
     heading: "",
@@ -17,17 +25,26 @@ const Dashboard = () => {
     discoverMoreHeading: "",
     discoverMoreSubHeading: "",
     discoverMoreText: "",
+    featureOne: "",
+    featureTwo: "",
+    featureThree: "",
   };
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const homeData = useSelector((state) => state.home?.getHomeData);
   const [formData, setFormData] = useState(initialState);
+  const [fileOne, setFileOne] = useState("");
+  const [fileTwo, setFileTwo] = useState("");
+  const [fileThree, setFileThree] = useState("");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetHomeData())
       .then((res) => {
         const data = res.slots[0];
+        setFileOne(imageUrl + data?.featureOne);
+        setFileTwo(imageUrl + data?.featureTwo);
+        setFileThree(imageUrl + data?.featureThree);
         return setFormData(() => ({
           ...formData,
           id: data?._id,
@@ -42,6 +59,9 @@ const Dashboard = () => {
           discoverMoreHeading: data?.discoverMoreHeading,
           discoverMoreSubHeading: data?.discoverMoreSubHeading,
           discoverMoreText: data?.discoverMoreText,
+          featureOne: data?.featureOne,
+          featureTwo: data?.featureTwo,
+          featureThree: data?.featureThree,
         }));
       })
       .catch((e) => {
@@ -81,6 +101,7 @@ const Dashboard = () => {
         <div className="sidebar-left-margin my-5">
           <div className="container">
             <h1>Home</h1>
+            <h4>PLEASE UPLOAD ALL THE IMAGES, IN CASE OF IMAGE UPDATION</h4>
             <div className="home">
               <div className="home-banner">
                 <div className="home-heading text-white text-center">
@@ -333,17 +354,74 @@ const Dashboard = () => {
                       <div className="row">
                         <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                           <div className="feature-image text-center mt-3">
-                            <input type="file" className="form-control py-0" />
+                            <img className="img-fluid" src={fileOne}></img>
+                            <input
+                              onChange={(e) => {
+                                if (e.target.files[0]) {
+                                  setFileOne(
+                                    URL.createObjectURL(e?.target?.files[0])
+                                  );
+                                  toBase64(e?.target?.files[0]).then((res) => {
+                                    setFormData({
+                                      ...formData,
+                                      featureOne: res,
+                                    });
+                                  });
+                                }
+                              }}
+                              accept=".png, .jpg, .jpeg"
+                              type="file"
+                              className="my-4"
+                              name="Principal Image"
+                            />
                           </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                           <div className="feature-image text-center mt-3">
-                            <input type="file" className="form-control py-0" />
+                            <img className="img-fluid" src={fileTwo} />
+                            <input
+                              onChange={(e) => {
+                                if (e.target.files[0]) {
+                                  setFileTwo(
+                                    URL.createObjectURL(e?.target?.files[0])
+                                  );
+                                  toBase64(e?.target?.files[0]).then((res) => {
+                                    setFormData({
+                                      ...formData,
+                                      featureTwo: res,
+                                    });
+                                  });
+                                }
+                              }}
+                              accept=".png, .jpg, .jpeg"
+                              type="file"
+                              className="my-4"
+                              name="Feature"
+                            />
                           </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                           <div className="feature-image text-center mt-3">
-                            <input type="file" className="form-control py-0" />
+                            <img className="img-fluid" src={fileThree} />
+                            <input
+                              onChange={(e) => {
+                                if (e.target.files[0]) {
+                                  setFileThree(
+                                    URL.createObjectURL(e?.target?.files[0])
+                                  );
+                                  toBase64(e?.target?.files[0]).then((res) => {
+                                    setFormData({
+                                      ...formData,
+                                      featureThree: res,
+                                    });
+                                  });
+                                }
+                              }}
+                              accept=".png, .jpg, .jpeg"
+                              type="file"
+                              className="my-4"
+                              name="Principal Image"
+                            />
                           </div>
                         </div>
                       </div>

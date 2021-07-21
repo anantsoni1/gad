@@ -45,6 +45,18 @@ const HomePageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  featureOne: {
+    type: String,
+    required: true,
+  },
+  featureTwo: {
+    type: String,
+    required: true,
+  },
+  featureThree: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("HomePage", HomePageSchema);

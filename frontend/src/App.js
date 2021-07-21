@@ -20,6 +20,7 @@ import AdminAbout from "./components/Admin/about";
 import AdminTeam from "./components/Admin/team";
 import AdminPrincipal from "./components/Admin/principal";
 import AdminParents from "./components/Admin/parents";
+import AdminBlogs from "./components/Admin/Blogs/index";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route exact path="/admin/team" component={AdminTeam} />
         <Route exact path="/admin/principal" component={AdminPrincipal} />
         <Route exact path="/admin/parents" component={AdminParents} />
+        <Route exact path="/admin/blogs" component={AdminBlogs} />
       </Switch>
       {/* <Footer /> */}
     </div>

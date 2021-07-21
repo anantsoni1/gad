@@ -7,25 +7,25 @@ const ListPoints = new mongoose.Schema({
   },
 });
 const Link = new mongoose.Schema({
+  text: {
+    type: String,
+    required: false,
+  },
   link: {
     type: String,
     required: false,
   },
-});
-const Step = new mongoose.Schema({
-  text: {
-    type: String,
-    required: true,
-  },
-  point: [ListPoints],
-  links: [Link],
 });
 const AdmissionPageSchema = new mongoose.Schema({
   heading: {
     type: String,
     required: true,
   },
-  paragraph: {
+  paragraph1: {
+    type: String,
+    required: true,
+  },
+  paragraph2: {
     type: String,
     required: true,
   },
@@ -33,8 +33,25 @@ const AdmissionPageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  steps: [Step],
   links: [Link],
+  step1Text: {
+    type: String,
+    required: true,
+  },
+  step1Points: [ListPoints],
+  step1Links: [Link],
+  step2Text: {
+    type: String,
+    required: true,
+  },
+  step2Points: [ListPoints],
+  step2Links: [Link],
+  step3Text: {
+    type: String,
+    required: true,
+  },
+  step3Points: [ListPoints],
+  step3Links: [Link],
 });
 
 module.exports = mongoose.model("AdmissionPage", AdmissionPageSchema);

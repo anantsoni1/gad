@@ -6,6 +6,7 @@ import pricipal from "./principal";
 import home from "./home";
 import about from "./about";
 import covid from "./covid";
+import admission from "./admission";
 
 export default combineReducers({
   contact,
@@ -13,5 +14,6 @@ export default combineReducers({
   pricipal,
   home,
   about,
-  covid
+  covid,
+  admission,
 });

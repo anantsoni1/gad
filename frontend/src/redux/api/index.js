@@ -28,6 +28,11 @@ export const getPrincipalData = () => axios.get(`${url}/getPrincipalData`);
 export const modifyPrincipalData = (id, data) =>
   axios.put(`${url}/modifyPrincipalData?id=${id}`, data);
 
+// TEAM
+export const getTeamData = () => axios.get(`${url}/getTeamPageData`);
+export const modifyTeamData = (id, data) =>
+  axios.put(`${url}/modifyTeamPageData?id=${id}`, data);
+
 // ADMISSION
 export const getAdmissionData = () => axios.get(`${url}/getAdmissionPageData`);
 export const modifyAdmissionData = (id, data) =>

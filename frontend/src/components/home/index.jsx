@@ -7,9 +7,61 @@ import Kindergarten from "../../assets/kindergarten.svg";
 import { Carousel } from "react-bootstrap";
 import person from "../../assets/person.svg";
 import { imageUrl } from "../../redux/api/index";
-import Gallery from "../Gallery";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 function Home() {
+  const images = [
+    {
+      original: "https://picsum.photos/id/1018/1000/600/",
+      thumbnail: "https://picsum.photos/id/1018/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1018/1000/600/",
+      thumbnail: "https://picsum.photos/id/1018/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1018/1000/600/",
+      thumbnail: "https://picsum.photos/id/1018/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1018/1000/600/",
+      thumbnail: "https://picsum.photos/id/1018/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+  ];
+
   const dispatch = useDispatch();
   const [displayGallery, setDisplayGallery] = useState(false);
   useEffect(() => {
@@ -33,7 +85,35 @@ function Home() {
             </div>
           </div>
           <div className="container">
-            {displayGallery && <Gallery />}
+            {displayGallery && (
+              <div className="modal-container">
+                <div className="container">
+                  <div className="row">
+                    <div
+                      id="modal"
+                      className="col-12 mx-auto col-md-12 col-lg-12 py-5 px-xl-3"
+                    >
+                      <div
+                        className="d-flex justify-content-end"
+                        onClick={() => setDisplayGallery(false)}
+                      >
+                        <i
+                          class="fa fa-window-close fa-2x text-white text-right"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+                      <ImageGallery
+                        items={images}
+                        fullscreen
+                        lazyLoad
+                        slideInterval="1000"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="row carousel-flex">
               <div className="col-lg-10 col-md-12 col-sm-12 col-12">
                 <div className="new-updates">
@@ -125,7 +205,11 @@ function Home() {
                   <div className="row">
                     <div className="col-lg-6 col-md-12 col-sm-12 col-12 text-center">
                       <div onClick={() => setDisplayGallery(!displayGallery)}>
-                        <img src={Discover} alt="" className="img-fluid px-4 gallery-hover" />
+                        <img
+                          src={Discover}
+                          alt=""
+                          className="img-fluid px-4 gallery-hover"
+                        />
                       </div>
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-12 col-12 center">

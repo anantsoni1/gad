@@ -17,7 +17,7 @@ function Footer(props) {
             </li>
             <li className="py-1">
               <Link className="footer-link" to="/">
-                Home
+                Home 2
               </Link>
             </li>
             <li className="py-1">

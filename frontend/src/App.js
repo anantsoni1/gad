@@ -25,7 +25,7 @@ import AdminBlogs from "./components/Admin/Blogs/index";
 function App() {
   return (
     <div>
-      {/* <NavbarComponent /> */}
+      <NavbarComponent />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/covid" component={Covid} />
@@ -47,7 +47,7 @@ function App() {
         <Route exact path="/admin/parents" component={AdminParents} />
         <Route exact path="/admin/blogs" component={AdminBlogs} />
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

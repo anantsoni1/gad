@@ -11,7 +11,6 @@ function NavbarComponent() {
       <Navbar
         expand="xl"
         className="nav-background py-0"
-        sticky="top"
         collapseOnSelect={true}
         variant="light"
       >

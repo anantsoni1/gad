@@ -16,12 +16,16 @@ const Dashboard = () => {
     id: "",
     heading: "",
     subHeading: "",
+    blogsHeading: "",
+    blogsSubHeading: "",
     curriculaHeading: "",
     curriculaSubHeading: "",
     discoverHeading: "",
     discoverSubHeading: "",
     discoverText: "",
+    discoverImg: "",
     kindergarten: "",
+    kindergartenImg: "",
     discoverMoreHeading: "",
     discoverMoreSubHeading: "",
     discoverMoreText: "",
@@ -37,6 +41,8 @@ const Dashboard = () => {
   const [fileOne, setFileOne] = useState("");
   const [fileTwo, setFileTwo] = useState("");
   const [fileThree, setFileThree] = useState("");
+  const [fileFour, setFileFour] = useState("");
+  const [fileFive, setFileFive] = useState("");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetHomeData())
@@ -45,17 +51,23 @@ const Dashboard = () => {
         setFileOne(imageUrl + data?.featureOne);
         setFileTwo(imageUrl + data?.featureTwo);
         setFileThree(imageUrl + data?.featureThree);
+        setFileFour(imageUrl + data?.discoverImg);
+        setFileFive(imageUrl + data?.kindergartenImg);
         return setFormData(() => ({
           ...formData,
           id: data?._id,
           heading: data?.heading,
           subHeading: data?.subHeading,
+          blogsHeading: data?.blogsHeading,
+          blogsSubHeading: data?.blogsSubHeading,
           curriculaHeading: data?.curriculaHeading,
           curriculaSubHeading: data?.curriculaSubHeading,
           discoverHeading: data?.discoverHeading,
           discoverSubHeading: data?.discoverSubHeading,
           discoverText: data?.discoverText,
+          discoverImg: data?.discoverImg,
           kindergarten: data?.kindergarten,
+          kindergartenImg: data?.kindergartenImg,
           discoverMoreHeading: data?.discoverMoreHeading,
           discoverMoreSubHeading: data?.discoverMoreSubHeading,
           discoverMoreText: data?.discoverMoreText,
@@ -101,7 +113,9 @@ const Dashboard = () => {
         <div className="sidebar-left-margin my-5">
           <div className="container">
             <h1>Home</h1>
-            <h4>PLEASE UPLOAD ALL THE IMAGES, IN CASE OF IMAGE UPDATION</h4>
+            <h4 className="text-lowercase">
+              PLEASE UPLOAD ALL THE IMAGES, IN CASE OF IMAGE UPDATION
+            </h4>
             <div className="home">
               <div className="home-banner">
                 <div className="home-heading text-white text-center">
@@ -131,11 +145,17 @@ const Dashboard = () => {
                         className="form-control"
                         type="text"
                         placeholder="Enter Heading"
+                        name="blogsHeading"
+                        value={formData.blogsHeading}
+                        onChange={(e) => handleChange(e)}
                       />
                       <input
                         className="form-control mt-3"
                         type="text"
                         placeholder="Enter sub-heading"
+                        name="blogsSubHeading"
+                        value={formData.blogsSubHeading}
+                        onChange={(e) => handleChange(e)}
                       />
                       <div className="row mt-md-5 mt-3">
                         <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
@@ -259,8 +279,27 @@ const Dashboard = () => {
                   <div className="row carousel-flex">
                     <div className="col-lg-10 col-md-12 col-sm-12 col-12">
                       <div className="row">
-                        <div className="col-lg-6 col-md-12 col-sm-12 col-12 text-center center">
-                          <input type="file" className="form-control py-0" />
+                        <div className="col-lg-6 col-md-12 col-sm-12 col-12 text-center">
+                          <img className="img-fluid" src={fileFour} />
+                          <input
+                            onChange={(e) => {
+                              if (e.target.files[0]) {
+                                setFileFour(
+                                  URL.createObjectURL(e?.target?.files[0])
+                                );
+                                toBase64(e?.target?.files[0]).then((res) => {
+                                  setFormData({
+                                    ...formData,
+                                    discoverImg: res,
+                                  });
+                                });
+                              }
+                            }}
+                            accept=".png, .jpg, .jpeg"
+                            type="file"
+                            className="my-4"
+                            name="kindergartenImg"
+                          />
                         </div>
                         <div className="col-lg-6 col-md-12 col-sm-12 col-12">
                           <input
@@ -299,8 +338,27 @@ const Dashboard = () => {
                   <div className="row carousel-flex">
                     <div className="col-lg-10 col-md-12 col-sm-12 col-12">
                       <div className="row">
-                        <div className="col-lg-5 col-md-12 col-sm-12 col-12 center">
-                          <input type="file" className="form-control py-0" />
+                        <div className="col-lg-5 col-md-12 col-sm-12 col-12 text-center">
+                          <img className="img-fluid" src={fileFive} />
+                          <input
+                            onChange={(e) => {
+                              if (e.target.files[0]) {
+                                setFileFive(
+                                  URL.createObjectURL(e?.target?.files[0])
+                                );
+                                toBase64(e?.target?.files[0]).then((res) => {
+                                  setFormData({
+                                    ...formData,
+                                    kindergartenImg: res,
+                                  });
+                                });
+                              }
+                            }}
+                            accept=".png, .jpg, .jpeg"
+                            type="file"
+                            className="my-4"
+                            name="kindergartenImg"
+                          />
                         </div>
                         <div className="col-lg-7 col-md-12 col-sm-12 col-12">
                           <textarea

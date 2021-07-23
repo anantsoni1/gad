@@ -10,13 +10,25 @@ exports.addHomeData = async (req, res) => {
   var matchesThree = req.body.featureThree.match(
     /^data:([A-Za-z-+/]+);base64,(.+)$/
   );
+  var matchesFour = req.body.discoverImg.match(
+    /^data:([A-Za-z-+/]+);base64,(.+)$/
+  );
+  var matchesFive = req.body.kindergartenImg.match(
+    /^data:([A-Za-z-+/]+);base64,(.+)$/
+  );
+
   var response = {};
   var responseTwo = {};
   var responseThree = {};
+  var responseFour = {};
+  var responseFive = {};
+
   if (
     matches.length !== 3 &&
     matchesTwo.length !== 3 &&
-    matchesThree.length !== 3
+    matchesThree.length !== 3 &&
+    matchesFour.length !== 3 &&
+    matchesFive.length !== 3
   ) {
     return res.status(400).send({
       msg: "Invalid Image",
@@ -46,6 +58,22 @@ exports.addHomeData = async (req, res) => {
   let extensionThree = mime.extension(typeThree);
   let fileNameThree = "featureThree" + "." + extensionThree;
 
+  responseFour.type = matchesThree[1];
+  responseFour.data = new Buffer(matchesFour[2], "base64");
+  let decodedImgFour = responseFour;
+  let imageBufferFour = decodedImgFour.data;
+  let typeFour = decodedImgFour.type;
+  let extensionFour = mime.extension(typeFour);
+  let fileNameFour = "discover" + "." + extensionFour;
+
+  responseFive.type = matchesThree[1];
+  responseFive.data = new Buffer(matchesThree[2], "base64");
+  let decodedImgFive = responseFive;
+  let imageBufferFive = decodedImgFive.data;
+  let typeFive = decodedImgFive.type;
+  let extensionFive = mime.extension(typeFive);
+  let fileNameFive = "kindergarten" + "." + extensionFive;
+
   try {
     fs.writeFileSync("./assets/images/" + fileName, imageBuffer, "utf8");
     fs.writeFileSync("./assets/images/" + fileNameTwo, imageBufferTwo, "utf8");
@@ -54,11 +82,23 @@ exports.addHomeData = async (req, res) => {
       imageBufferThree,
       "utf8"
     );
+    fs.writeFileSync(
+      "./assets/images/" + fileNameFour,
+      imageBufferFour,
+      "utf8"
+    );
+    fs.writeFileSync(
+      "./assets/images/" + fileNameFive,
+      imageBufferFive,
+      "utf8"
+    );
     let product = {
       ...req.body,
       featureOne: "images/" + fileName,
       featureTwo: "images/" + fileNameTwo,
       featureThree: "images/" + fileNameThree,
+      discoverImg: "images/" + fileNameFour,
+      kindergartenImg: "images/" + fileNameFive,
     };
     console.log(product);
     let homePage = HomePage(product);
@@ -83,13 +123,25 @@ exports.modifyHomeData = async (req, res) => {
     var matchesThree = req.body.featureThree.match(
       /^data:([A-Za-z-+/]+);base64,(.+)$/
     );
+    var matchesFour = req.body.discoverImg.match(
+      /^data:([A-Za-z-+/]+);base64,(.+)$/
+    );
+    var matchesFive = req.body.kindergartenImg.match(
+      /^data:([A-Za-z-+/]+);base64,(.+)$/
+    );
+
     var response = {};
     var responseTwo = {};
     var responseThree = {};
+    var responseFour = {};
+    var responseFive = {};
+
     if (
       matches.length !== 3 ||
       matchesTwo.length !== 3 ||
-      matchesThree.length !== 3
+      matchesThree.length !== 3 ||
+      matchesFour.length !== 3 ||
+      matchesFive.length !== 3
     ) {
       return res.status(400).send({
         msg: "Invalid Image",
@@ -119,6 +171,22 @@ exports.modifyHomeData = async (req, res) => {
     let extensionThree = mime.extension(typeThree);
     let fileNameThree = "featureThree" + "." + extensionThree;
 
+    responseFour.type = matchesThree[1];
+    responseFour.data = new Buffer(matchesFour[2], "base64");
+    let decodedImgFour = responseFour;
+    let imageBufferFour = decodedImgFour.data;
+    let typeFour = decodedImgFour.type;
+    let extensionFour = mime.extension(typeFour);
+    let fileNameFour = "discover" + "." + extensionFour;
+
+    responseFive.type = matchesThree[1];
+    responseFive.data = new Buffer(matchesThree[2], "base64");
+    let decodedImgFive = responseFive;
+    let imageBufferFive = decodedImgFive.data;
+    let typeFive = decodedImgFive.type;
+    let extensionFive = mime.extension(typeFive);
+    let fileNameFive = "kindergarten" + "." + extensionFive;
+
     fs.writeFileSync("./assets/images/" + fileName, imageBuffer, "utf8");
     fs.writeFileSync("./assets/images/" + fileNameTwo, imageBufferTwo, "utf8");
     fs.writeFileSync(
@@ -126,14 +194,24 @@ exports.modifyHomeData = async (req, res) => {
       imageBufferThree,
       "utf8"
     );
+    fs.writeFileSync(
+      "./assets/images/" + fileNameFour,
+      imageBufferFour,
+      "utf8"
+    );
+    fs.writeFileSync(
+      "./assets/images/" + fileNameFive,
+      imageBufferFive,
+      "utf8"
+    );
     let product = {
       ...req.body,
       featureOne: "images/" + fileName,
       featureTwo: "images/" + fileNameTwo,
       featureThree: "images/" + fileNameThree,
+      discoverImg: "images/" + fileNameFour,
+      kindergartenImg: "images/" + fileNameFive,
     };
-    console.log(product);
-    let homePage = HomePage(product);
     HomePage.findByIdAndUpdate(req.query.id, product, (err, data) => {
       if (err) {
         return res.status(400).json({ msg: err.message });

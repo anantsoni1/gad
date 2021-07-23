@@ -9,6 +9,14 @@ const HomePageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  blogsHeading: {
+    type: String,
+    required: true,
+  },
+  blogsSubHeading: {
+    type: String,
+    required: true,
+  },
   curriculaHeading: {
     type: String,
     required: true,
@@ -29,7 +37,15 @@ const HomePageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  discoverImg: {
+    type: String,
+    required: true,
+  },
   kindergarten: {
+    type: String,
+    required: true,
+  },
+  kindergartenImg: {
     type: String,
     required: true,
   },

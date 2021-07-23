@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { GetHomeData } from "../../redux/actions/home";
-import Discover from "../../assets/discover.svg";
-import Kindergarten from "../../assets/kindergarten.svg";
 import { Carousel } from "react-bootstrap";
 import person from "../../assets/person.svg";
 import { imageUrl } from "../../redux/api/index";
@@ -113,13 +111,14 @@ function Home() {
                 </div>
               </div>
             )}
-
             <div className="row carousel-flex">
               <div className="col-lg-10 col-md-12 col-sm-12 col-12">
                 <div className="new-updates">
-                  <div className="update-home-heading">New & Updates</div>
+                  <div className="update-home-heading">
+                    {homeData.slots[0].blogsHeading}
+                  </div>
                   <div className="update-sub-heading">
-                    We have been working with clients around the world
+                    {homeData.slots[0].blogsSubHeading}
                   </div>
                   <div className="row mt-md-5 mt-3">
                     <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
@@ -206,7 +205,7 @@ function Home() {
                     <div className="col-lg-6 col-md-12 col-sm-12 col-12 text-center">
                       <div onClick={() => setDisplayGallery(!displayGallery)}>
                         <img
-                          src={Discover}
+                          src={`${imageUrl}${homeData.slots[0].discoverImg}`}
                           alt=""
                           className="img-fluid px-4 gallery-hover"
                         />
@@ -235,7 +234,7 @@ function Home() {
                   <div className="row">
                     <div className="col-lg-5 col-md-12 col-sm-12 col-12 center">
                       <img
-                        src={Kindergarten}
+                        src={`${imageUrl}${homeData.slots[0].kindergartenImg}`}
                         alt=""
                         className="img-fluid px-4"
                       />

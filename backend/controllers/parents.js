@@ -107,6 +107,45 @@ exports.addCalendarData = async (req, res) => {
     })
 };
 
+exports.deleteSchoolPolicyData = async (req, res) => {
+    Parents.findOne({'calendar.calendars._id':  req.query.id  })
+    .then(data=>{
+        console.log(data);
+    })
+    Parents.findOneAndUpdate({'schoolPolicies._id': req.query.id }, {$pull: {schoolPolicies : { _id : req.query.id }}}, (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: 'error in deleting address' });
+        }
+        res.json(data);   
+    });
+};
+
+exports.deleteSchoolNewsletterData = async (req, res) => {
+    // Parents.findOne({'calendar.calendars._id':  req.query.id  })
+    // .then(data=>{
+    //     console.log(data);
+    // })
+    Parents.findOneAndUpdate({'schoolNewsletters._id': req.query.id }, {$pull: { schoolNewsletters : { _id : req.query.id }}}, (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: 'error in deleting address' });
+        }
+        res.json(data);   
+    });
+};
+
+exports.deleteCalendarData = async (req, res) => {
+    // Parents.find({})
+    // .then(data=>{
+    //     res.json(data);   
+    // })
+    Parents.findOneAndUpdate({'calendar.calendars._id':  req.query.id  }, {$pull: { 'calendar.calendars' : { _id : req.query.id} }}, (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: 'error in deleting address' });
+        }
+        res.json(data);   
+    });
+};
+
 exports.addParentsData = async (req,res) => {
     const newParentData = {
         schoolPolicies : [],

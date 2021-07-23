@@ -36,35 +36,90 @@ var upload = multer({
         cb("Error: File upload only supports the "
                 + "following filetypes - " + filetypes);
       } 
-  
-// mypic is the name of file attribute
 }).single("uploadedFile"); 
 
-exports.addParentsData = async (req, res) => {
-    if (!req.body.title ) {
-        return res.status(400).json({ msg: "Invalid data" });
-    }
-    // Error MiddleWare for multer file upload, so if any
-    // error occurs, the image would not be uploaded!
-    upload(req,res,function(err) {
-
+exports.addSchoolPolicyData = async (req, res) => {
+    upload(req,res,async function(err) {
+        if (!req.body.title ) {
+            return res.status(400).json({ msg: "Invalid data" });
+        }
         if(err) {
-
-            // ERROR occured (here it can be occured due
-            // to uploading image of size greater than
-            // 100MB or uploading different file type)
             return res.status(400).json({ msg: err.message });
         }
         else {
-
-            // SUCCESS, image successfully uploaded
             const newFile = {
-                title : "req.body.title" ,
+                title : req.body.title ,
                 url : "/files/"+ req.file.filename
-            }
-            
-            res.send("Success, Image uploaded!")
+            };
+            const uploadedFile = await Parents.find({});
+            uploadedFile[0].schoolPolicies.push(newFile);
+            uploadedFile[0].save()
+            .then(s=>{
+                return res.status(201).json({ schoolPolicy: s });
+            })
         }
+    })
+};
+
+exports.addSchoolNewsletterData = async (req, res) => {
+    upload(req,res,async function(err) {
+        if (!req.body.title ) {
+            return res.status(400).json({ msg: "Invalid data" });
+        }
+        if(err) {
+            return res.status(400).json({ msg: err.message });
+        }
+        else {
+            const newFile = {
+                title : req.body.title ,
+                url : "/files/"+ req.file.filename
+            };
+            const uploadedFile = await Parents.find({});
+            uploadedFile[0].schoolNewsletters.push(newFile);
+            uploadedFile[0].save()
+            .then(s=>{
+                return res.status(201).json({ schoolNewsletter: s });
+            })
+        }
+    })
+};
+
+exports.addCalendarData = async (req, res) => {
+    upload(req,res,async function(err) {
+        if (!req.body.title ) {
+            return res.status(400).json({ msg: "Invalid data" });
+        }
+        if(err) {
+            return res.status(400).json({ msg: err.message });
+        }
+        else {
+            const newFile = {
+                title : req.body.title ,
+                url : "/files/"+ req.file.filename
+            };
+            const uploadedFile = await Parents.find({});
+            uploadedFile[0].calendar.calendars.push(newFile);
+            uploadedFile[0].save()
+            .then(s=>{
+                return res.status(201).json({ calendar: s });
+            })
+        }
+    })
+};
+
+exports.addParentsData = async (req,res) => {
+    const newParentData = {
+        schoolPolicies : [],
+        schoolNewsletters : [],
+        calendar: {
+            year: "2021-22",
+            calendars : []
+        },
+    };
+    const uploadedParentsData = new Parents(newParentData);
+    uploadedParentsData.save()
+    .then(p=>{
+        return res.status(201).json({ parents: p });
     })
 };
 

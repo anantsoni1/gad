@@ -21,6 +21,7 @@ import AdminTeam from "./components/Admin/team";
 import AdminPrincipal from "./components/Admin/principal";
 import AdminParents from "./components/Admin/parents";
 import AdminBlogs from "./components/Admin/Blogs/index";
+import Login from "./components/login";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route exact path="/career" component={Career} />
         <Route exact path="/team" component={Team} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/login" component={Login} />
         <Route exact path="/admin/dashboard" component={Dashboard} />
         <Route exact path="/admin/admission" component={AdminAdmission} />
         <Route exact path="/admin/contact" component={AdminContact} />

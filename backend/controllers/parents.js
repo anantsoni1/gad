@@ -1,165 +1,169 @@
 const Parents = require("../models/Parents");
-var multer = require('multer');
-const path = require("path")
+var multer = require("multer");
+const path = require("path");
 
 var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-  
-        // Uploads is the Upload_folder_name
-        cb(null, "assets/files")
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + "-" + file.originalname)
-    }
-  })
-       
+  destination: function (req, file, cb) {
+    // Uploads is the Upload_folder_name
+    cb(null, "assets/files");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+
 // Define the maximum size for uploading
 // picture i.e. 1 MB. it is optional
 const maxSize = 100 * 1000 * 1000;
-    
-var upload = multer({ 
-    storage: storage,
-    limits: { fileSize: maxSize },
-    fileFilter: function (req, file, cb){
-    
-        // Set the filetypes, it is optional
-        var filetypes = /jpeg|jpg|png|pdf/;
-        var mimetype = filetypes.test(file.mimetype);
-  
-        var extname = filetypes.test(path.extname(
-                    file.originalname).toLowerCase());
-        
-        if (mimetype && extname) {
-            return cb(null, true);
-        }
-      
-        cb("Error: File upload only supports the "
-                + "following filetypes - " + filetypes);
-      } 
-}).single("uploadedFile"); 
+
+var upload = multer({
+  storage: storage,
+  limits: { fileSize: maxSize },
+  fileFilter: function (req, file, cb) {
+    // Set the filetypes, it is optional
+    var filetypes = /jpeg|jpg|png|pdf/;
+    var mimetype = filetypes.test(file.mimetype);
+
+    var extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+
+    if (mimetype && extname) {
+      return cb(null, true);
+    }
+
+    cb(
+      "Error: File upload only supports the " +
+        "following filetypes - " +
+        filetypes
+    );
+  },
+}).single("uploadedFile");
 
 exports.addSchoolPolicyData = async (req, res) => {
-    upload(req,res,async function(err) {
-        if (!req.body.title ) {
-            return res.status(400).json({ msg: "Invalid data" });
-        }
-        if(err) {
-            return res.status(400).json({ msg: err.message });
-        }
-        else {
-            const newFile = {
-                title : req.body.title ,
-                url : "/files/"+ req.file.filename
-            };
-            const uploadedFile = await Parents.find({});
-            uploadedFile[0].schoolPolicies.push(newFile);
-            uploadedFile[0].save()
-            .then(s=>{
-                return res.status(201).json({ schoolPolicy: s });
-            })
-        }
-    })
+  upload(req, res, async function (err) {
+    if (!req.body.title) {
+      return res.status(400).json({ msg: "Invalid data" });
+    }
+    if (err) {
+      return res.status(400).json({ msg: err.message });
+    } else {
+      const newFile = {
+        title: req.body.title,
+        url: "/files/" + req.file.filename,
+      };
+      const uploadedFile = await Parents.find({});
+      uploadedFile[0].schoolPolicies.push(newFile);
+      uploadedFile[0].save().then((s) => {
+        return res.status(201).json({ schoolPolicy: s });
+      });
+    }
+  });
 };
 
 exports.addSchoolNewsletterData = async (req, res) => {
-    upload(req,res,async function(err) {
-        if (!req.body.title ) {
-            return res.status(400).json({ msg: "Invalid data" });
-        }
-        if(err) {
-            return res.status(400).json({ msg: err.message });
-        }
-        else {
-            const newFile = {
-                title : req.body.title ,
-                url : "/files/"+ req.file.filename
-            };
-            const uploadedFile = await Parents.find({});
-            uploadedFile[0].schoolNewsletters.push(newFile);
-            uploadedFile[0].save()
-            .then(s=>{
-                return res.status(201).json({ schoolNewsletter: s });
-            })
-        }
-    })
+  upload(req, res, async function (err) {
+    if (!req.body.title) {
+      return res.status(400).json({ msg: "Invalid data" });
+    }
+    if (err) {
+      return res.status(400).json({ msg: err.message });
+    } else {
+      const newFile = {
+        title: req.body.title,
+        url: "/files/" + req.file.filename,
+      };
+      const uploadedFile = await Parents.find({});
+      uploadedFile[0].schoolNewsletters.push(newFile);
+      uploadedFile[0].save().then((s) => {
+        return res.status(201).json({ schoolNewsletter: s });
+      });
+    }
+  });
 };
 
 exports.addCalendarData = async (req, res) => {
-    upload(req,res,async function(err) {
-        if (!req.body.title ) {
-            return res.status(400).json({ msg: "Invalid data" });
-        }
-        if(err) {
-            return res.status(400).json({ msg: err.message });
-        }
-        else {
-            const newFile = {
-                title : req.body.title ,
-                url : "/files/"+ req.file.filename
-            };
-            const uploadedFile = await Parents.find({});
-            uploadedFile[0].calendar.calendars.push(newFile);
-            uploadedFile[0].save()
-            .then(s=>{
-                return res.status(201).json({ calendar: s });
-            })
-        }
-    })
+  upload(req, res, async function (err) {
+    if (!req.body.title) {
+      return res.status(400).json({ msg: "Invalid data" });
+    }
+    if (err) {
+      return res.status(400).json({ msg: err.message });
+    } else {
+      const newFile = {
+        title: req.body.title,
+        url: "/files/" + req.file.filename,
+      };
+      const uploadedFile = await Parents.find({});
+      uploadedFile[0].calendar.calendars.push(newFile);
+      uploadedFile[0].save().then((s) => {
+        return res.status(201).json({ calendar: s });
+      });
+    }
+  });
 };
 
 exports.deleteSchoolPolicyData = async (req, res) => {
-    Parents.findOne({'calendar.calendars._id':  req.query.id  })
-    .then(data=>{
-        console.log(data);
-    })
-    Parents.findOneAndUpdate({'schoolPolicies._id': req.query.id }, {$pull: {schoolPolicies : { _id : req.query.id }}}, (err, data) => {
-        if (err) {
-            return res.status(500).json({ error: 'error in deleting address' });
-        }
-        res.json(data);   
-    });
+  Parents.findOne({ "calendar.calendars._id": req.query.id }).then((data) => {
+    console.log(data);
+  });
+  Parents.findOneAndUpdate(
+    { "schoolPolicies._id": req.query.id },
+    { $pull: { schoolPolicies: { _id: req.query.id } } },
+    (err, data) => {
+      if (err) {
+        return res.status(500).json({ error: "error in deleting address" });
+      }
+      res.json(data);
+    }
+  );
 };
 
 exports.deleteSchoolNewsletterData = async (req, res) => {
-    // Parents.findOne({'calendar.calendars._id':  req.query.id  })
-    // .then(data=>{
-    //     console.log(data);
-    // })
-    Parents.findOneAndUpdate({'schoolNewsletters._id': req.query.id }, {$pull: { schoolNewsletters : { _id : req.query.id }}}, (err, data) => {
-        if (err) {
-            return res.status(500).json({ error: 'error in deleting address' });
-        }
-        res.json(data);   
-    });
+  // Parents.findOne({'calendar.calendars._id':  req.query.id  })
+  // .then(data=>{
+  //     console.log(data);
+  // })
+  Parents.findOneAndUpdate(
+    { "schoolNewsletters._id": req.query.id },
+    { $pull: { schoolNewsletters: { _id: req.query.id } } },
+    (err, data) => {
+      if (err) {
+        return res.status(500).json({ error: "error in deleting address" });
+      }
+      res.json(data);
+    }
+  );
 };
 
 exports.deleteCalendarData = async (req, res) => {
-    // Parents.find({})
-    // .then(data=>{
-    //     res.json(data);   
-    // })
-    Parents.findOneAndUpdate({'calendar.calendars._id':  req.query.id  }, {$pull: { 'calendar.calendars' : { _id : req.query.id} }}, (err, data) => {
-        if (err) {
-            return res.status(500).json({ error: 'error in deleting address' });
-        }
-        res.json(data);   
-    });
+  // Parents.find({})
+  // .then(data=>{
+  //     res.json(data);
+  // })
+  Parents.findOneAndUpdate(
+    { "calendar.calendars._id": req.query.id },
+    { $pull: { "calendar.calendars": { _id: req.query.id } } },
+    (err, data) => {
+      if (err) {
+        return res.status(500).json({ error: "error in deleting address" });
+      }
+      res.json(data);
+    }
+  );
 };
 
-exports.addParentsData = async (req,res) => {
-    const newParentData = {
-        schoolPolicies : [],
-        schoolNewsletters : [],
-        calendar: {
-            year: "2021-22",
-            calendars : []
-        },
-    };
-    const uploadedParentsData = new Parents(newParentData);
-    uploadedParentsData.save()
-    .then(p=>{
-        return res.status(201).json({ parents: p });
-    })
+exports.addParentsData = async (req, res) => {
+  const newParentData = {
+    schoolPolicies: [],
+    schoolNewsletters: [],
+    calendar: {
+      year: "2021-22",
+      calendars: [],
+    },
+  };
+  const uploadedParentsData = new Parents(newParentData);
+  uploadedParentsData.save().then((p) => {
+    return res.status(201).json({ parents: p });
+  });
 };
 
 // exports.modifyParents = async (req, res) => {

@@ -8,6 +8,7 @@ import about from "./about";
 import covid from "./covid";
 import admission from "./admission";
 import team from "./team";
+import auth from "./auth";
 
 export default combineReducers({
   contact,
@@ -18,4 +19,5 @@ export default combineReducers({
   covid,
   admission,
   team,
+  auth
 });

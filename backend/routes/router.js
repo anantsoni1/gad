@@ -11,6 +11,8 @@ const routes = [
   "contactForm",
   "admission",
   "covid",
+  "parents",
+  "gallery"
 ];
 
 module.exports = {

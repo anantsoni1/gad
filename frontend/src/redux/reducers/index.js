@@ -9,6 +9,7 @@ import covid from "./covid";
 import admission from "./admission";
 import team from "./team";
 import auth from "./auth";
+import parent from "./parents";
 import gallery from "./gallery";
 
 export default combineReducers({
@@ -21,5 +22,6 @@ export default combineReducers({
   admission,
   team,
   auth,
-  gallery
+  gallery,
+  parent,
 });

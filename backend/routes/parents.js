@@ -5,6 +5,7 @@ router.post("/addSchoolPolicy", parents.addSchoolPolicyData);
 router.post("/addSchoolNewsletter", parents.addSchoolNewsletterData);
 router.post("/addCalendar", parents.addCalendarData);
 router.delete("/deleteSchoolPolicy", parents.deleteSchoolPolicyData);
+router.put("/updateSchoolPolicy", parents.updateSchoolPolicyData);
 router.delete("/deleteSchoolNewsletter", parents.deleteSchoolNewsletterData);
 router.delete("/deleteCalendar", parents.deleteCalendarData);
 router.get("/getSchoolPolicy", parents.getSchoolPolicy);

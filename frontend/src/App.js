@@ -22,6 +22,7 @@ import AdminPrincipal from "./components/Admin/principal";
 import AdminParents from "./components/Admin/parents";
 import AdminBlogs from "./components/Admin/Blogs/index";
 import Login from "./components/login";
+import AdminGuardedRoute from "./components/guards/AdminLayout";
 
 function App() {
   return (
@@ -38,16 +39,40 @@ function App() {
         <Route exact path="/team" component={Team} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/admin/dashboard" component={Dashboard} />
-        <Route exact path="/admin/admission" component={AdminAdmission} />
-        <Route exact path="/admin/contact" component={AdminContact} />
-        <Route exact path="/admin/medical" component={AdminMedical} />
-        <Route exact path="/admin/career" component={AdminCareer} />
-        <Route exact path="/admin/about" component={AdminAbout} />
-        <Route exact path="/admin/team" component={AdminTeam} />
-        <Route exact path="/admin/principal" component={AdminPrincipal} />
-        <Route exact path="/admin/parents" component={AdminParents} />
-        <Route exact path="/admin/blogs" component={AdminBlogs} />
+        <AdminGuardedRoute
+          exact
+          path="/admin/dashboard"
+          component={Dashboard}
+        />
+        <AdminGuardedRoute
+          exact
+          path="/admin/admission"
+          component={AdminAdmission}
+        />
+        <AdminGuardedRoute
+          exact
+          path="/admin/contact"
+          component={AdminContact}
+        />
+        <AdminGuardedRoute
+          exact
+          path="/admin/medical"
+          component={AdminMedical}
+        />
+        <AdminGuardedRoute exact path="/admin/career" component={AdminCareer} />
+        <AdminGuardedRoute exact path="/admin/about" component={AdminAbout} />
+        <AdminGuardedRoute exact path="/admin/team" component={AdminTeam} />
+        <AdminGuardedRoute
+          exact
+          path="/admin/principal"
+          component={AdminPrincipal}
+        />
+        <AdminGuardedRoute
+          exact
+          path="/admin/parents"
+          component={AdminParents}
+        />
+        <AdminGuardedRoute exact path="/admin/blogs" component={AdminBlogs} />
       </Switch>
       <Footer />
     </div>

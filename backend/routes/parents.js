@@ -9,6 +9,10 @@ router.put("/updateSchoolPolicy", parents.updateSchoolPolicyData);
 router.put("/updateSchoolNewsletter", parents.updateSchoolNewsletter);
 router.put("/updateCalendar", parents.updateCalendar);
 router.delete("/deleteSchoolNewsletter", parents.deleteSchoolNewsletterData);
+router.get("/schoolNewsletter", parents.getSchoolNewsletters);
+router.get("/calendar", parents.getCalendar);
+router.get("/parents", parents.getParents);
+router.get("/schoolPolicy", parents.getSchoolPolicy);
 router.delete("/deleteCalendar", parents.deleteCalendarData);
 // router.post("/addParentsData", parents.addParentsData);
 

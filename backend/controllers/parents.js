@@ -358,25 +358,38 @@ exports.addParentsData = async (req, res) => {
   });
 };
 
-// exports.modifyParents = async (req, res) => {
-//   if (!req.body.paragraphOne || !req.body.paragraphTwo || !req.body.paragraphThree) {
-//     return res.status(400).json({ msg: "Invalid data" });
-//   }
-//   Covid.findByIdAndUpdate(req.query.id, req.body, (err, data) => {
-//     if (err) {
-//       return res.status(400).json({ msg: err.message });
-//     }
-//     return res
-//       .status(201)
-//       .json({ msg: "Updated Data successfully", data: data });
-//   });
-// };
+exports.getParents = (req, res) => {
+  Parents.find({}, (err, data) => {
+    if (err) {
+      return res.status(400).json({ msg: err.message });
+    }
+    return res.status(201).json({ data: data[0] });
+  });
+};
 
-// exports.getCovid = (req, res) => {
-//   Covid.find({}, (err, data) => {
-//     if (err) {
-//       return res.status(400).json({ msg: err.message });
-//     }
-//     return res.status(201).json({ slots: data });
-//   });
-// };
+exports.getSchoolPolicy = (req, res) => {
+  Parents.find({}, (err, data) => {
+    if (err) {
+      return res.status(400).json({ msg: err.message });
+    }
+    return res.status(201).json({ data: data[0].schoolPolicies });
+  });
+};
+
+exports.getSchoolNewsletters= (req, res) => {
+  Parents.find({}, (err, data) => {
+    if (err) {
+      return res.status(400).json({ msg: err.message });
+    }
+    return res.status(201).json({ data: data[0].schoolNewsletters });
+  });
+};
+
+exports.getCalendar= (req, res) => {
+  Parents.find({}, (err, data) => {
+    if (err) {
+      return res.status(400).json({ msg: err.message });
+    }
+    return res.status(201).json({ data: data[0].calendar });
+  });
+};

@@ -16,9 +16,9 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import HomeIcon from '@material-ui/icons/Home';
-import BookIcon from '@material-ui/icons/Book';
-import ContactMailIcon from '@material-ui/icons/ContactMail';
+import HomeIcon from "@material-ui/icons/Home";
+import BookIcon from "@material-ui/icons/Book";
+import ContactMailIcon from "@material-ui/icons/ContactMail";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
@@ -165,7 +165,7 @@ export default function MiniDrawer(props) {
           <ListItem button>
             <ListItemIcon>
               <Link to="/admin/dashboard">
-               <HomeIcon />
+                <HomeIcon />
               </Link>
             </ListItemIcon>
             <Link to="/admin/dashboard">
@@ -175,7 +175,7 @@ export default function MiniDrawer(props) {
           <ListItem button>
             <ListItemIcon>
               <Link to="/admin/blogs">
-               <BookIcon />
+                <BookIcon />
               </Link>
             </ListItemIcon>
             <Link to="/admin/blogs">
@@ -196,7 +196,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link to="/admin/admission">
                 <strong>
-                 <i className="fas fa-tools text-20"></i>
+                  <i className="fas fa-tools text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -208,7 +208,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link to="/admin/career">
                 <strong>
-                 <i className="fas fa-bullseye text-20"></i>
+                  <i className="fas fa-bullseye text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -220,7 +220,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link to="/admin/medical">
                 <strong>
-                 <i className="fas fa-user-nurse text-20"></i>
+                  <i className="fas fa-user-nurse text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -232,7 +232,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link to="/admin/team">
                 <strong>
-                 <i className="fas fa-users text-20"></i>
+                  <i className="fas fa-users text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -240,11 +240,11 @@ export default function MiniDrawer(props) {
               <ListItemText primary="Team" />
             </Link>
           </ListItem>
-           <ListItem button>
+          <ListItem button>
             <ListItemIcon>
               <Link to="/admin/principal">
                 <strong>
-                 <i className="fas fa-user-circle text-20"></i>
+                  <i className="fas fa-user-circle text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -256,7 +256,7 @@ export default function MiniDrawer(props) {
             <ListItemIcon>
               <Link to="/admin/about">
                 <strong>
-                 <i className="fas fa-money-check text-20"></i>
+                  <i className="fas fa-money-check text-20"></i>
                 </strong>
               </Link>
             </ListItemIcon>
@@ -266,9 +266,24 @@ export default function MiniDrawer(props) {
           </ListItem>
           <ListItem button>
             <ListItemIcon>
+              <Link to="/admin/parents">
+                <strong>
+                  <i className="fas fa-user-shield text-20"></i>
+                </strong>
+              </Link>
+            </ListItemIcon>
+            <Link to="/admin/parents">
+              <ListItemText primary="Parents" />
+            </Link>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
               <Link>
                 <strong>
-                  <i className="fas fa-sign-out-alt text-20" onClick={logout}></i>
+                  <i
+                    className="fas fa-sign-out-alt text-20"
+                    onClick={logout}
+                  ></i>
                 </strong>
               </Link>
             </ListItemIcon>

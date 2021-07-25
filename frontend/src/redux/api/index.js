@@ -50,3 +50,25 @@ export const modifyCovidData = (id, data) =>
 
 // LOGIN
 export const signIn = (formData) => axios.post(`${url}/login`, formData);
+
+//Parents
+export const getSchoolPolicy = () => axios.get(`${url}/schoolPolicy`);
+export const getSchoolNewslater = () => axios.get(`${url}/schoolNewsletter`);
+export const getCalender = () => axios.get(`${url}/calendar`);
+export const addSchoolPolicy = (data) =>
+  axios.post(`${url}/addSchoolPolicy`, data);
+export const addSchoolNewslater = (data) =>
+  axios.post(`${url}/addSchoolNewsletter`, data);
+export const addCalender = (data) => axios.post(`${url}/addCalendar`, data);
+export const modifySchoolPolicy = (id, data) =>
+  axios.put(`${url}/updateSchoolPolicy?id=${id}`, data);
+export const modifySchoolNewslater = (id, data) =>
+  axios.put(`${url}/updateSchoolNewsletter?id=${id}`, data);
+export const modifyCalender = (id, data) =>
+  axios.put(`${url}/updateCalendar?id=${id}`, data);
+export const deleteSchoolPolicy = (id) =>
+  axios.delete(`${url}/deleteSchoolPolicy?id=${id}`);
+export const deleteSchoolNewslater = (id) =>
+  axios.delete(`${url}/deleteSchoolNewsletter?id=${id}`);
+export const deleteCalender = (id) =>
+  axios.delete(`${url}/deleteCalendar?id=${id}`);

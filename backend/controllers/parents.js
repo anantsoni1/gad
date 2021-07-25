@@ -81,32 +81,25 @@ exports.addSchoolNewsletterData = async (req, res) => {
 };
 
 exports.updateSchoolPolicyData = async(req,res) => {
-    console.log(req);
+    console.log(req.body);
     if (req.body.url) {
-        Parents.findOne({'schoolPolicies._id': req.query.id })
-        .then(async data=>{
-            // console.log(data);
-            const updated = await data.schoolPolicies.filter(s=>{
-                if (s._id != req.query.id) {
-                    return s;
-                }
-                else {
-                    return {
-                        ...s,
-                        title : req.body.title
-                    }
-                }
-            })
-            data.schoolPolicies = updated ;
-            // console.log(updated);
-            data.save()
-            .then(d=>{
-                res.json(d);
-            })
-        })
-        .catch(e=>{
-            return res.status(400).json({ msg : "Error Occured" });
-        })
+      Parents.updateOne(
+        { 'schoolPolicies._id': req.query.id },
+        { $set:  
+            { 
+                'schoolPolicies.$.title': req.body.title   
+            }
+        },
+        (err, result) => {
+          if (err) {
+            res.status(500)
+            .json({ error: 'Unable to update School Policies.', });
+          } else {
+            res.status(200)
+            .json(result);
+          }
+       }
+    );
     } else {
         upload(req,res,async function(err) {
             if (!req.body.title ) {
@@ -140,7 +133,6 @@ exports.updateSchoolPolicyData = async(req,res) => {
                 // .catch(e=>{
                 //     return res.status(400).json({ msg : "Error Occured" });
                 // })
-                console.log(req.body);
                 Parents.updateOne(
                     { 'schoolPolicies._id': req.query.id },
                     { $set:  
@@ -158,7 +150,7 @@ exports.updateSchoolPolicyData = async(req,res) => {
                         .json(result);
                       }
                    }
-                  );
+                );
             }
         })
     }

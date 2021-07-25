@@ -14,7 +14,6 @@ const FileUploadSchema = new mongoose.Schema({
 const CalendarSchema = new mongoose.Schema({
     year: {
       type: String,
-      required: true,
     },
     calendars: [FileUploadSchema] 
 });

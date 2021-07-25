@@ -156,6 +156,109 @@ exports.updateSchoolPolicyData = async(req,res) => {
     }
 }
 
+exports.updateSchoolNewsletter = async(req,res) => {
+  if (req.body.url) {
+    Parents.updateOne(
+      { 'schoolNewsletters._id': req.query.id },
+      { $set:  
+          { 
+              'schoolNewsletters.$.title': req.body.title   
+          }
+      },
+      (err, result) => {
+        if (err) {
+          res.status(500)
+          .json({ error: 'Unable to update School Policies.', });
+        } else {
+          res.status(200)
+          .json(result);
+        }
+     }
+  );
+  } else {
+      upload(req,res,async function(err) {
+          if (!req.body.title ) {
+              return res.status(400).json({ msg: "Invalid data" });
+          }
+          if(err) {
+              return res.status(400).json({ msg: err.message });
+          }
+          else {
+              Parents.updateOne(
+                  { 'schoolNewsletters._id': req.query.id },
+                  { $set:  
+                      { 
+                          'schoolNewsletters.$.url': "/files/"+ req.file.filename,
+                          'schoolNewsletters.$.title': req.body.title   
+                      }
+                  },
+                  (err, result) => {
+                    if (err) {
+                      res.status(500)
+                      .json({ error: 'Unable to update School Policies.', });
+                    } else {
+                      res.status(200)
+                      .json(result);
+                    }
+                 }
+              );
+          }
+      })
+  }
+}
+
+exports.updateCalendar = async(req,res) => {
+  if (req.body.url) {
+    Parents.updateOne(
+      { 'calendar.calendars._id': req.query.id ,'calendar.year' : req.body.year,},
+      { $set:  
+          { 
+              'calendar.calendars.$.title': req.body.title   
+          }
+      },
+      (err, result) => {
+        if (err) {
+          res.status(500)
+          .json({ error: 'Unable to update School Policies.', });
+        } else {
+          res.status(200)
+          .json(result);
+        }
+     }
+  );
+  } else {
+      upload(req,res,async function(err) {
+          if (!req.body.title ) {
+              return res.status(400).json({ msg: "Invalid data" });
+          }
+          if(err) {
+              return res.status(400).json({ msg: err.message });
+          }
+          else {
+              Parents.updateOne(
+                  { 'calendar.calendars._id': req.query.id },
+                  { $set:  
+                      { 
+                          'calendar.calendars.$.url': "/files/"+ req.file.filename,
+                          'calendar.year' : req.body.year,
+                          'calendar.calendars.$.title': req.body.title   
+                      }
+                  },
+                  (err, result) => {
+                    if (err) {
+                      res.status(500)
+                      .json({ error: 'Unable to update School Policies.', });
+                    } else {
+                      res.status(200)
+                      .json(result);
+                    }
+                 }
+              );
+          }
+      })
+  }
+}
+
 exports.addCalendarData = async (req, res) => {
   upload(req, res, async function (err) {
     if (!req.body.title) {

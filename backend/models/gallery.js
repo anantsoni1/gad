@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
-const singleImage = new mongoose.Schema({
+const GallerySchema = new mongoose.Schema({
   name: {
+    type: String,
+    required: true,
+  },
+  caption: {
     type: String,
     required: true,
   },
@@ -9,9 +13,6 @@ const singleImage = new mongoose.Schema({
     type: String,
     required: true,
   },
-});
-const GallerySchema = new mongoose.Schema({
-  images: [singleImage],
 });
 
 module.exports = mongoose.model("Gallery", GallerySchema);

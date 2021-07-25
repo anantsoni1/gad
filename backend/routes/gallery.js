@@ -3,7 +3,8 @@ const gallery = require("../controllers/gallery");
 
 router.post("/addGallerydata", gallery.addGallerydata);
 router.put("/modifyGalleryData", gallery.modifyGalleryData);
-router.get("/getGalleryData", gallery.getGalleryData);
+router.delete("/deleteGalleryData" , gallery.deleteGalleryData);
+router.get("/getGalleryData", gallery.deleteGalleryData);
 
 module.exports = {
   router: router,

@@ -68,7 +68,8 @@ exports.getAboutPageData = async (req, res) => {
 
 exports.modifyAboutPageData = async (req, res) => {
   let newData = [];
-  req.body.posts.map((val) => {
+  console.log(req.body.posts);
+  req.body.posts?.map((val) => {
     if (val.img.substring(0, 6) !== "images") {
       var matches = val.img.match(/^data:([A-Za-z-+/]+);base64,(.+)$/),
         response = {};

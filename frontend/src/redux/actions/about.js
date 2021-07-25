@@ -17,7 +17,7 @@ export const GetAboutData = () => async (dispatch) => {
 export const ModifyAboutData = (id, formData) => async (dispatch) => {
   try {
     console.log(id, formData);
-    const { data } = await api.modifyAboutData(id, formData);
+    const { data } = await api.modifyAboutData(id, {posts: formData});
     dispatch({ type: POST_ABOUT_DATA, data });
     swal({
       text: "Data Updated!",

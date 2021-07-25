@@ -8,6 +8,11 @@ export const getHomeData = () => axios.get(`${url}/getHomeData`);
 export const modifyHomeData = (id, data) =>
   axios.put(`${url}/modifyHomeData?id=${id}`, data);
 
+// GALLERY
+export const getGalleryData = () => axios.get(`${url}/getGalleryData`);
+export const modifyGalleryData = (id, data) =>
+  axios.put(`${url}/modifyGalleryData?id=${id}`, data);
+
 // ABOUT
 export const getAboutData = () => axios.get(`${url}/getAboutPageData`);
 export const modifyAboutData = (id, data) =>

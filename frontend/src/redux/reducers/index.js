@@ -9,6 +9,7 @@ import covid from "./covid";
 import admission from "./admission";
 import team from "./team";
 import auth from "./auth";
+import gallery from "./gallery";
 
 export default combineReducers({
   contact,
@@ -19,5 +20,6 @@ export default combineReducers({
   covid,
   admission,
   team,
-  auth
+  auth,
+  gallery
 });

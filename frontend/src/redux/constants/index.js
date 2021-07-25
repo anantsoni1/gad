@@ -33,3 +33,7 @@ export const UPDATE_TEAM_DATA = "UPDATE_TEAM_DATA";
 // Login
 export const SIGN_IN = "SIGN_IN";
 export const LOGOUT = "LOGOUT";
+
+// Gallery
+export const GET_GALLERY_DATA = "GET_GALLERY_DATA";
+export const POST_GALLERY_DATA = "POST_GALLERY_DATA";

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { GetHomeData } from "../../redux/actions/home";
+import { GetGalleryData } from "../../redux/actions/gallery";
 import { Carousel } from "react-bootstrap";
 import person from "../../assets/person.svg";
 import { imageUrl } from "../../redux/api/index";
@@ -9,65 +10,26 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 function Home() {
-  const images = [
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-  ];
-
   const dispatch = useDispatch();
   const [displayGallery, setDisplayGallery] = useState(false);
   useEffect(() => {
     dispatch(GetHomeData())
       .then((res) => {})
       .catch(() => {});
+    dispatch(GetGalleryData())
+      .then((res) => {})
+      .catch(() => {});
   }, []);
   const homeData = useSelector((state) => state.home?.getHomeData);
+  const galleryData = useSelector((state) => state?.gallery?.getGalleryData);
+
+  let images = [];
+  galleryData?.data[0]?.images?.map((data) =>
+    images.push({
+      original: `${imageUrl}${data.img}`,
+      thumbnail: `${imageUrl}${data.img}`,
+    })
+  );
   return (
     <>
       {homeData && homeData.slots.length > 0 && (

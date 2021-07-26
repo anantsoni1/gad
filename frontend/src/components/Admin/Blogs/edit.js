@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import { makeStyles } from "@material-ui/core/styles";
 import SunEditor from "suneditor-react";
-import { addNewBlog , getBlogsById} from "../../../redux/actions/blogs";
+import { updateNewBlog , getBlogsById} from "../../../redux/actions/blogs";
 import { useDispatch, useSelector } from "react-redux";
 import "suneditor/dist/css/suneditor.min.css";
 import { useHistory , useLocation} from "react-router-dom";
@@ -21,8 +21,8 @@ function Blogs() {
   const editorRef = useRef();
   const location = useLocation().search;
   const id = new URLSearchParams(location).get("id");
-  const blogs = useSelector(state => {return state?.blogs?.getBlogsData?.data});
-  console.log(id);
+  const blogs = useSelector(state => {return state?.blogs?.getBlogById?.data});
+  console.log(blogs);
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
@@ -35,19 +35,27 @@ function Blogs() {
   
   useEffect(() => {
      dispatch(getBlogsById(id))
+     .then(res=>{
+         setFormData({
+            title : res.data.title,
+            author : res.data.author,
+            shortDescription : res.data.shortDescription
+         });
+         setDesc(res.data.desc);
+     })
   }, [id]);
   const updateBlog = (e) => {
     e.preventDefault();
-    dispatch(addNewBlog({...formData , desc: desc , date: new Date()},history))
+    console.log(formData , desc);
+    dispatch(updateNewBlog({...formData , desc: desc , date: new Date()},id,history))
   };
 
 const setOptions = {
-  buttonList:      [ ['font', 'fontSize', 'formatBlock'],
+  buttonList: [ ['font', 'fontSize', 'formatBlock'],
   ['bold', 'underline', 'italic', 'removeFormat'],
   ['fontColor', 'hiliteColor', 'outdent', 'indent', 'align', 'horizontalRule', 'list'],
   ['link', 'image', 'video', 'fullScreen', 'preview']],
   dialogBox: {
-
     linkBox: {
 
         title: 'Insert Link',
@@ -59,7 +67,6 @@ const setOptions = {
         newWindowCheck: 'Open in new window'
 
     },
-
     imageBox: {
 
         title: 'Insert image',
@@ -71,7 +78,6 @@ const setOptions = {
         altText: 'Alternative text'
 
     },
-
     videoBox: {
 
         title: 'Insert Video',
@@ -85,7 +91,7 @@ const setOptions = {
     <div>
       <Sidebar />
       <div class="d-flex justify-content-between align-items-center blogs-heading">
-          <h3>Add New Blog </h3>
+          <h3>Edit Blog </h3>
           </div>
             <div className="w-100 h-100 blogs-form">
               <form>
@@ -93,7 +99,7 @@ const setOptions = {
                   <label className="font-20 font-bold mt-3">Title</label>
                   <input
                     name="title"
-                    value={formData.title}
+                    value={formData?.title}
                     onChange={(e) => {
                       setFormData({
                         ...formData,
@@ -113,7 +119,7 @@ const setOptions = {
                   <label className="font-20 font-bold mt-3">Author</label>
                   <input
                     name="author"
-                    value={formData.author}
+                    value={formData?.author}
                     onChange={(e) => {
                       setFormData({
                         ...formData,
@@ -133,7 +139,7 @@ const setOptions = {
                 <label className="font-20 font-bold mt-3">Short Description</label>
                   <textarea
                     name="shortDescription"
-                    value={formData.shortDescription}
+                    value={formData?.shortDescription}
                     onChange={(e) => {
                       console.log(e);
                       setFormData({
@@ -156,7 +162,7 @@ const setOptions = {
                   onChange={(content)=>{
                     setDesc(content)
                   }} 
-                  setContents={desc}
+                  setContents={blogs?.desc}
                   setOptions={setOptions}/>
                 </div>
                 <button
@@ -164,7 +170,7 @@ const setOptions = {
                   class="btn btn-primary mt-5"
                   onClick={updateBlog}
                 >
-                  Upload
+                  Save
                 </button>
               </form>
             </div>

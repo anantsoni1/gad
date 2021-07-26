@@ -2,18 +2,18 @@ import React, { useState, useEffect } from "react";
 import Table from 'react-bootstrap/Table';
 import Sidebar from "../Sidebar/Sidebar";
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from "react-router-dom";
+import { useHistory ,useLocation } from "react-router-dom";
 import { Link, Router } from "react-router-dom";
 import "./blogs.css";
-// import { getUsers } from "../../../../redux/actions/admin";
+import { getBlogs } from "../../../redux/actions/blogs";
 
 function BlogsTable(props) {
-    // const [showModal, setShowModal] = useState(false);
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(getUsers());
-    // }, [])
-    // const users = useSelector(state => state.admin?.adminData?.users);
+    const dispatch = useDispatch();
+    const blogs = useSelector(state => {return state?.blogs?.getBlogsData?.data});
+    useEffect(() => {
+        dispatch(getBlogs());
+    }, [])
+    console.log(blogs);
     // const handleShow = () => setShowModal(true);
     // const handleClose = () => setShowModal(false);
     const history = useHistory();
@@ -37,7 +37,23 @@ function BlogsTable(props) {
                     </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                    { blogs && blogs.length>0? (
+                        blogs.map(b=>{
+                            return (
+                                <tr>
+                                    <td></td>
+                                    <td>{b.title}</td>
+                                    <td>{b.author}</td>
+                                    <td >
+                                        <Link to={'/admin/blogs/edit?id=' + b._id}>
+                                            <button className="text-white bg-secondaryColor font-demi rounded w-40 mr-1" style={{ border: "none" }}>Edit</button>
+                                        </Link>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    ) : ''}
+                  {/* <tr>
                     <td></td>
                     <td>Blog 1</td>
                     <td >
@@ -45,7 +61,7 @@ function BlogsTable(props) {
                             <button className="text-white bg-secondaryColor font-demi rounded w-40 mr-1" style={{ border: "none" }}>View Details</button>
                         </Link>
                     </td>
-                  </tr>
+                  </tr> */}
                     {/* {users ? (
                         users.map(u => {
                             return (

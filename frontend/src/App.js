@@ -23,6 +23,7 @@ import AdminParents from "./components/Admin/parents";
 import AdminBlogs from "./components/Admin/Blogs/index";
 import Login from "./components/login";
 import AdminAddNew from "./components/Admin/Blogs/addNew";
+import AdminEditBlogs from "./components/Admin/Blogs/edit";
 import AdminGuardedRoute from "./components/guards/AdminLayout";
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
         <AdminGuardedRoute exact path="/admin/about" component={AdminAbout} />
         <AdminGuardedRoute exact path="/admin/team" component={AdminTeam} />
         <AdminGuardedRoute exact path="/admin/blogs/addNew" component={AdminAddNew} />
+        <AdminGuardedRoute exact path="/admin/blogs/edit" component={AdminEditBlogs} />
         <AdminGuardedRoute
           exact
           path="/admin/principal"

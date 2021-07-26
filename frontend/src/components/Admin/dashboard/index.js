@@ -113,9 +113,6 @@ const Dashboard = () => {
         <div className="sidebar-left-margin my-5">
           <div className="container">
             <h1>Home</h1>
-            <h4 className="text-lowercase">
-              PLEASE UPLOAD ALL THE IMAGES, IN CASE OF IMAGE UPDATION
-            </h4>
             <div className="home">
               <div className="home-banner">
                 <div className="home-heading text-white text-center">

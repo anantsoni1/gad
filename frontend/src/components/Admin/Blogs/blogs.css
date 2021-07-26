@@ -12,9 +12,19 @@
     background: rgb(31, 141, 192);
 }
 
+.blogs-form {
+    width: 90% !important;
+    margin-left: 7%;
+}
+
 @media (max-width: 425px) {
     .blogs-heading{
         margin-left: 17%;
         margin-right: 3%;
+    }
+
+    .blogs-form {
+        width: 78% !important;
+        margin-left: 20%;
     }
 }

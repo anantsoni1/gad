@@ -11,6 +11,7 @@ import team from "./team";
 import auth from "./auth";
 import parent from "./parents";
 import gallery from "./gallery";
+import blogs from "./blogs";
 
 export default combineReducers({
   contact,
@@ -24,4 +25,5 @@ export default combineReducers({
   auth,
   gallery,
   parent,
+  blogs
 });

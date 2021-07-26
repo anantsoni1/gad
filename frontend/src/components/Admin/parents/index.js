@@ -30,12 +30,13 @@ function AdminParents() {
     (state) => state.parent?.getSchoolPolicyData
   );
   console.log(schoolPolicyData?.data, "test");
-  // const schoolNewslaterData = useSelector(
-  //   (state) => state.parent?.getSchoolNewslaterData
-  // );
-  // console.log(schoolNewslaterData);
+  const schoolNewslaterData = useSelector(
+    (state) => state.parent?.getSchoolNewslaterData
+  );
+  console.log(schoolNewslaterData);
   // const calender = useSelector((state) => state.parent?.getCalender);
   // console.log(calender);
+
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const [editShowModal, seteditShowModal] = useState(false);
@@ -67,7 +68,38 @@ function AdminParents() {
       uploadedFile: null,
     });
   };
-  const [schoolNewslaterformData, setschoolNewslaterFormData] = useState({});
+  const [showModal2, setShowModal2] = useState(false);
+  const [editShowModal2, seteditShowModal2] = useState(false);
+  const [schoolNewslaterformData, setschoolNewslaterFormData] = useState({
+    title: "",
+    uploadedFile: null,
+  });
+  const [editSchoolNewslaterformData, seteditSchoolNewslaterFormData] =
+    useState({
+      title: "",
+      id: "",
+      url: "",
+      uploadedFile: null,
+    });
+  const handleShow2 = () => setShowModal2(true);
+  const handleClose2 = () => {
+    setShowModal2(false);
+    setschoolNewslaterFormData({
+      title: "",
+      uploadedFile: null,
+    });
+  };
+  const editHandleShow2 = () => seteditShowModal2(true);
+  const editHandleClose2 = () => {
+    seteditShowModal2(false);
+    seteditSchoolNewslaterFormData({
+      title: "",
+      url: "",
+      id: "",
+      uploadedFile: null,
+    });
+  };
+
   const [calenderformData, setcalenderFormData] = useState({});
   const [expanded, setExpanded] = useState(false);
   const handleChange = (panel) => (event, isExpanded) => {
@@ -95,6 +127,16 @@ function AdminParents() {
     });
     editHandleShow();
   };
+  const EditNewsLater = (title, URL, _id) => {
+    console.log(title, URL, _id, "sonal");
+    seteditSchoolNewslaterFormData({
+      title: title,
+      url: URL,
+      id: _id,
+      uploadedFile: null,
+    });
+    editHandleShow2();
+  };
 
   function deleteSchoolPolicy(id) {
     dispatch(DeleteSchoolPolicy(id))
@@ -114,6 +156,12 @@ function AdminParents() {
   function deleteSchoolNewslater(id) {
     dispatch(DeleteSchoolNewslater(id))
       .then((response) => {
+        swal({
+          title: "Data Deleted",
+          icon: "success",
+          type: "success",
+          timer: 2000,
+        });
         dispatch(GetSchoolNewslater())
           .then((res) => {})
           .catch(() => {});
@@ -164,13 +212,36 @@ function AdminParents() {
   }
   function updateSchoolNewslater(e) {
     e.preventDefault();
-    dispatch(ModifySchoolNewslater(e))
-      .then((response) => {
-        dispatch(GetSchoolNewslater())
-          .then((res) => {})
+    const id = editSchoolNewslaterformData.id;
+    console.log(id);
+    if (id !== "") {
+      const data = new FormData();
+      const data2 = {
+        title: editSchoolNewslaterformData.title,
+        url: editSchoolNewslaterformData.url,
+      };
+      data.append("title", editSchoolNewslaterformData.title);
+      data.append("uploadedFile", editSchoolNewslaterformData.uploadedFile);
+      if (editSchoolNewslaterformData.uploadedFile === null) {
+        dispatch(ModifySchoolNewslater(id, data2))
+          .then((response) => {
+            editHandleClose2();
+            dispatch(GetSchoolNewslater())
+              .then((res) => {})
+              .catch(() => {});
+          })
           .catch(() => {});
-      })
-      .catch(() => {});
+      } else {
+        dispatch(ModifySchoolNewslater(id, data))
+          .then((response) => {
+            editHandleClose2();
+            dispatch(GetSchoolNewslater())
+              .then((res) => {})
+              .catch(() => {});
+          })
+          .catch(() => {});
+      }
+    }
   }
   function updateCalender(e) {
     e.preventDefault();
@@ -211,14 +282,34 @@ function AdminParents() {
         .catch(() => {});
     }
   }
-  function addSchoolNewslater(data) {
-    dispatch(AddSchoolNewslater(data))
-      .then((response) => {
-        dispatch(GetSchoolNewslater())
-          .then((res) => {})
-          .catch(() => {});
-      })
-      .catch(() => {});
+  function addSchoolNewslater(e) {
+    e.preventDefault();
+    if (schoolNewslaterformData.uploadedFile === null) {
+      swal({
+        text: "Upload a file!",
+        icon: "info",
+      });
+    } else {
+      const data = new FormData();
+      data.append("title", schoolNewslaterformData.title);
+      data.append("uploadedFile", schoolNewslaterformData.uploadedFile);
+      dispatch(AddSchoolNewslater(data))
+        .then((response) => {
+          if (response.schoolNewsletter) {
+            swal({
+              text: "Data Added Succesfully!",
+              icon: "success",
+              type: "success",
+              timer: 2000,
+            });
+            handleClose2();
+            dispatch(GetSchoolNewslater())
+              .then((res) => {})
+              .catch(() => {});
+          }
+        })
+        .catch(() => {});
+    }
   }
   function addCalender(data) {
     dispatch(AddCalender(data))
@@ -353,6 +444,128 @@ function AdminParents() {
       ) : (
         ""
       )}
+      {editShowModal2 ? (
+        <Modal
+          className="mt-5 modal-card"
+          show={editShowModal2}
+          onHide={editHandleClose2}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <div className="font-bold ml-1">Update School Newslater</div>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+              <div className="form-group mt-4">
+                <label className="font-20 py-2">Title</label>
+                <input
+                  required
+                  value={editSchoolNewslaterformData.title}
+                  onChange={(e) => {
+                    seteditSchoolNewslaterFormData({
+                      ...editSchoolNewslaterformData,
+                      title: e.target.value,
+                    });
+                  }}
+                  name="title"
+                  type="text"
+                  className="form-control"
+                  placeholder="Full Name"
+                />
+              </div>
+              <div className="form-group">
+                <label className="font-20 py-2">Upload File</label>
+                <input
+                  onChange={(e) => {
+                    seteditSchoolNewslaterFormData({
+                      ...editSchoolNewslaterformData,
+                      uploadedFile: e.target.files[0],
+                    });
+                  }}
+                  type="file"
+                  class="hidden"
+                  id="uploading"
+                  placeholder="Instructor Image"
+                  required
+                />
+              </div>
+              <div className="text-center mt-5">
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  onClick={updateSchoolNewslater}
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </Modal.Body>
+        </Modal>
+      ) : (
+        ""
+      )}
+      {showModal2 ? (
+        <Modal
+          className="mt-5 modal-card"
+          show={showModal2}
+          onHide={handleClose2}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <div className="font-bold ml-1">Add School Newslater</div>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+              <div className="form-group mt-4">
+                <label className="font-20 py-2">Title</label>
+                <input
+                  required
+                  value={schoolNewslaterformData.title}
+                  onChange={(e) => {
+                    setschoolNewslaterFormData({
+                      ...schoolNewslaterformData,
+                      title: e.target.value,
+                    });
+                  }}
+                  name="title"
+                  type="text"
+                  className="form-control"
+                  placeholder="Full Name"
+                />
+              </div>
+              <div className="form-group">
+                <label className="font-20 py-2">Upload File</label>
+                <input
+                  onChange={(e) => {
+                    setschoolNewslaterFormData({
+                      ...schoolNewslaterformData,
+                      uploadedFile: e.target.files[0],
+                    });
+                  }}
+                  type="file"
+                  class="hidden"
+                  id="uploading"
+                  placeholder="Instructor Image"
+                  required
+                />
+              </div>
+              <div className="text-center mt-5">
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  onClick={addSchoolNewslater}
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </Modal.Body>
+        </Modal>
+      ) : (
+        ""
+      )}
       <Sidebar />
       <div className="container">
         <Accordion
@@ -448,15 +661,76 @@ function AdminParents() {
           >
             <div className="d-flex flex-lg-row flex-column align-items-center ">
               <p className="h5">Add School Newslater</p>
-              <button className="px-5 mx-4 my-2 btn btn-primary">Add +</button>
             </div>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Donec placerat, lectus sed mattis semper, neque lectus feugiat
-              lectus, varius pulvinar diam eros in elit. Pellentesque convallis
-              laoreet laoreet.
-            </Typography>
+            <div className="user-table">
+              <div class="d-flex justify-content-end align-items-center">
+                <button class="btn btn-primary px-4" onClick={handleShow2}>
+                  Add Newslater
+                </button>
+              </div>
+              <div class="row mb-5 mt-3 table-responsive">
+                <table class="table table-striped font-bold">
+                  <thead>
+                    <tr className="font-16  align-middle">
+                      <th scope="col">S.No</th>
+                      <th scope="col">title</th>
+                      <th scope="col">URL</th>
+                      <th scope="col">Action</th>
+                      <th scope="col">Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {schoolNewslaterData?.data &&
+                    schoolNewslaterData?.data.length > 0
+                      ? schoolNewslaterData?.data.map((item, index) => {
+                          return (
+                            <tr key={index}>
+                              <td>{index + 1}</td>
+                              <td>{item.title}</td>
+                              <td>
+                                <a
+                                  className="btn btn-success"
+                                  href={fileUrl + item.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  View
+                                </a>
+                              </td>
+                              <td>
+                                <button
+                                  onClick={() => {
+                                    EditNewsLater(
+                                      item.title,
+                                      item.url,
+                                      item._id
+                                    );
+                                  }}
+                                  className="btn btn-primary btn-sm"
+                                >
+                                  Edit
+                                </button>
+                              </td>
+                              <td>
+                                <button
+                                  className="btn btn-danger btn-sm"
+                                  onClick={() => {
+                                    deleteSchoolNewslater(item._id);
+                                  }}
+                                >
+                                  Delete
+                                </button>
+                              </td>
+                            </tr>
+                          );
+                        })
+                      : ""}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </AccordionDetails>
         </Accordion>
         <Accordion

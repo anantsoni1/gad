@@ -2,10 +2,11 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "./style.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Logo from "../../assets/Group_59.svg";
 
 function NavbarComponent() {
+  const location = useLocation();
   return (
     <React.Fragment>
       <Navbar
@@ -25,8 +26,24 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav style={{ marginLeft: "auto" }}>
-            <NavLink exact to="/" activeClassName="activeNav">
-              <Nav.Link href="/" className="px-4 navbar-item text-center">
+            <NavLink
+              exact
+              to="/"
+              activeClassName="activeNav"
+              className={
+                location.pathname === "/"
+                  ? "px-4 navbar-item text-center active"
+                  : "px-4 navbar-item text-center"
+              }
+            >
+              <Nav.Link
+                href="/"
+                className={
+                  location.pathname === "/"
+                    ? "px-4 navbar-item text-center active"
+                    : "px-4 navbar-item text-center"
+                }
+              >
                 Home
               </Nav.Link>
             </NavLink>
@@ -41,7 +58,10 @@ function NavbarComponent() {
               </Nav.Link>
             </NavLink>
             <NavLink to="/parents" activeClassName="activeNav">
-              <Nav.Link href="/parents" className="px-4 navbar-item text-center">
+              <Nav.Link
+                href="/parents"
+                className="px-4 navbar-item text-center"
+              >
                 parents
               </Nav.Link>
             </NavLink>

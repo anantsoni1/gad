@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const url = "http://localhost:8080/api";
 export const imageUrl = "http://localhost:8080/";
+export const fileUrl = "http://localhost:8080";
 
 // HOME
 export const getHomeData = () => axios.get(`${url}/getHomeData`);

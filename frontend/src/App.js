@@ -21,6 +21,7 @@ import AdminTeam from "./components/Admin/team";
 import AdminPrincipal from "./components/Admin/principal";
 import AdminParents from "./components/Admin/parents";
 import AdminBlogs from "./components/Admin/Blogs/index";
+import Gallery from "./components/Admin/gallery";
 import Login from "./components/login";
 import AdminAddNew from "./components/Admin/Blogs/addNew";
 import AdminEditBlogs from "./components/Admin/Blogs/edit";
@@ -82,6 +83,7 @@ function App() {
           component={AdminParents}
         />
         <AdminGuardedRoute exact path="/admin/blogs" component={AdminBlogs} />
+        <AdminGuardedRoute exact path="/admin/gallery" component={Gallery} />
       </Switch>
       </>
       ) : (
@@ -132,6 +134,7 @@ function App() {
             component={AdminParents}
           />
           <AdminGuardedRoute exact path="/admin/blogs" component={AdminBlogs} />
+          <AdminGuardedRoute exact path="/admin/gallery" component={Gallery} />
         </Switch>
         <Footer />
         </>

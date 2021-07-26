@@ -19,6 +19,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import HomeIcon from "@material-ui/icons/Home";
 import BookIcon from "@material-ui/icons/Book";
 import ContactMailIcon from "@material-ui/icons/ContactMail";
+import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
@@ -180,6 +181,16 @@ export default function MiniDrawer(props) {
             </ListItemIcon>
             <Link to="/admin/blogs">
               <ListItemText primary="Blogs" />
+            </Link>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <Link to="/admin/gallery">
+                <PhotoLibraryIcon />
+              </Link>
+            </ListItemIcon>
+            <Link to="/admin/gallery">
+              <ListItemText primary="Gallery" />
             </Link>
           </ListItem>
           <ListItem button>

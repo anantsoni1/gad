@@ -4,11 +4,9 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 exports.contactUs = (req, res) => {
   const { formData } = req.body;
-  console.log(formData);
-  if (!formData.email || !formData.name || !formData.message) {    
+  if (!formData.email || !formData.name || !formData.message) {
     return res.status(400).send({ msg: 'You need to send all entries' });
   }
-  console.log(formData.email);
   const msg = {
   to: formData.email,
   from: process.env.SENDGRID_EMAIL, // Change to your verified sender
@@ -18,7 +16,6 @@ exports.contactUs = (req, res) => {
   }
   sgMail.send(msg)
   .then(info => {
-      console.log(info)
       res.status(200).send({msg: "Mail Sent Succesfully"})
   })
   .catch(err => {

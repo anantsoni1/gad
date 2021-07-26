@@ -17,7 +17,7 @@ function Footer(props) {
             </li>
             <li className="py-1">
               <Link className="footer-link" to="/">
-                Home 2
+                Home
               </Link>
             </li>
             <li className="py-1">
@@ -32,12 +32,12 @@ function Footer(props) {
             </li>
             <li className="py-1">
               <Link className="footer-link" to="/">
-                Latest Activities
+                Events
               </Link>
             </li>
             <li className="py-1">
-              <Link className="footer-link" to="/">
-                Events
+              <Link className="footer-link" to="/login">
+                Login as Admin
               </Link>
             </li>
           </ul>

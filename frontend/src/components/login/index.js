@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import swal from "sweetalert";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { signIn } from "../../redux/actions/auth";
 import logo from "../../assets/Group_59.svg";
 
-function Login(props) {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordType, setPasswordType] = useState({ type: "password" });
 
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(signIn({ email, password }, history));
   };
 
   const showHide = (e) => {

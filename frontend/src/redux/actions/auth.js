@@ -9,15 +9,12 @@ export const signIn = (formData, history) => async (dispatch) => {
     console.log(jwt(data.token));
     dispatch({ type: SIGN_IN, data });
     const role = jwt(data.token).role;
+    await localStorage.setItem("role", role);
     swal({
       text: `You are logged in as ${role}`,
       icon: "success",
     });
-    switch (role) {
-      case "admin":
-        history.push("/admin/dashboard");
-        break;
-    }
+    history.push("/admin/dashboard");
   } catch (e) {
     swal({
       text: e.response.data.msg,

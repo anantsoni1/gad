@@ -13,11 +13,8 @@ export const signIn = (formData, history) => async (dispatch) => {
       text: `You are logged in as ${role}`,
       icon: "success",
     });
-    switch (role) {
-      case "admin":
-        history.push("/admin/dashboard");
-        break;
-    }
+    localStorage.setItem("role", "admin");
+    history.push("/admin/dashboard");
   } catch (e) {
     swal({
       text: e.response.data.msg,

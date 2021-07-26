@@ -8,22 +8,20 @@ const FileUploadSchema = new mongoose.Schema({
   url: {
     type: String,
     required: true,
-  }
+  },
 });
 
 const CalendarSchema = new mongoose.Schema({
-    year: {
-      type: String,
-    },
-    calendars: [FileUploadSchema] 
+  year: {
+    type: String,
+  },
+  calendars: [FileUploadSchema],
 });
 
 const ParentsSchema = new mongoose.Schema({
-    schoolPolicies : [FileUploadSchema] ,
-    schoolNewsletters : [FileUploadSchema] ,
-    calendar : CalendarSchema
+  schoolPolicies: [FileUploadSchema],
+  schoolNewsletters: [FileUploadSchema],
+  calendar: CalendarSchema,
 });
-
-
 
 module.exports = mongoose.model("Parents", ParentsSchema);

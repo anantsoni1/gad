@@ -17,18 +17,24 @@ exports.addHomeData = async (req, res) => {
     /^data:([A-Za-z-+/]+);base64,(.+)$/
   );
 
+  var matchesSix = req.body.backgroundImg.match(
+    /^data:([A-Za-z-+/]+);base64,(.+)$/
+  );
+
   var response = {};
   var responseTwo = {};
   var responseThree = {};
   var responseFour = {};
   var responseFive = {};
+  var responseSix = {};
 
   if (
     matches.length !== 3 &&
     matchesTwo.length !== 3 &&
     matchesThree.length !== 3 &&
     matchesFour.length !== 3 &&
-    matchesFive.length !== 3
+    matchesFive.length !== 3 &&
+    matchesSix.length !== 3
   ) {
     return res.status(400).send({
       msg: "Invalid Image",
@@ -74,6 +80,14 @@ exports.addHomeData = async (req, res) => {
   let extensionFive = mime.extension(typeFive);
   let fileNameFive = "kindergarten" + "." + extensionFive;
 
+  responseSix.type = matchesThree[1];
+  responseSix.data = new Buffer(matchesThree[2], "base64");
+  let decodedImgSix = responseSix;
+  let imageBufferSix = decodedImgSix.data;
+  let typeSix = decodedImgSix.type;
+  let extensionSix = mime.extension(typeSix);
+  let fileNameSix = "backgroundHome" + "." + extensionSix;
+
   try {
     fs.writeFileSync("./assets/images/" + fileName, imageBuffer, "utf8");
     fs.writeFileSync("./assets/images/" + fileNameTwo, imageBufferTwo, "utf8");
@@ -92,6 +106,11 @@ exports.addHomeData = async (req, res) => {
       imageBufferFive,
       "utf8"
     );
+    fs.writeFileSync(
+      "./assets/images/" + fileNameSix,
+      imageBufferSix,
+      "utf8"
+    );
     let product = {
       ...req.body,
       featureOne: "images/" + fileName,
@@ -99,8 +118,8 @@ exports.addHomeData = async (req, res) => {
       featureThree: "images/" + fileNameThree,
       discoverImg: "images/" + fileNameFour,
       kindergartenImg: "images/" + fileNameFive,
+      backgroundImg: "images/" + fileNameSix,
     };
-    console.log(product);
     let homePage = HomePage(product);
     homePage.save((err, data) => {
       return res.status(201).json(data);
@@ -240,6 +259,34 @@ exports.modifyHomeData = async (req, res) => {
   } else {
     newData.push(req.body.kindergartenImg);
   }
+
+  if (req.body.backgroundImg.substring(0, 6) !== "images") {
+    var matchesFive = req.body.backgroundImg.match(
+      /^data:([A-Za-z-+/]+);base64,(.+)$/
+    );
+    var responseFive = {};
+    if (matchesFive.length !== 3) {
+      return res.status(400).send({
+        msg: "Invalid Image",
+      });
+    }
+    responseFive.type = matchesFive[1];
+    responseFive.data = new Buffer(matchesFive[2], "base64");
+    let decodedImgFive = responseFive;
+    let imageBufferFive = decodedImgFive.data;
+    let typeFive = decodedImgFive.type;
+    let extensionFive = mime.extension(typeFive);
+    let fileNameFive = "kindergarten" + "." + extensionFive;
+    fs.writeFileSync(
+      "./assets/images/" + fileNameFive,
+      imageBufferFive,
+      "utf8"
+    );
+    newData.push(`images/${fileNameFive}`);
+  } else {
+    newData.push(req.body.backgroundImg);
+  }
+
   let product = {
     ...req.body,
     featureOne: newData[0],
@@ -247,6 +294,7 @@ exports.modifyHomeData = async (req, res) => {
     featureThree: newData[2],
     discoverImg: newData[3],
     kindergartenImg: newData[4],
+    backgroundImg: newData[5]
   };
   HomePage.findByIdAndUpdate(req.query.id, product, (err, data) => {
     if (err) {

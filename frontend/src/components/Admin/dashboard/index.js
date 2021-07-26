@@ -43,6 +43,7 @@ const Dashboard = () => {
   const [fileThree, setFileThree] = useState("");
   const [fileFour, setFileFour] = useState("");
   const [fileFive, setFileFive] = useState("");
+  const [fileSix, setFileSix] = useState("");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetHomeData())
@@ -53,11 +54,13 @@ const Dashboard = () => {
         setFileThree(imageUrl + data?.featureThree);
         setFileFour(imageUrl + data?.discoverImg);
         setFileFive(imageUrl + data?.kindergartenImg);
+        setFileSix(imageUrl + data?.backgroundImg);
         return setFormData(() => ({
           ...formData,
           id: data?._id,
           heading: data?.heading,
           subHeading: data?.subHeading,
+          backgroundImg: data?.backgroundImg,
           blogsHeading: data?.blogsHeading,
           blogsSubHeading: data?.blogsSubHeading,
           curriculaHeading: data?.curriculaHeading,
@@ -91,15 +94,23 @@ const Dashboard = () => {
               id: data?._id,
               heading: data?.heading,
               subHeading: data?.subHeading,
+              backgroundImg: data?.backgroundImg,
+              blogsHeading: data?.blogsHeading,
+              blogsSubHeading: data?.blogsSubHeading,
               curriculaHeading: data?.curriculaHeading,
               curriculaSubHeading: data?.curriculaSubHeading,
               discoverHeading: data?.discoverHeading,
               discoverSubHeading: data?.discoverSubHeading,
               discoverText: data?.discoverText,
+              discoverImg: data?.discoverImg,
               kindergarten: data?.kindergarten,
+              kindergartenImg: data?.kindergartenImg,
               discoverMoreHeading: data?.discoverMoreHeading,
               discoverMoreSubHeading: data?.discoverMoreSubHeading,
               discoverMoreText: data?.discoverMoreText,
+              featureOne: data?.featureOne,
+              featureTwo: data?.featureTwo,
+              featureThree: data?.featureThree,
             }));
           })
           .catch(() => {});
@@ -133,6 +144,24 @@ const Dashboard = () => {
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
+                <img className="img-fluid" src={fileSix} />
+                <input
+                  onChange={(e) => {
+                    if (e.target.files[0]) {
+                      setFileSix(URL.createObjectURL(e?.target?.files[0]));
+                      toBase64(e?.target?.files[0]).then((res) => {
+                        setFormData({
+                          ...formData,
+                          backgroundImg: res,
+                        });
+                      });
+                    }
+                  }}
+                  accept=".png, .jpg, .jpeg"
+                  type="file"
+                  className="my-4"
+                  name="kindergartenImg"
+                />
               </div>
               <div className="container">
                 <div className="row carousel-flex">

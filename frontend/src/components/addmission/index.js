@@ -67,7 +67,7 @@ const Addmission = () => {
                             return (
                               <>
                                 <p>
-                                  <Link to={val.link}>{val.text}</Link>
+                                  <a href={val.link} target="_blank">{val.text}</a>
                                 </p>
                               </>
                             );
@@ -100,7 +100,7 @@ const Addmission = () => {
                             return (
                               <>
                                 <p>
-                                  <Link to={val.link}>{val.text}</Link>
+                                <a href={val.link} target="_blank">{val.text}</a>
                                 </p>
                               </>
                             );
@@ -127,7 +127,7 @@ const Addmission = () => {
                             return (
                               <>
                                 <p>
-                                  <Link to={val.link}>{val.text}</Link>
+                                <a href={val.link} v>{val.text}</a>
                                 </p>
                               </>
                             );
@@ -140,7 +140,7 @@ const Addmission = () => {
                         ? formData?.links.map((val, index) => {
                             return (
                               <>
-                                <Link to={val.link}>{val.text} </Link>
+                                <a href={val.link} target="_blank">{val.text}</a>
                               </>
                             );
                           })

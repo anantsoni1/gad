@@ -53,5 +53,8 @@ export const DELETE_SCHOOL_NEWSLATER = "DELETE_SCHOOL_NEWSLATER";
 export const DELETE_CALENDER = "DELETE_CALENDER";
 
 // Blogs
+export const GET_BLOGS = "GET_BLOGS";
+export const ADD_NEW_BLOG = "ADD_NEW_BLOG";
+export const GET_BLOGS_BY_ID = "GET_BLOGS_BY_ID";
+export const UPDATE_NEW_BLOG = "UPDATE_NEW_BLOG";
 
-export const ADD_NEW_BLOG = "ADD_NEW_BLOG"

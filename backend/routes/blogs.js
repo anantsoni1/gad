@@ -2,8 +2,10 @@ const router = require("express").Router();
 const blogs = require("../controllers/blogs");
 
 router.post("/blogs/add", blogs.addBlogsData);
-// router.put("/modifyCovid", covid.modifyCovid);
+router.put("/blogs/edit", blogs.editBlogsData);
 router.get("/blogs/get", blogs.getBlogsData);
+router.get("/blogs/get-by-id", blogs.getBlogByIdData);
+router.delete("/blogs/delete", blogs.deleteBlog);
 
 module.exports = {
   router: router,

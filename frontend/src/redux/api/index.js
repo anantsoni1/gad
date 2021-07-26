@@ -76,3 +76,6 @@ export const deleteCalender = (id) =>
 
 // Blogs 
 export const addNewBlog = (formData) => axios.post(`${url}/blogs/add`, formData);
+export const updateNewBlog = (formData,id) => axios.put(`${url}/blogs/edit?id=${id}`, formData);
+export const getBlogs = () => axios.get(`${url}/blogs/get`);
+export const getBlogsById = (id) => axios.get(`${url}/blogs/get-by-id?id=${id}`);

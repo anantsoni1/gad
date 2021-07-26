@@ -72,3 +72,6 @@ export const deleteSchoolNewslater = (id) =>
   axios.delete(`${url}/deleteSchoolNewsletter?id=${id}`);
 export const deleteCalender = (id) =>
   axios.delete(`${url}/deleteCalendar?id=${id}`);
+
+// Blogs 
+export const addNewBlog = (formData) => axios.post(`${url}/blogs/add`, formData);

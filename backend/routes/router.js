@@ -12,7 +12,8 @@ const routes = [
   "admission",
   "covid",
   "parents",
-  "gallery"
+  "gallery",
+  "blogs"
 ];
 
 module.exports = {

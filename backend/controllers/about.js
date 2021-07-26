@@ -68,7 +68,6 @@ exports.getAboutPageData = async (req, res) => {
 
 exports.modifyAboutPageData = async (req, res) => {
   let newData = [];
-  console.log(req.body.posts);
   req.body.posts?.map((val) => {
     if (val.img.substring(0, 6) !== "images") {
       var matches = val.img.match(/^data:([A-Za-z-+/]+);base64,(.+)$/),
@@ -98,7 +97,6 @@ exports.modifyAboutPageData = async (req, res) => {
   let newDataObj = {
     posts: newData,
   };
-  console.log(newDataObj);
   AboutPage.findByIdAndUpdate(req.query.id, newDataObj, (err, data) => {
     if (err) {
       return res.status(400).json({ msg: err.message });

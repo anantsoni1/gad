@@ -81,7 +81,6 @@ exports.modifyAdmissionPageData = async (req, res) => {
       ...req.body,
       img: "images/" + fileName,
     };
-    console.log(product);
     AdmissionPage.findByIdAndUpdate(req.query.id, product, (err, data) => {
       if (err) {
         return res.status(400).json({ msg: err.message });

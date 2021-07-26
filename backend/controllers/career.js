@@ -1,8 +1,6 @@
 const CareerPage = require("../models/career");
 
 exports.addCareerPageData = async (req, res) => {
-  console.log("test");
-  console.log(req.body);
   let careerPage = CareerPage(req.body);
   careerPage.save().then((data, error) => {
     if (error) {

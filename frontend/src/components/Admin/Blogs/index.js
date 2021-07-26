@@ -33,6 +33,7 @@ function BlogsTable(props) {
                     <tr>
                         <th></th>
                         <th>Name</th>
+                        <th>Author</th>
                         <th >Action</th>
                     </tr>
                 </thead>
@@ -46,7 +47,10 @@ function BlogsTable(props) {
                                     <td>{b.author}</td>
                                     <td >
                                         <Link to={'/admin/blogs/edit?id=' + b._id}>
-                                            <button className="text-white bg-secondaryColor font-demi rounded w-40 mr-1" style={{ border: "none" }}>Edit</button>
+                                            <button className="text-white bg-secondaryColor font-demi rounded w-40 mr-3" style={{ border: "none" }}>Edit</button>
+                                        </Link>
+                                        <Link >
+                                            <button className="text-white btn-danger font-demi rounded w-40 mr-1 ml-5" style={{ border: "none" }}>Delete</button>
                                         </Link>
                                     </td>
                                 </tr>

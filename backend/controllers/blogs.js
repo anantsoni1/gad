@@ -57,3 +57,15 @@ exports.editBlogsData = async (req, res) => {
       .json({ msg: "Updated Data successfully", data: data });
   });
 };
+
+exports.deleteBlog = async (req, res) => {
+  Blogs.findByIdAndDelete(req.query.id,(err, data) => {
+    if (err) {
+      return res.status(400).json({ msg: err.message });
+    }
+    return res
+      .status(201)
+      .json({ msg: "Blog Deleted successfully", data: data });
+  });
+};
+

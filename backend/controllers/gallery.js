@@ -43,14 +43,13 @@ exports.addGallerydata = async (req, res) => {
       });
     }
 };
-// get all
 exports.getGalleryData = async (req, res) => {
   try {
     gallery.find({}, (err, data) => {
       if (err) {
         return res.status(400).json({ msg: err });
       }
-
+      console.log(data);
       if (data) {
         return res.status(200).json({ data: data });
       }

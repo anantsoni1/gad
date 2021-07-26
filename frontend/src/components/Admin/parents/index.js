@@ -5,7 +5,6 @@ import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import { fileUrl } from "../../../redux/api/index";
-import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import {
   DeleteSchoolPolicy,
@@ -23,20 +22,18 @@ import {
 } from "../../../redux/actions/parents";
 import swal from "sweetalert";
 import { Modal } from "react-bootstrap";
+import Header from "../../header/index";
+import background from "../../../assets/Group8921.svg";
 import "./style.css";
 
 function AdminParents() {
   const schoolPolicyData = useSelector(
     (state) => state.parent?.getSchoolPolicyData
   );
-  console.log(schoolPolicyData?.data, "test");
   const schoolNewslaterData = useSelector(
     (state) => state.parent?.getSchoolNewslaterData
   );
-  console.log(schoolNewslaterData);
-  // const calender = useSelector((state) => state.parent?.getCalender);
-  // console.log(calender);
-
+  const calender = useSelector((state) => state.parent?.getCalender);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const [editShowModal, seteditShowModal] = useState(false);
@@ -100,7 +97,36 @@ function AdminParents() {
     });
   };
 
-  const [calenderformData, setcalenderFormData] = useState({});
+  const [showModal3, setShowModal3] = useState(false);
+  const [editShowModal3, seteditShowModal3] = useState(false);
+  const [calenderData, setcalenderData] = useState({
+    title: "",
+    uploadedFile: null,
+  });
+  const [editcalenderData, seteditcalenderData] = useState({
+    title: "",
+    id: "",
+    url: "",
+    uploadedFile: null,
+  });
+  const handleShow3 = () => setShowModal3(true);
+  const handleClose3 = () => {
+    setShowModal3(false);
+    setcalenderData({
+      title: "",
+      uploadedFile: null,
+    });
+  };
+  const editHandleShow3 = () => seteditShowModal3(true);
+  const editHandleClose3 = () => {
+    seteditShowModal3(false);
+    seteditcalenderData({
+      title: "",
+      url: "",
+      id: "",
+      uploadedFile: null,
+    });
+  };
   const [expanded, setExpanded] = useState(false);
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -117,8 +143,17 @@ function AdminParents() {
       .then((res) => {})
       .catch(() => {});
   }, []);
+  const EditCalender = (title, URL, _id) => {
+    seteditcalenderData({
+      title: title,
+      url: URL,
+      id: _id,
+      uploadedFile: null,
+    });
+    editHandleShow3();
+  };
+
   const EditSchoolPolicy = (title, URL, _id) => {
-    console.log(title, URL, _id, "sonal");
     seteditSchoolPolicyFormData({
       title: title,
       url: URL,
@@ -128,7 +163,6 @@ function AdminParents() {
     editHandleShow();
   };
   const EditNewsLater = (title, URL, _id) => {
-    console.log(title, URL, _id, "sonal");
     seteditSchoolNewslaterFormData({
       title: title,
       url: URL,
@@ -171,6 +205,12 @@ function AdminParents() {
   function deleteCalender(id) {
     dispatch(DeleteCalender(id))
       .then((response) => {
+        swal({
+          title: "Data Deleted",
+          icon: "success",
+          type: "success",
+          timer: 2000,
+        });
         dispatch(GetCalender())
           .then((res) => {})
           .catch(() => {});
@@ -180,7 +220,6 @@ function AdminParents() {
   function updateSchoolPolicy(e) {
     e.preventDefault();
     const id = editSchoolPolicyformData.id;
-    console.log(id);
     if (id !== "") {
       const data = new FormData();
       const data2 = {
@@ -213,7 +252,6 @@ function AdminParents() {
   function updateSchoolNewslater(e) {
     e.preventDefault();
     const id = editSchoolNewslaterformData.id;
-    console.log(id);
     if (id !== "") {
       const data = new FormData();
       const data2 = {
@@ -245,13 +283,35 @@ function AdminParents() {
   }
   function updateCalender(e) {
     e.preventDefault();
-    dispatch(ModifyCalender(e))
-      .then((response) => {
-        dispatch(GetCalender())
-          .then((res) => {})
+    const id = editcalenderData.id;
+    if (id !== "") {
+      const data = new FormData();
+      const data2 = {
+        title: editcalenderData.title,
+        url: editcalenderData.url,
+      };
+      data.append("title", editcalenderData.title);
+      data.append("uploadedFile", editcalenderData.uploadedFile);
+      if (editcalenderData.uploadedFile === null) {
+        dispatch(ModifyCalender(id, data2))
+          .then((response) => {
+            editHandleClose3();
+            dispatch(GetCalender())
+              .then((res) => {})
+              .catch(() => {});
+          })
           .catch(() => {});
-      })
-      .catch(() => {});
+      } else {
+        dispatch(ModifyCalender(id, data))
+          .then((response) => {
+            editHandleClose3();
+            dispatch(GetCalender())
+              .then((res) => {})
+              .catch(() => {});
+          })
+          .catch(() => {});
+      }
+    }
   }
   function addSchoolPolicy(e) {
     e.preventDefault();
@@ -311,17 +371,162 @@ function AdminParents() {
         .catch(() => {});
     }
   }
-  function addCalender(data) {
-    dispatch(AddCalender(data))
-      .then((response) => {
-        dispatch(GetCalender())
-          .then((res) => {})
-          .catch(() => {});
-      })
-      .catch(() => {});
+  function addCalender(e) {
+    e.preventDefault();
+    if (calenderData.uploadedFile === null) {
+      swal({
+        text: "Upload a file!",
+        icon: "info",
+      });
+    } else {
+      const data = new FormData();
+      data.append("title", calenderData.title);
+      data.append("uploadedFile", calenderData.uploadedFile);
+      dispatch(AddCalender(data))
+        .then((response) => {
+          if (response.calendar) {
+            swal({
+              text: "Data Added Succesfully!",
+              icon: "success",
+              type: "success",
+              timer: 2000,
+            });
+            handleClose3();
+            dispatch(GetCalender())
+              .then((res) => {})
+              .catch(() => {});
+          }
+        })
+        .catch(() => {});
+    }
   }
   return (
     <div className="customContainer">
+      <div className="pb-lg-5 pb-1">
+        <Header img={background} heading="PARENTS" />
+      </div>
+      {editShowModal3 ? (
+        <Modal
+          className="mt-5 modal-card"
+          show={editShowModal3}
+          onHide={editHandleClose3}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <div className="font-bold ml-1">Update Calender</div>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+              <div className="form-group mt-4">
+                <label className="font-20 py-2">Title</label>
+                <input
+                  required
+                  value={editcalenderData.title}
+                  onChange={(e) => {
+                    seteditcalenderData({
+                      ...editcalenderData,
+                      title: e.target.value,
+                    });
+                  }}
+                  name="title"
+                  type="text"
+                  className="form-control"
+                  placeholder="Full Name"
+                />
+              </div>
+              <div className="form-group">
+                <label className="font-20 py-2">Upload File</label>
+                <input
+                  onChange={(e) => {
+                    seteditcalenderData({
+                      ...editcalenderData,
+                      uploadedFile: e.target.files[0],
+                    });
+                  }}
+                  type="file"
+                  class="hidden"
+                  id="uploading"
+                  placeholder="Instructor Image"
+                  required
+                />
+              </div>
+              <div className="text-center mt-5">
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  onClick={updateCalender}
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </Modal.Body>
+        </Modal>
+      ) : (
+        ""
+      )}
+      {showModal3 ? (
+        <Modal
+          className="mt-5 modal-card"
+          show={showModal3}
+          onHide={handleClose3}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <div className="font-bold ml-1">Add Calender</div>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+              <div className="form-group mt-4">
+                <label className="font-20 py-2">Title</label>
+                <input
+                  required
+                  value={calenderData.title}
+                  onChange={(e) => {
+                    setcalenderData({
+                      ...calenderData,
+                      title: e.target.value,
+                    });
+                  }}
+                  name="title"
+                  type="text"
+                  className="form-control"
+                  placeholder="Full Name"
+                />
+              </div>
+              <div className="form-group">
+                <label className="font-20 py-2">Upload File</label>
+                <input
+                  onChange={(e) => {
+                    setcalenderData({
+                      ...calenderData,
+                      uploadedFile: e.target.files[0],
+                    });
+                  }}
+                  type="file"
+                  class="hidden"
+                  id="uploading"
+                  placeholder="Instructor Image"
+                  required
+                />
+              </div>
+              <div className="text-center mt-5">
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  onClick={addCalender}
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </Modal.Body>
+        </Modal>
+      ) : (
+        ""
+      )}
       {editShowModal ? (
         <Modal
           className="mt-5 modal-card"
@@ -743,19 +948,80 @@ function AdminParents() {
             id="panel3bh-header"
           >
             <div className="d-flex flex-lg-row flex-column align-items-center ">
-              <p className="h5">Add Calender</p>
-              <button className="px-5 mx-4 my-2 btn btn-primary">Add +</button>
+              <p className="h5">Add calender</p>
             </div>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
-              sit amet egestas eros, vitae egestas augue. Duis vel est augue.
-            </Typography>
+            <div className="user-table">
+              <div class="d-flex justify-content-end align-items-center">
+                <button class="btn btn-primary px-4" onClick={handleShow3}>
+                  Add calender
+                </button>
+              </div>
+              <div class="row mb-5 mt-3 table-responsive">
+                <table class="table table-striped font-bold">
+                  <thead>
+                    <tr className="font-16  align-middle">
+                      <th scope="col">S.No</th>
+                      <th scope="col">title</th>
+                      <th scope="col">URL</th>
+                      <th scope="col">Action</th>
+                      <th scope="col">Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {calender?.data?.calendars &&
+                    calender?.data?.calendars.length > 0
+                      ? calender?.data?.calendars.map((item, index) => {
+                          return (
+                            <tr key={index}>
+                              <td>{index + 1}</td>
+                              <td>{item.title}</td>
+                              <td>
+                                <a
+                                  className="btn btn-success"
+                                  href={fileUrl + item.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  View
+                                </a>
+                              </td>
+                              <td>
+                                <button
+                                  onClick={() => {
+                                    EditCalender(
+                                      item.title,
+                                      item.url,
+                                      item._id
+                                    );
+                                  }}
+                                  className="btn btn-primary btn-sm"
+                                >
+                                  Edit
+                                </button>
+                              </td>
+                              <td>
+                                <button
+                                  className="btn btn-danger btn-sm"
+                                  onClick={() => {
+                                    deleteCalender(item._id);
+                                  }}
+                                >
+                                  Delete
+                                </button>
+                              </td>
+                            </tr>
+                          );
+                        })
+                      : ""}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </AccordionDetails>
         </Accordion>
       </div>
-      <></>
     </div>
   );
 }

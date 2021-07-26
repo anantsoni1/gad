@@ -38,8 +38,15 @@ function AdminParents() {
   // console.log(calender);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+  const [editShowModal, seteditShowModal] = useState(false);
   const [schoolPolicyformData, setschoolPolicyFormData] = useState({
     title: "",
+    uploadedFile: null,
+  });
+  const [editSchoolPolicyformData, seteditSchoolPolicyFormData] = useState({
+    title: "",
+    id: "",
+    url: "",
     uploadedFile: null,
   });
   const handleShow = () => setShowModal(true);
@@ -47,6 +54,16 @@ function AdminParents() {
     setShowModal(false);
     setschoolPolicyFormData({
       title: "",
+      uploadedFile: null,
+    });
+  };
+  const editHandleShow = () => seteditShowModal(true);
+  const editHandleClose = () => {
+    seteditShowModal(false);
+    seteditSchoolPolicyFormData({
+      title: "",
+      url: "",
+      id: "",
       uploadedFile: null,
     });
   };
@@ -68,6 +85,16 @@ function AdminParents() {
       .then((res) => {})
       .catch(() => {});
   }, []);
+  const EditSchoolPolicy = (title, URL, _id) => {
+    console.log(title, URL, _id, "sonal");
+    seteditSchoolPolicyFormData({
+      title: title,
+      url: URL,
+      id: _id,
+      uploadedFile: null,
+    });
+    editHandleShow();
+  };
 
   function deleteSchoolPolicy(id) {
     dispatch(DeleteSchoolPolicy(id))
@@ -102,17 +129,42 @@ function AdminParents() {
       })
       .catch(() => {});
   }
-  function updateSchoolPolicy(id, data) {
-    dispatch(ModifySchoolPolicy(id, data))
-      .then((response) => {
-        dispatch(GetSchoolPolicy())
-          .then((res) => {})
+  function updateSchoolPolicy(e) {
+    e.preventDefault();
+    const id = editSchoolPolicyformData.id;
+    console.log(id);
+    if (id !== "") {
+      const data = new FormData();
+      const data2 = {
+        title: editSchoolPolicyformData.title,
+        url: editSchoolPolicyformData.url,
+      };
+      data.append("title", editSchoolPolicyformData.title);
+      data.append("uploadedFile", editSchoolPolicyformData.uploadedFile);
+      if (editSchoolPolicyformData.uploadedFile === null) {
+        dispatch(ModifySchoolPolicy(id, data2))
+          .then((response) => {
+            editHandleClose();
+            dispatch(GetSchoolPolicy())
+              .then((res) => {})
+              .catch(() => {});
+          })
           .catch(() => {});
-      })
-      .catch(() => {});
+      } else {
+        dispatch(ModifySchoolPolicy(id, data))
+          .then((response) => {
+            editHandleClose();
+            dispatch(GetSchoolPolicy())
+              .then((res) => {})
+              .catch(() => {});
+          })
+          .catch(() => {});
+      }
+    }
   }
-  function updateSchoolNewslater(id, data) {
-    dispatch(ModifySchoolNewslater(id, data))
+  function updateSchoolNewslater(e) {
+    e.preventDefault();
+    dispatch(ModifySchoolNewslater(e))
       .then((response) => {
         dispatch(GetSchoolNewslater())
           .then((res) => {})
@@ -120,8 +172,9 @@ function AdminParents() {
       })
       .catch(() => {});
   }
-  function updateCalender(id, data) {
-    dispatch(ModifyCalender(id, data))
+  function updateCalender(e) {
+    e.preventDefault();
+    dispatch(ModifyCalender(e))
       .then((response) => {
         dispatch(GetCalender())
           .then((res) => {})
@@ -178,7 +231,67 @@ function AdminParents() {
   }
   return (
     <div className="customContainer">
-      {console.log(schoolPolicyformData)}
+      {editShowModal ? (
+        <Modal
+          className="mt-5 modal-card"
+          show={editShowModal}
+          onHide={editHandleClose}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <div className="font-bold ml-1">Update School Policy</div>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+              <div className="form-group mt-4">
+                <label className="font-20 py-2">Title</label>
+                <input
+                  required
+                  value={editSchoolPolicyformData.title}
+                  onChange={(e) => {
+                    seteditSchoolPolicyFormData({
+                      ...editSchoolPolicyformData,
+                      title: e.target.value,
+                    });
+                  }}
+                  name="title"
+                  type="text"
+                  className="form-control"
+                  placeholder="Full Name"
+                />
+              </div>
+              <div className="form-group">
+                <label className="font-20 py-2">Upload File</label>
+                <input
+                  onChange={(e) => {
+                    seteditSchoolPolicyFormData({
+                      ...editSchoolPolicyformData,
+                      uploadedFile: e.target.files[0],
+                    });
+                  }}
+                  type="file"
+                  class="hidden"
+                  id="uploading"
+                  placeholder="Instructor Image"
+                  required
+                />
+              </div>
+              <div className="text-center mt-5">
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  onClick={updateSchoolPolicy}
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </Modal.Body>
+        </Modal>
+      ) : (
+        ""
+      )}
       {showModal ? (
         <Modal
           className="mt-5 modal-card"
@@ -203,7 +316,7 @@ function AdminParents() {
                       title: e.target.value,
                     });
                   }}
-                  name="fullName"
+                  name="title"
                   type="text"
                   className="form-control"
                   placeholder="Full Name"
@@ -253,64 +366,74 @@ function AdminParents() {
           >
             <div className="d-flex flex-lg-row flex-column align-items-center ">
               <p className="h5">Add School Policy</p>
-              <button
-                onClick={handleShow}
-                className="px-5 mx-4 my-2 btn btn-primary"
-              >
-                Add +
-              </button>
             </div>
           </AccordionSummary>
           <AccordionDetails>
-            <div class="row mb-5 mt-3 user-table table-responsive">
-              <table class="table table-striped font-bold">
-                <thead>
-                  <tr className="font-16  align-middle">
-                    <th scope="col">S.No</th>
-                    <th scope="col">title</th>
-                    <th scope="col">URL</th>
-                    <th scope="col">Action</th>
-                    <th scope="col">Remove</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {schoolPolicyData?.data && schoolPolicyData?.data.length > 0
-                    ? schoolPolicyData?.data.map((item, index) => {
-                        return (
-                          <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{item.title}</td>
-                            <td>
-                              <a
-                                className="btn btn-success"
-                                href={fileUrl + item.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                View
-                              </a>
-                            </td>
-                            <td>
-                              <button className="btn btn-primary btn-sm">
-                                Edit
-                              </button>
-                            </td>
-                            <td>
-                              <button
-                                className="btn btn-danger btn-sm"
-                                onClick={() => {
-                                  deleteSchoolPolicy(item._id);
-                                }}
-                              >
-                                Delete
-                              </button>
-                            </td>
-                          </tr>
-                        );
-                      })
-                    : ""}
-                </tbody>
-              </table>
+            <div className="user-table">
+              <div class="d-flex justify-content-end align-items-center">
+                <button class="btn btn-primary px-4" onClick={handleShow}>
+                  Add Policy
+                </button>
+              </div>
+              <div class="row mb-5 mt-3 table-responsive">
+                <table class="table table-striped font-bold">
+                  <thead>
+                    <tr className="font-16  align-middle">
+                      <th scope="col">S.No</th>
+                      <th scope="col">title</th>
+                      <th scope="col">URL</th>
+                      <th scope="col">Action</th>
+                      <th scope="col">Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {schoolPolicyData?.data && schoolPolicyData?.data.length > 0
+                      ? schoolPolicyData?.data.map((item, index) => {
+                          return (
+                            <tr key={index}>
+                              <td>{index + 1}</td>
+                              <td>{item.title}</td>
+                              <td>
+                                <a
+                                  className="btn btn-success"
+                                  href={fileUrl + item.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  View
+                                </a>
+                              </td>
+                              <td>
+                                <button
+                                  onClick={() => {
+                                    EditSchoolPolicy(
+                                      item.title,
+                                      item.url,
+                                      item._id
+                                    );
+                                  }}
+                                  className="btn btn-primary btn-sm"
+                                >
+                                  Edit
+                                </button>
+                              </td>
+                              <td>
+                                <button
+                                  className="btn btn-danger btn-sm"
+                                  onClick={() => {
+                                    deleteSchoolPolicy(item._id);
+                                  }}
+                                >
+                                  Delete
+                                </button>
+                              </td>
+                            </tr>
+                          );
+                        })
+                      : ""}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </AccordionDetails>
         </Accordion>

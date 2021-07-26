@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import Table from 'react-bootstrap/Table';
 import Sidebar from "../Sidebar/Sidebar";
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
+import "./blogs.css";
 // import { getUsers } from "../../../../redux/actions/admin";
 
 function BlogsTable(props) {
@@ -14,10 +16,19 @@ function BlogsTable(props) {
     // const users = useSelector(state => state.admin?.adminData?.users);
     // const handleShow = () => setShowModal(true);
     // const handleClose = () => setShowModal(false);
+    const history = useHistory();
     return (
         <div>
           <Sidebar />
-            <Table className="table" striped borderless hover responsive>
+          <div class="d-flex justify-content-between align-items-center blogs-heading">
+          <h3>Blogs</h3>
+          <button class="btn btn-primary" onClick={()=>{
+            history.push('/admin/blogs/addNew');
+          }}>
+            Add Blog
+          </button>
+        </div>
+            <Table className="table styled-table" striped borderless hover responsive>
                 <thead>
                     <tr>
                         <th></th>

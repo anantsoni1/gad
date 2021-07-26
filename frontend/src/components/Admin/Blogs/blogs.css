@@ -1,0 +1,20 @@
+.styled-table {
+    width: 90% !important;
+    margin-left: 7%;
+}
+
+.blogs-heading{
+    margin-left: 7%;
+    margin-right: 3%;
+}
+
+.bg-secondaryColor {
+    background: rgb(31, 141, 192);
+}
+
+@media (max-width: 425px) {
+    .blogs-heading{
+        margin-left: 17%;
+        margin-right: 3%;
+    }
+}

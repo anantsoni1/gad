@@ -76,55 +76,6 @@ function Parents() {
             : ""}
         </div>
         <div className="hr-parents mt-5 mb-2"></div>
-        <div className="container">
-          <div className="row pt-lg-5 pt-4">
-            <div className="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12">
-              <h1>School Newsletters</h1>
-              {/* <ul>
-                <li className="h4 mt-5">June 2021 Newsletter</li>
-                <li className="h4 mt-4">May 2021 Newsletter</li>
-                <li className="h4 mt-4">April 2021 Newsletter</li>
-                <li className="h4 mt-4">March 2021 Newsletter</li>
-                <li className="h4 mt-4">February 2021 Newsletter</li>
-                <li className="h4 mt-4">January 2021 Newsletter</li>
-                <li className="h4 mt-4">December Newsletter</li>
-                <li className="h4 mt-4">November Newsletter</li>
-              </ul> */}
-              {schoolNewslaterData?.data && schoolNewslaterData?.data.length > 0
-                ? schoolNewslaterData?.data.map((item, index) => {
-                    return (
-                      <div key={item._id} className="row mt-5 mb-4">
-                        <div className="col-lg-6 col-md-8 col-sm-12 col-12">
-                          <div className="text">
-                            <p className="h3">{item.title}</p>
-                            {/* <p>
-                          To view the Parent – Student handbook, please click on
-                          the button below:
-                        </p> */}
-                          </div>
-                        </div>
-                        <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-start justify-content-lg-end">
-                          <a
-                            href={fileUrl + item.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <button
-                              type="submit"
-                              className="btn-contact text-white btn px-5"
-                            >
-                              View File
-                            </button>
-                          </a>
-                        </div>
-                      </div>
-                    );
-                  })
-                : ""}
-            </div>
-          </div>
-        </div>
-        <div className="hr-parents mt-5 mb-2"></div>
         <div className="container pb-5">
           <div className="row pt-lg-5 pt-4">
             <div className="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12">
@@ -277,3 +228,53 @@ function Parents() {
 }
 
 export default Parents;
+
+//  <div className="hr-parents mt-5 mb-2"></div>
+//         <div className="container">
+//           <div className="row pt-lg-5 pt-4">
+//             <div className="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12">
+//               <h1>School Newsletters</h1>
+//               <ul>
+//                 <li className="h4 mt-5">June 2021 Newsletter</li>
+//                 <li className="h4 mt-4">May 2021 Newsletter</li>
+//                 <li className="h4 mt-4">April 2021 Newsletter</li>
+//                 <li className="h4 mt-4">March 2021 Newsletter</li>
+//                 <li className="h4 mt-4">February 2021 Newsletter</li>
+//                 <li className="h4 mt-4">January 2021 Newsletter</li>
+//                 <li className="h4 mt-4">December Newsletter</li>
+//                 <li className="h4 mt-4">November Newsletter</li>
+//               </ul>
+//               {schoolNewslaterData?.data && schoolNewslaterData?.data.length > 0
+//                 ? schoolNewslaterData?.data.map((item, index) => {
+//                     return (
+//                       <div key={item._id} className="row mt-5 mb-4">
+//                         <div className="col-lg-6 col-md-8 col-sm-12 col-12">
+//                           <div className="text">
+//                             <p className="h3">{item.title}</p>
+//                             {/* <p>
+//                           To view the Parent – Student handbook, please click on
+//                           the button below:
+//                         </p> */}
+//                           </div>
+//                         </div>
+//                         <div className="col-lg-6 col-md-8 col-sm-12 col-12 d-flex justify-content-start justify-content-lg-end">
+//                           <a
+//                             href={fileUrl + item.url}
+//                             target="_blank"
+//                             rel="noopener noreferrer"
+//                           >
+//                             <button
+//                               type="submit"
+//                               className="btn-contact text-white btn px-5"
+//                             >
+//                               View File
+//                             </button>
+//                           </a>
+//                         </div>
+//                       </div>
+//                     );
+//                   })
+//                 : ""}
+//             </div>
+//           </div>
+//         </div>

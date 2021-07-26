@@ -2,12 +2,6 @@
     background: url('../../assets/green_bg.svg');
     min-height: 50vh;
 }
-@media(max-width:768px){
-    #covid{
-        background: url('../../assets/green_bg.svg');
-        min-height: 65vh;
-    }
-}
 .text-underline{
     border-bottom: 2px solid #fff;
 }
@@ -36,4 +30,13 @@
     background: #3DACEB;
     border-radius: 37.5px;
     padding: 0.7rem 2rem;
+}
+@media(max-width:768px){
+    #covid{
+        background: url('../../assets/green_bg.svg');
+        min-height: 65vh;
+    }
+    .sub-heading{
+        font-size: 15px;
+    }
 }

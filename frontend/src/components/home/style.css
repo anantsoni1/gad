@@ -23,17 +23,6 @@
   background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
-@media (max-width: 768px) {
-  .main-heading {
-    font-size: 40px !important;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 40px;
-    letter-spacing: 0.1em;
-    text-align: center;
-    text-shadow: 0px 4px 4px #00000040;
-  }
-}
 
 .update-home-heading {
   color: #18191f;
@@ -184,7 +173,7 @@
 }
 @media (max-width: 900px) {
   .home-sub-heading {
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 800;
     line-height: 40px;
@@ -195,7 +184,7 @@
   }
   .kindergarten-head {
     margin-top: 20px;
-    font-size: 30px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: 40px;
@@ -228,4 +217,57 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 33px !important;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 40px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-shadow: 0px 4px 4px #00000040;
+  }
+  .comprehensive-head {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .comprehensive-sub-head {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .update-home-heading {
+    color: #18191f;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 64px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .update-sub-heading {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .kindergarten-head {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 40px;
+    text-align: left;
+  }
+  p{
+    font-size: 15px;
+  }
 }

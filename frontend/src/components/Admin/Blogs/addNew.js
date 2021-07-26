@@ -2,10 +2,10 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import { makeStyles } from "@material-ui/core/styles";
 import SunEditor from "suneditor-react";
-import { addNewBlog } from "../../../redux/actions/blogs";
+import { addNewBlog , getBlogsById} from "../../../redux/actions/blogs";
 import { useDispatch, useSelector } from "react-redux";
 import "suneditor/dist/css/suneditor.min.css";
-import { useHistory } from "react-router-dom";
+import { useHistory , useLocation} from "react-router-dom";
 
 function Blogs() {
   const history = useHistory();
@@ -18,7 +18,10 @@ function Blogs() {
   const [formData, setFormData] = useState(initialState);
   const [desc, setDesc] = useState("");
   const editorRef = useRef();
-
+  const location = useLocation().search;
+  const id = new URLSearchParams(location).get("id");
+  const blogs = useSelector(state => {return state?.blogs?.getBlogsData?.data});
+  console.log(id);
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",

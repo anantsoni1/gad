@@ -46,11 +46,12 @@ function Home() {
           </div>
           <div className="container">
             {displayGallery && (
-              <div className="modal-container">
-                <div className="container">
-                  <div className="row">
+              <div className="modal-container py-5">
+                <div className="container py-5">
+                  <div className="row py-5">
                     <div
                       id="modal"
+                      style={{maxHeight: "40%"}}
                       className="col-12 mx-auto col-md-12 col-lg-12 py-5 px-xl-3"
                     >
                       <div
@@ -92,9 +93,9 @@ function Home() {
                           </div>
                           <div style={{ paddingLeft: "1.5rem" }}>
                             <div className="update-head">Jane Cooper</div>
-                            <div className="text-muted">
+                            <p className="text-muted">
                               Please join our school and help Heart...
-                            </div>
+                            </p>
                             <div className="color-red mt-3">
                               read more&nbsp;&nbsp;&nbsp;{" "}
                               <i className="fas fa-arrow-right"></i>
@@ -112,9 +113,9 @@ function Home() {
                           </div>
                           <div style={{ paddingLeft: "1.5rem" }}>
                             <div className="update-head">Jane Cooper</div>
-                            <div className="text-muted">
+                            <p className="text-muted">
                               Please join our school and help Heart...
-                            </div>
+                            </p>
                             <div className="color-purple mt-3">
                               read more&nbsp;&nbsp;&nbsp;{" "}
                               <i className="fas fa-arrow-right"></i>
@@ -132,9 +133,9 @@ function Home() {
                           </div>
                           <div style={{ paddingLeft: "1.5rem" }}>
                             <div className="update-head">Jane Cooper</div>
-                            <div className="text-muted">
+                            <p className="text-muted">
                               Please join our school and help Heart...
-                            </div>
+                            </p>
                             <div className="color-green mt-3">
                               read more&nbsp;&nbsp;&nbsp;{" "}
                               <i className="fas fa-arrow-right"></i>

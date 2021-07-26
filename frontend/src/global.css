@@ -21,7 +21,10 @@ body {
   border-radius: 10px;
 }
 
-
+.active{
+  background: #3DACEB;
+  color: white !important;
+}
 code {
   font-family: "Open Sans", sans-serif;
 }

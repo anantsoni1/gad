@@ -31,13 +31,41 @@ exports.getBlogsData = async (req, res) => {
   }
 };
 
-// exports.modifyCareerPageData = async (req, res) => {
-//   CareerPage.findByIdAndUpdate(req.query.id, req.body, (err, data) => {
-//     if (err) {
-//       return res.status(400).json({ msg: err.message });
-//     }
-//     return res
-//       .status(201)
-//       .json({ msg: "Updated Data successfully", data: data });
-//   });
-// };
+exports.getBlogByIdData = async (req, res) => {
+  try {
+    Blogs.findById(req.query.id, (err, data) => {
+      if (err) {
+        return res.status(400).json({ msg: err });
+      }
+
+      if (data) {
+        return res.status(200).json({ data: data });
+      }
+    });
+  } catch (e) {
+    return res.status(400).json({ msg: e });
+  }
+};
+
+exports.editBlogsData = async (req, res) => {
+  Blogs.findByIdAndUpdate(req.query.id, req.body, (err, data) => {
+    if (err) {
+      return res.status(400).json({ msg: err.message });
+    }
+    return res
+      .status(201)
+      .json({ msg: "Updated Data successfully", data: data });
+  });
+};
+
+exports.deleteBlog = async (req, res) => {
+  Blogs.findByIdAndDelete(req.query.id,(err, data) => {
+    if (err) {
+      return res.status(400).json({ msg: err.message });
+    }
+    return res
+      .status(201)
+      .json({ msg: "Blog Deleted successfully", data: data });
+  });
+};
+

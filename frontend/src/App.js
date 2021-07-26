@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch ,useLocation } from "react-router-dom";
 import Home from "./components/home";
 import About from "./components/about";
 import Covid from "./components/Covid";
@@ -25,8 +25,13 @@ import Login from "./components/login";
 import AdminGuardedRoute from "./components/guards/AdminLayout";
 
 function App() {
+  const location = useLocation();
+  const route = location.pathname.slice(1,6);
+  console.log(route);
   return (
     <div>
+      {route && route=='admin' ? (
+        <>
       <NavbarComponent />
       <Switch>
         <Route exact path="/" component={Home} />
@@ -74,7 +79,59 @@ function App() {
         />
         <AdminGuardedRoute exact path="/admin/blogs" component={AdminBlogs} />
       </Switch>
-      <Footer />
+      </>
+      ) : (
+        <>
+        <NavbarComponent />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/covid" component={Covid} />
+          <Route exact path="/parents" component={Parents} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/principal" component={PrincipalDesk} />
+          <Route exact path="/admissions" component={Admissions} />
+          <Route exact path="/career" component={Career} />
+          <Route exact path="/team" component={Team} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/login" component={Login} />
+          <AdminGuardedRoute
+            exact
+            path="/admin/dashboard"
+            component={Dashboard}
+          />
+          <AdminGuardedRoute
+            exact
+            path="/admin/admission"
+            component={AdminAdmission}
+          />
+          <AdminGuardedRoute
+            exact
+            path="/admin/contact"
+            component={AdminContact}
+          />
+          <AdminGuardedRoute
+            exact
+            path="/admin/medical"
+            component={AdminMedical}
+          />
+          <AdminGuardedRoute exact path="/admin/career" component={AdminCareer} />
+          <AdminGuardedRoute exact path="/admin/about" component={AdminAbout} />
+          <AdminGuardedRoute exact path="/admin/team" component={AdminTeam} />
+          <AdminGuardedRoute
+            exact
+            path="/admin/principal"
+            component={AdminPrincipal}
+          />
+          <AdminGuardedRoute
+            exact
+            path="/admin/parents"
+            component={AdminParents}
+          />
+          <AdminGuardedRoute exact path="/admin/blogs" component={AdminBlogs} />
+        </Switch>
+        <Footer />
+        </>
+      )}
     </div>
   );
 }

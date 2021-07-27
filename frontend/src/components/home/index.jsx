@@ -2,24 +2,36 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { GetHomeData } from "../../redux/actions/home";
+import { GetInfoData } from "../../redux/actions/info";
 import { GetGalleryData } from "../../redux/actions/gallery";
 import { Carousel } from "react-bootstrap";
 import person from "../../assets/person.svg";
 import { imageUrl } from "../../redux/api/index";
 import ImageGallery from "react-image-gallery";
+import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Link, useHistory } from "react-router-dom";
 import { getBlogs } from "../../redux/actions/blogs";
+import alertImage from "../../assets/alert.jpg";
 
 function Home() {
+  const infoData = useSelector((state) => state?.info?.getInfoData);
   const dispatch = useDispatch();
   const history = useHistory();
   const blogs = useSelector(state => {return state?.blogs?.getBlogsData?.data});
   const [displayGallery, setDisplayGallery] = useState(false);
+  const [open, setOpen] = useState(false);
+  const onCloseModal = () => setOpen(false);
   useEffect(() => {
     dispatch(getBlogs());
     dispatch(GetHomeData())
       .then((res) => {})
+      .catch(() => {});
+    dispatch(GetInfoData())
+      .then((res) => {
+        setOpen(res?.data[0]?.display);
+      })
       .catch(() => {});
     dispatch(GetGalleryData())
       .then((res) => {})
@@ -39,6 +51,13 @@ function Home() {
     <>
       {homeData && homeData.slots.length > 0 && (
         <div className="home">
+          <Modal open={open} onClose={onCloseModal} center>
+            <div className="d-flex flex-column align-items-center">
+              <h2>{infoData?.data[0]?.heading}</h2>
+              <img src={alertImage} alt={alertImage} className="alertImage" />
+              <p className="h5 py-2">{infoData?.data[0]?.text}</p>
+            </div>
+          </Modal>
           <div className="home-banner">
             <div className="home-heading text-white text-center">
               <div className="main-heading" style={{ paddingTop: "45vh" }}>
@@ -56,7 +75,7 @@ function Home() {
                   <div className="row py-5">
                     <div
                       id="modal"
-                      style={{maxHeight: "40%"}}
+                      style={{ maxHeight: "40%" }}
                       className="col-12 mx-auto col-md-12 col-lg-12 py-5 px-xl-3"
                     >
                       <div

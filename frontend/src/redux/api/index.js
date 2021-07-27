@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export const url = "http://localhost:8080/api";
-export const imageUrl = "http://localhost:8080/";
-export const fileUrl = "http://localhost:8080";
+// export const url = "http://localhost:8080/api";
+// export const imageUrl = "http://localhost:8080/";
+// export const fileUrl = "http://localhost:8080";
 
-// export const url = "https://pigameapp.com:8082/api";
-// export const imageUrl = "https://pigameapp.com:8082/";
-// export const fileUrl = "https://pigameapp.com:8082";
+export const url = "https://pigameapp.com:8082/api";
+export const imageUrl = "https://pigameapp.com:8082/";
+export const fileUrl = "https://pigameapp.com:8082";
 
 // HOME
 export const getHomeData = () => axios.get(`${url}/getHomeData`);
@@ -90,3 +90,8 @@ export const updateNewBlog = (formData, id) =>
 export const getBlogs = () => axios.get(`${url}/blogs/get`);
 export const getBlogsById = (id) =>
   axios.get(`${url}/blogs/get-by-id?id=${id}`);
+
+// Info
+export const getInfoData = () => axios.get(`${url}/getInfoData`);
+export const modifyInfoData = (id, data) =>
+  axios.put(`${url}/modifyInfoData?id=${id}`, data);

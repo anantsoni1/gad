@@ -1,6 +1,10 @@
 .home {
   background: #e5e5e5;
 }
+.alertImage {
+  height: 150px;
+  width: 150px;
+}
 .home-banner {
   background-image: linear-gradient(
       180deg,
@@ -138,7 +142,7 @@
   padding-bottom: 100px;
 }
 .kindergarten-head {
-  font-size: 48px;
+  font-size: 38px;
   font-style: normal;
   font-weight: 800;
   line-height: 60px;
@@ -272,5 +276,11 @@
   }
   p {
     font-size: 15px;
+  }
+}
+@media (max-width: 500px) {
+  .alertImage {
+    height: 100px;
+    width: 100px;
   }
 }

@@ -37,6 +37,8 @@ export const LOGOUT = "LOGOUT";
 // Gallery
 export const GET_GALLERY_DATA = "GET_GALLERY_DATA";
 export const POST_GALLERY_DATA = "POST_GALLERY_DATA";
+export const DELETE_GALLERY_DATA = "DELETE_GALLERY_DATA";
+export const ADD_GALLERY_DATA = "ADD_GALLERY_DATA";
 
 // Parents
 export const ADD_SCHOOL_POLICY = "ADD_SCHOOL_POLICY";

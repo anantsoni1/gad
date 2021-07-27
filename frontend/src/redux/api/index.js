@@ -1,12 +1,12 @@
 import axios from "axios";
 
-// export const url = "http://localhost:8080/api";
-// export const imageUrl = "http://localhost:8080/";
-// export const fileUrl = "http://localhost:8080";
+export const url = "http://localhost:8080/api";
+export const imageUrl = "http://localhost:8080/";
+export const fileUrl = "http://localhost:8080";
 
-export const url = "https://pigameapp.com:8082/api";
-export const imageUrl = "https://pigameapp.com:8082/";
-export const fileUrl = "https://pigameapp.com:8082";
+// export const url = "https://pigameapp.com:8082/api";
+// export const imageUrl = "https://pigameapp.com:8082/";
+// export const fileUrl = "https://pigameapp.com:8082";
 
 // HOME
 export const getHomeData = () => axios.get(`${url}/getHomeData`);
@@ -17,6 +17,10 @@ export const modifyHomeData = (id, data) =>
 export const getGalleryData = () => axios.get(`${url}/getGalleryData`);
 export const modifyGalleryData = (id, data) =>
   axios.put(`${url}/modifyGalleryData?id=${id}`, data);
+export const deleteGalleryData = (id) =>
+  axios.delete(`${url}/deleteGalleryData?id=${id}`);
+export const addGalleryData = (data) =>
+  axios.post(`${url}/addGallerydata`, data);
 
 // ABOUT
 export const getAboutData = () => axios.get(`${url}/getAboutPageData`);
@@ -78,8 +82,11 @@ export const deleteSchoolNewslater = (id) =>
 export const deleteCalender = (id) =>
   axios.delete(`${url}/deleteCalendar?id=${id}`);
 
-// Blogs 
-export const addNewBlog = (formData) => axios.post(`${url}/blogs/add`, formData);
-export const updateNewBlog = (formData,id) => axios.put(`${url}/blogs/edit?id=${id}`, formData);
+// Blogs
+export const addNewBlog = (formData) =>
+  axios.post(`${url}/blogs/add`, formData);
+export const updateNewBlog = (formData, id) =>
+  axios.put(`${url}/blogs/edit?id=${id}`, formData);
 export const getBlogs = () => axios.get(`${url}/blogs/get`);
-export const getBlogsById = (id) => axios.get(`${url}/blogs/get-by-id?id=${id}`);
+export const getBlogsById = (id) =>
+  axios.get(`${url}/blogs/get-by-id?id=${id}`);

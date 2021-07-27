@@ -41,7 +41,7 @@ function Contact() {
           <div className="col-lg-5 col-md-5 col-sm-12 col-12 mt-5">
             <p className="h2 mt-lg-5">Reach Us At</p>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5450831368353!2d77.35827651455917!3d28.61342119169757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5992452d761%3A0xaaa44725147c1507!2sJSS%20Academy%20of%20Technical%20Education!5e0!3m2!1sen!2sin!4v1579253775872!5m2!1sen!2sin"
+              src="https://maps.google.com/maps?q=Guru%20Angad%20Dev%20Elementary%20School&t=&z=13&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="380"
               frameborder="0"

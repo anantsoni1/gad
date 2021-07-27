@@ -7,11 +7,17 @@ import { Carousel } from "react-bootstrap";
 import person from "../../assets/person.svg";
 import { imageUrl } from "../../redux/api/index";
 import ImageGallery from "react-image-gallery";
+import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 import "react-image-gallery/styles/css/image-gallery.css";
+import alertImage from "../../assets/alert.jpg";
 
 function Home() {
   const dispatch = useDispatch();
   const [displayGallery, setDisplayGallery] = useState(false);
+  const [open, setOpen] = useState(true);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
   useEffect(() => {
     dispatch(GetHomeData())
       .then((res) => {})
@@ -32,6 +38,15 @@ function Home() {
   );
   return (
     <>
+      <Modal open={open} onClose={onCloseModal} center>
+        <div className="d-flex flex-column align-items-center">
+          <h2>Information</h2>
+          <img src={alertImage} alt={alertImage} className="alertImage" />
+          <p className="h5 py-2">
+            School will remain closed today due to heavy snowfall.
+          </p>
+        </div>
+      </Modal>
       {homeData && homeData.slots.length > 0 && (
         <div className="home">
           <div className="home-banner">
@@ -51,7 +66,7 @@ function Home() {
                   <div className="row py-5">
                     <div
                       id="modal"
-                      style={{maxHeight: "40%"}}
+                      style={{ maxHeight: "40%" }}
                       className="col-12 mx-auto col-md-12 col-lg-12 py-5 px-xl-3"
                     >
                       <div

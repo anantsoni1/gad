@@ -27,6 +27,7 @@ import AdminAddNew from "./components/Admin/Blogs/addNew";
 import AdminEditBlogs from "./components/Admin/Blogs/edit";
 import AdminGuardedRoute from "./components/guards/AdminLayout";
 import Donation from "./components/donations";
+import CovidLinks from "./components/Covid/links";
 
 function App() {
   const location = useLocation();
@@ -47,6 +48,7 @@ function App() {
         <Route exact path="/career" component={Career} />
         <Route exact path="/team" component={Team} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/covid-links" component={CovidLinks} />
         <Route exact path="/donation" component={Donation} />
         <Route exact path="/login" component={Login} />
         <AdminGuardedRoute
@@ -100,6 +102,7 @@ function App() {
           <Route exact path="/admissions" component={Admissions} />
           <Route exact path="/career" component={Career} />
           <Route exact path="/team" component={Team} />
+          <Route exact path="/covid-links" component={CovidLinks} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/donation" component={Donation} />
           <Route exact path="/login" component={Login} />

@@ -96,7 +96,7 @@ function NavbarComponent() {
                 DONATE
               </Nav.Link>
             </NavLink>
-            <NavLink to="/contact" activeClassName="activeNav">
+            <NavLink to="/contact" activeClassName="activeNav" className="mr-2">
               <Nav.Link
                 href="/contact"
                 className="px-3 navbar-item text-center"

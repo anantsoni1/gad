@@ -8,11 +8,16 @@ import person from "../../assets/person.svg";
 import { imageUrl } from "../../redux/api/index";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import { Link, useHistory } from "react-router-dom";
+import { getBlogs } from "../../redux/actions/blogs";
 
 function Home() {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const blogs = useSelector(state => {return state?.blogs?.getBlogsData?.data});
   const [displayGallery, setDisplayGallery] = useState(false);
   useEffect(() => {
+    dispatch(getBlogs());
     dispatch(GetHomeData())
       .then((res) => {})
       .catch(() => {});
@@ -84,7 +89,7 @@ function Home() {
                     {homeData.slots[0].blogsSubHeading}
                   </div>
                   <div className="row mt-md-5 mt-3">
-                    <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
+                    {/* <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
                       <div className="update-card update-red">
                         <div className="d-flex justify-content-between py-5 px-4">
                           <div>
@@ -103,28 +108,87 @@ function Home() {
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
-                      <div className="update-card update-purple">
-                        <div className="d-flex justify-content-between py-5 px-4">
-                          <div>
-                            <div className="dates date-purple">17</div>
-                            <div className="month text-center mt-2">Apr</div>
-                          </div>
-                          <div style={{ paddingLeft: "1.5rem" }}>
-                            <div className="update-head">Jane Cooper</div>
-                            <p className="text-muted">
-                              Please join our school and help Heart...
-                            </p>
-                            <div className="color-purple mt-3">
-                              read more&nbsp;&nbsp;&nbsp;{" "}
-                              <i className="fas fa-arrow-right"></i>
+                    </div> */}
+                    {blogs && blogs.length>0 ? (
+                      blogs.map((b,i)=>{
+                        if (i == 0) {
+                          return (
+                            <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
+                            <div className="update-card update-red">
+                              <div className="d-flex justify-content-between py-5 px-4">
+                                <div>
+                                  <div className="dates date-red">{(new Date(b.date)).getDate()}</div>
+                                  <div className="month text-center mt-2">{(new Date(b.date)).toLocaleString('default', { month: 'short' })}</div>
+                                </div>
+                                <div style={{ paddingLeft: "1.5rem" }}>
+                                  <div className="update-head">{b.title}</div>
+                                  <p className="text-muted">
+                                    {b.shortDescription.substr(0,36)}...
+                                  </p>
+                                  <div className="color-red mt-3"
+                                    style={{"cursor": "pointer"}}>
+                                    read more&nbsp;&nbsp;&nbsp;{" "}
+                                    <i className="fas fa-arrow-right"></i>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
+                          )
+                        }
+                        if (i == 1) {
+                          return (
+                            <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
+                            <div className="update-card update-purple">
+                              <div className="d-flex justify-content-between py-5 px-4">
+                                <div>
+                                <div className="dates date-purple">{(new Date(b.date)).getDate()}</div>
+                                  <div className="month text-center mt-2">{(new Date(b.date)).toLocaleString('default', { month: 'short' })}</div>
+                                </div>
+                                <div style={{ paddingLeft: "1.5rem" }}>
+                                <div className="update-head">{b.title}</div>
+                                  <p className="text-muted">
+                                    {b.shortDescription.substr(0,36)}...
+                                  </p>
+                                  <div className="color-purple mt-3"
+                                                                    style={{"cursor": "pointer"}}>
+                                    read more&nbsp;&nbsp;&nbsp;{" "}
+                                    <i className="fas fa-arrow-right"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          )
+                        }
+                        if (i == 2) {
+                          return (
+                            <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
+                            <div className="update-card update-green">
+                              <div className="d-flex justify-content-between py-5 px-4">
+                                <div>
+                                <div className="dates date-green">{(new Date(b.date)).getDate()}</div>
+                                  <div className="month text-center mt-2">{(new Date(b.date)).toLocaleString('default', { month: 'short' })}</div>
+                                </div>
+                                <div style={{ paddingLeft: "1.5rem" }}>
+                                <div className="update-head">{b.title}</div>
+                                  <p className="text-muted">
+                                    {b.shortDescription.substr(0,36)}...
+                                  </p>
+                                  <div className="color-green mt-3"
+                                  style={{"cursor": "pointer"}}>
+                                    read more&nbsp;&nbsp;&nbsp;{" "}
+                                    <i className="fas fa-arrow-right"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          )
+                        }
+                      })
+                    ) : ''}
+                    {/* <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
                       <div className="update-card update-green">
                         <div className="d-flex justify-content-between py-5 px-4">
                           <div>
@@ -143,7 +207,7 @@ function Home() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="comprehensive-head mt-md-5 mt-3 pt-4">
                     {homeData.slots[0].curriculaHeading}
@@ -152,9 +216,11 @@ function Home() {
                     {homeData.slots[0].curriculaSubHeading}
                   </div>
                   <div className="center">
+                    <Link to="/parents">
                     <button className="text-center text-white btn mt-5 comprehensive-btn">
                       Explore Curricula
                     </button>
+                    </Link>
                   </div>
                 </div>
               </div>

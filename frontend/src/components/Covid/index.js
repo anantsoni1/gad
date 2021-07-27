@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { GetCovidData } from "../../redux/actions/covid";
 import "./style.css";
 
 function Covid() {
   const dispatch = useDispatch();
+  const history = useHistory();
   useEffect(() => {
     dispatch(GetCovidData())
       .then((res) => {})
@@ -24,14 +26,21 @@ function Covid() {
                 following links:
               </div>
               <div className="text-center text-white mt-5 sub-heading carousel-flex">
-                <div className="text-white text-center px-lg-0 mt-md-0 mt-3 mx-3 text-underline pb-2">
+                {/* <div className="text-white text-center px-lg-0 mt-md-0 mt-3 mx-3 text-underline pb-2"
+                style={{"cursor": "pointer"}}>
                   QUICK LINKS: COVID-19 Resources
-                </div>
-                <div className="text-white text-center px-lg-0 mt-md-0 mt-3 mx-3 text-underline pb-2">
+                </div> */}
+                <div className="text-white text-center px-lg-0 mt-md-0 mt-3 mx-3 text-underline pb-2"
+                  style={{"cursor": "pointer"}}
+                 onClick={()=>{
+                   history.push('/covid-links')
+                 }}>
                   LINKS
                 </div>
                 <div className="text-white text-center px-lg-0 mt-md-0 mt-3 mx-3 text-underline pb-2">
-                  COVID19 SAFETY
+                  <a href="https://www.fraserhealth.ca/covid19#.X7b_YnBKi70" style={{"color":"white"}} target="_blank">
+                    COVID19 SAFETY
+                  </a>
                 </div>
               </div>
             </div>

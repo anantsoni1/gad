@@ -63,3 +63,6 @@ export const UPDATE_NEW_BLOG = "UPDATE_NEW_BLOG";
 // Info
 export const GET_INFO_DATA = "GET_INFO_DATA";
 export const UPDATE_INFO_DATA = "UPDATE_INFO_DATA";
+
+// Payment
+export const PAYMENT = "PAYMENT";

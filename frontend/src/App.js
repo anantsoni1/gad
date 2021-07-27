@@ -28,6 +28,7 @@ import AdminEditBlogs from "./components/Admin/Blogs/edit";
 import AdminGuardedRoute from "./components/guards/AdminLayout";
 import Donation from "./components/donations";
 import AdminInfo from "./components/Admin/info";
+import CovidLinks from "./components/Covid/links";
 
 function App() {
   const location = useLocation();
@@ -35,7 +36,7 @@ function App() {
   console.log(route);
   return (
     <div>
-      {route && route == "admin" ? (
+      {route && route === "admin" ? (
         <>
           <NavbarComponent />
           <Switch>
@@ -48,6 +49,7 @@ function App() {
             <Route exact path="/career" component={Career} />
             <Route exact path="/team" component={Team} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/covid-links" component={CovidLinks} />
             <Route exact path="/donation" component={Donation} />
             <Route exact path="/login" component={Login} />
             <AdminGuardedRoute
@@ -96,7 +98,6 @@ function App() {
               path="/admin/principal"
               component={AdminPrincipal}
             />
-            <AdminGuardedRoute exact path="/admin/info" component={AdminInfo} />
             <AdminGuardedRoute
               exact
               path="/admin/parents"
@@ -126,6 +127,7 @@ function App() {
             <Route exact path="/admissions" component={Admissions} />
             <Route exact path="/career" component={Career} />
             <Route exact path="/team" component={Team} />
+            <Route exact path="/covid-links" component={CovidLinks} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/donation" component={Donation} />
             <Route exact path="/login" component={Login} />
@@ -134,6 +136,7 @@ function App() {
               path="/admin/dashboard"
               component={Dashboard}
             />
+            <AdminGuardedRoute exact path="/admin/info" component={AdminInfo} />
             <AdminGuardedRoute
               exact
               path="/admin/admission"

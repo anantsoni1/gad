@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export const url = "http://localhost:8080/api";
-export const imageUrl = "http://localhost:8080/";
-export const fileUrl = "http://localhost:8080";
+// export const url = "http://localhost:8080/api";
+// export const imageUrl = "http://localhost:8080/";
+// export const fileUrl = "http://localhost:8080";
 
-// export const url = "https://pigameapp.com:8082/api";
-// export const imageUrl = "https://pigameapp.com:8082/";
-// export const fileUrl = "https://pigameapp.com:8082";
+export const url = "https://pigameapp.com:8082/api";
+export const imageUrl = "https://pigameapp.com:8082/";
+export const fileUrl = "https://pigameapp.com:8082";
 
 // HOME
 export const getHomeData = () => axios.get(`${url}/getHomeData`);

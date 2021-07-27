@@ -11,7 +11,7 @@
       rgba(68, 68, 68, 0) 0%,
       #383838 100%
     ),
-    url("https://pigameapp.com:8082/backgroundHome.jpeg");
+    url("https://pigameapp.com:8082/images/backgroundHome.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -142,7 +142,7 @@
   padding-bottom: 100px;
 }
 .kindergarten-head {
-  font-size: 48px;
+  font-size: 38px;
   font-style: normal;
   font-weight: 800;
   line-height: 60px;

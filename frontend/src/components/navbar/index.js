@@ -32,35 +32,35 @@ function NavbarComponent() {
               activeClassName="activeNav"
               className={
                 location.pathname === "/"
-                  ? "px-4 navbar-item text-center active"
-                  : "px-4 navbar-item text-center"
+                  ? "px-3 navbar-item text-center active"
+                  : "px-3 navbar-item text-center"
               }
             >
               <Nav.Link
                 href="/"
                 className={
                   location.pathname === "/"
-                    ? "px-4 navbar-item text-center active"
-                    : "px-4 navbar-item text-center"
+                    ? "px-3 navbar-item text-center active"
+                    : "px-3 navbar-item text-center"
                 }
               >
                 Home
               </Nav.Link>
             </NavLink>
             <NavLink to="/covid" activeClassName="activeNav">
-              <Nav.Link href="/covid" className="px-4 navbar-item text-center">
+              <Nav.Link href="/covid" className="px-3 navbar-item text-center">
                 Covid 19 Updates
               </Nav.Link>
             </NavLink>
             <NavLink to="/about" activeClassName="activeNav">
-              <Nav.Link href="/about" className="px-4 navbar-item text-center">
+              <Nav.Link href="/about" className="px-3 navbar-item text-center">
                 about
               </Nav.Link>
             </NavLink>
             <NavLink to="/parents" activeClassName="activeNav">
               <Nav.Link
                 href="/parents"
-                className="px-4 navbar-item text-center"
+                className="px-3 navbar-item text-center"
               >
                 parents
               </Nav.Link>
@@ -68,7 +68,7 @@ function NavbarComponent() {
             <NavLink to="/admissions" activeClassName="activeNav">
               <Nav.Link
                 href="/admissions"
-                className="px-4 navbar-item text-center"
+                className="px-3 navbar-item text-center"
               >
                 admissions
               </Nav.Link>
@@ -76,25 +76,30 @@ function NavbarComponent() {
             <NavLink to="/principal" activeClassName="activeNav">
               <Nav.Link
                 href="/principal"
-                className="px-4 navbar-item text-center"
+                className="px-3 navbar-item text-center"
               >
                 Principal
               </Nav.Link>
             </NavLink>
             <NavLink to="/career" activeClassName="activeNav">
-              <Nav.Link href="/career" className="px-4 navbar-item text-center">
+              <Nav.Link href="/career" className="px-3 navbar-item text-center">
                 career
               </Nav.Link>
             </NavLink>
             <NavLink to="/team" activeClassName="activeNav">
-              <Nav.Link href="/team" className="px-4 navbar-item text-center">
+              <Nav.Link href="/team" className="px-3 navbar-item text-center">
                 team
+              </Nav.Link>
+            </NavLink>
+            <NavLink to="/donation" activeClassName="activeNav">
+              <Nav.Link href="/donation" className="px-3 navbar-item text-center">
+                DONATE
               </Nav.Link>
             </NavLink>
             <NavLink to="/contact" activeClassName="activeNav">
               <Nav.Link
                 href="/contact"
-                className="px-4 navbar-item text-center"
+                className="px-3 navbar-item text-center"
               >
                 Contact Us
               </Nav.Link>

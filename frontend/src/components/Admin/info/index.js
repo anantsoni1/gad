@@ -71,6 +71,7 @@ function AdminInfo() {
                 <label className="py-2">Display</label>
                 <div>
                   <input
+                    checked={formData?.display}
                     onChange={(e) => {
                       setformData({
                         ...formData,

@@ -5,6 +5,13 @@
   height: 150px;
   width: 150px;
 }
+.alertModal {
+  border: 2px red solid !important;
+  border-radius: 5px !important;
+}
+.font-bold {
+  font-weight: bold;
+}
 .home-banner {
   background-image: linear-gradient(
       180deg,

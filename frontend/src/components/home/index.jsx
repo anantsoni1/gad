@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { GetHomeData } from "../../redux/actions/home";
+import { GetInfoData } from "../../redux/actions/info";
 import { GetGalleryData } from "../../redux/actions/gallery";
 import { Carousel } from "react-bootstrap";
 import person from "../../assets/person.svg";
@@ -13,14 +14,19 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import alertImage from "../../assets/alert.jpg";
 
 function Home() {
+  const infoData = useSelector((state) => state?.info?.getInfoData);
   const dispatch = useDispatch();
   const [displayGallery, setDisplayGallery] = useState(false);
-  const [open, setOpen] = useState(true);
-  const onOpenModal = () => setOpen(true);
+  const [open, setOpen] = useState(false);
   const onCloseModal = () => setOpen(false);
   useEffect(() => {
     dispatch(GetHomeData())
       .then((res) => {})
+      .catch(() => {});
+    dispatch(GetInfoData())
+      .then((res) => {
+        setOpen(res?.data[0]?.display);
+      })
       .catch(() => {});
     dispatch(GetGalleryData())
       .then((res) => {})
@@ -38,17 +44,15 @@ function Home() {
   );
   return (
     <>
-      <Modal open={open} onClose={onCloseModal} center>
-        <div className="d-flex flex-column align-items-center">
-          <h2>Information</h2>
-          <img src={alertImage} alt={alertImage} className="alertImage" />
-          <p className="h5 py-2">
-            School will remain closed today due to heavy snowfall.
-          </p>
-        </div>
-      </Modal>
       {homeData && homeData.slots.length > 0 && (
         <div className="home">
+          <Modal open={open} onClose={onCloseModal} center>
+            <div className="d-flex flex-column align-items-center">
+              <h2>{infoData?.data[0]?.heading}</h2>
+              <img src={alertImage} alt={alertImage} className="alertImage" />
+              <p className="h5 py-2">{infoData?.data[0]?.text}</p>
+            </div>
+          </Modal>
           <div className="home-banner">
             <div className="home-heading text-white text-center">
               <div className="main-heading" style={{ paddingTop: "45vh" }}>

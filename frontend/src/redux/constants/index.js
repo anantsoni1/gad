@@ -60,3 +60,6 @@ export const ADD_NEW_BLOG = "ADD_NEW_BLOG";
 export const GET_BLOGS_BY_ID = "GET_BLOGS_BY_ID";
 export const UPDATE_NEW_BLOG = "UPDATE_NEW_BLOG";
 
+// Info
+export const GET_INFO_DATA = "GET_INFO_DATA";
+export const UPDATE_INFO_DATA = "UPDATE_INFO_DATA";

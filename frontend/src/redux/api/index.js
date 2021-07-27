@@ -90,3 +90,8 @@ export const updateNewBlog = (formData, id) =>
 export const getBlogs = () => axios.get(`${url}/blogs/get`);
 export const getBlogsById = (id) =>
   axios.get(`${url}/blogs/get-by-id?id=${id}`);
+
+// Info
+export const getInfoData = () => axios.get(`${url}/getInfoData`);
+export const modifyInfoData = (id, data) =>
+  axios.put(`${url}/modifyInfoData?id=${id}`, data);

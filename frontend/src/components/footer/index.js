@@ -31,11 +31,6 @@ function Footer(props) {
               </Link>
             </li>
             <li className="py-1">
-              <Link className="footer-link" to="/">
-                Events
-              </Link>
-            </li>
-            <li className="py-1">
               <Link className="footer-link" to="/login">
                 Login as Admin
               </Link>

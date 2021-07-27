@@ -13,7 +13,8 @@ const routes = [
   "covid",
   "parents",
   "gallery",
-  "blogs"
+  "blogs",
+  "info",
 ];
 
 module.exports = {

@@ -24,7 +24,7 @@ function Home() {
   const galleryData = useSelector((state) => state?.gallery?.getGalleryData);
 
   let images = [];
-  galleryData?.data[0]?.images?.map((data) =>
+  galleryData?.data?.map((data) =>
     images.push({
       original: `${imageUrl}${data.img}`,
       thumbnail: `${imageUrl}${data.img}`,

@@ -57,6 +57,7 @@ function App() {
               path="/admin/dashboard"
               component={Dashboard}
             />
+            <AdminGuardedRoute exact path="/admin/info" component={AdminInfo} />
             <AdminGuardedRoute
               exact
               path="/admin/admission"

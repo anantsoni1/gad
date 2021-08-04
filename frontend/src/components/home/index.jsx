@@ -7,6 +7,8 @@ import { GetGalleryData } from "../../redux/actions/gallery";
 import { Carousel } from "react-bootstrap";
 import person from "../../assets/person.svg";
 import { imageUrl } from "../../redux/api/index";
+import { Alert } from "@material-ui/lab";
+import { AlertTitle } from "@material-ui/lab";
 import ImageGallery from "react-image-gallery";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
@@ -22,6 +24,7 @@ function Home() {
   const blogs = useSelector(state => {return state?.blogs?.getBlogsData?.data});
   const [displayGallery, setDisplayGallery] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openAlertDiv, setOpenAlertDiv] = useState(false);
   const onCloseModal = () => setOpen(false);
   useEffect(() => {
     dispatch(getBlogs());
@@ -31,6 +34,7 @@ function Home() {
     dispatch(GetInfoData())
       .then((res) => {
         setOpen(res?.data[0]?.display);
+        setOpenAlertDiv(res?.data[0]?.display);
       })
       .catch(() => {});
     dispatch(GetGalleryData())
@@ -51,9 +55,16 @@ function Home() {
     <>
       {homeData && homeData.slots.length > 0 && (
         <div className="home">
-          <Modal open={open} onClose={onCloseModal} center>
+          <Modal
+            classNames={{
+              modal: "alertModal",
+            }}
+            open={open}
+            onClose={onCloseModal}
+            center
+          >
             <div className="d-flex flex-column align-items-center">
-              <h2>{infoData?.data[0]?.heading}</h2>
+              <h2 className="font-bold">{infoData?.data[0]?.heading}</h2>
               <img src={alertImage} alt={alertImage} className="alertImage" />
               <p className="h5 py-2">{infoData?.data[0]?.text}</p>
             </div>
@@ -68,6 +79,18 @@ function Home() {
               </div>
             </div>
           </div>
+          {openAlertDiv ? (
+            <div>
+              <Alert severity="warning">
+                <AlertTitle>
+                  <h4 className="font-bold">{infoData?.data[0]?.heading}</h4>
+                </AlertTitle>
+                <p className="h5 py-2">{infoData?.data[0]?.text}</p>
+              </Alert>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="container">
             {displayGallery && (
               <div className="modal-container py-5">

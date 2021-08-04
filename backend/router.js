@@ -14,7 +14,6 @@ const routes = [
   "parents",
   "gallery",
   "blogs",
-  "info",
   "stripe"
 ];
 

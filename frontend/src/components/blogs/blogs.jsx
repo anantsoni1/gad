@@ -21,11 +21,11 @@ const Addmission = () => {
             <div className="pb-lg-5 pb-1">
                 <Header img={Group8921} heading="BLOGS" />
             </div>
-            <div className="mb-5 row">
+            <div className="mb-5 row col-lg-10 col-12 mx-auto">
             {blogs.map((b,i)=>{
-                if (i == 0) {
+                if ((i+1)%3 == 2) {
                     return (
-                    <div className="col-lg-3 col-md-8 col-sm-10 col-10 my-4 px-3 mx-auto">
+                    <div className="col-lg-4 col-md-8 col-sm-10 col-10 my-4 px-3 mx-auto">
                     <div className="update-card update-red">
                         <div className="d-flex justify-content-between py-5 px-4">
                         <div>
@@ -48,9 +48,9 @@ const Addmission = () => {
                     </div>
                     )
                 }
-                if (i == 1) {
+                if ((i+1)%3 == 1) {
                     return (
-                    <div className="col-lg-3 col-md-8 col-sm-10 col-10 my-4 px-3 mx-auto">
+                    <div className="col-lg-4 col-md-8 col-sm-10 col-10 my-4 px-3 mx-auto">
                     <div className="update-card update-purple">
                         <div className="d-flex justify-content-between py-5 px-4">
                         <div>
@@ -73,9 +73,9 @@ const Addmission = () => {
                     </div>
                     )
                 }
-                if (i == 2) {
+                if ((i+1)%3 == 0) {
                     return (
-                    <div className="col-lg-3 col-md-8 col-sm-10 col-10 my-4 px-3 mx-auto mb-5">
+                    <div className="col-lg-4 col-md-8 col-sm-10 col-10 my-4 px-3 mx-auto mb-5">
                     <div className="update-card update-green">
                         <div className="d-flex justify-content-between py-5 px-4">
                         <div>

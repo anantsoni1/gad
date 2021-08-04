@@ -4,16 +4,17 @@ import { imageUrl } from "../../redux/api/index";
 import { getBlogs } from "../../redux/actions/blogs";
 import Header from "../header/index";
 import Group8921 from "../../assets/Group8921.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./style.css";
 
 const Addmission = () => {
-  const blogs = useSelector(state => {return state?.blogs?.getBlogsData?.data});
-  console.log(blogs, "s");
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getBlogs())
-  }, []);
+    const history = useHistory();
+    const blogs = useSelector(state => {return state?.blogs?.getBlogsData?.data});
+    console.log(blogs, "s");
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getBlogs())
+    }, []);
   return (
     <>
       {blogs && blogs?.length > 0 ? (
@@ -38,7 +39,10 @@ const Addmission = () => {
                             {b.shortDescription.substr(0,36)}...
                             </p>
                             <div className="color-red mt-3"
-                            style={{"cursor": "pointer"}}>
+                            style={{"cursor": "pointer"}} 
+                            onClick={()=>{
+                                history.push(`/blog-details?id=${b._id}`)
+                            }}>
                             read more&nbsp;&nbsp;&nbsp;{" "}
                             <i className="fas fa-arrow-right"></i>
                             </div>
@@ -63,7 +67,10 @@ const Addmission = () => {
                             {b.shortDescription.substr(0,36)}...
                             </p>
                             <div className="color-purple mt-3"
-                                                            style={{"cursor": "pointer"}}>
+                                style={{"cursor": "pointer"}}
+                                onClick={()=>{
+                                    history.push(`/blog-details?id=${b._id}`)
+                                }}>
                             read more&nbsp;&nbsp;&nbsp;{" "}
                             <i className="fas fa-arrow-right"></i>
                             </div>
@@ -88,7 +95,10 @@ const Addmission = () => {
                             {b.shortDescription.substr(0,36)}...
                             </p>
                             <div className="color-green mt-3"
-                            style={{"cursor": "pointer"}}>
+                            style={{"cursor": "pointer"}}
+                            onClick={()=>{
+                                history.push(`/blog-details?id=${b._id}`)
+                            }}>
                             read more&nbsp;&nbsp;&nbsp;{" "}
                             <i className="fas fa-arrow-right"></i>
                             </div>

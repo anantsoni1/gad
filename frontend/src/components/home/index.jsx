@@ -131,26 +131,6 @@ function Home() {
                     {homeData.slots[0].blogsSubHeading}
                   </div>
                   <div className="row mt-md-5 mt-3">
-                    {/* <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
-                      <div className="update-card update-red">
-                        <div className="d-flex justify-content-between py-5 px-4">
-                          <div>
-                            <div className="dates date-red">27</div>
-                            <div className="month text-center mt-2">Apr</div>
-                          </div>
-                          <div style={{ paddingLeft: "1.5rem" }}>
-                            <div className="update-head">Jane Cooper</div>
-                            <p className="text-muted">
-                              Please join our school and help Heart...
-                            </p>
-                            <div className="color-red mt-3">
-                              read more&nbsp;&nbsp;&nbsp;{" "}
-                              <i className="fas fa-arrow-right"></i>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div> */}
                     {blogs && blogs.length>0 ? (
                       blogs.map((b,i)=>{
                         if (i == 0) {
@@ -168,7 +148,10 @@ function Home() {
                                     {b.shortDescription.substr(0,36)}...
                                   </p>
                                   <div className="color-red mt-3"
-                                    style={{"cursor": "pointer"}}>
+                                    style={{"cursor": "pointer"}}
+                                    onClick={()=>{
+                                      history.push(`/blog-details?id=${b._id}`)
+                                    }}>
                                     read more&nbsp;&nbsp;&nbsp;{" "}
                                     <i className="fas fa-arrow-right"></i>
                                   </div>
@@ -193,7 +176,10 @@ function Home() {
                                     {b.shortDescription.substr(0,36)}...
                                   </p>
                                   <div className="color-purple mt-3"
-                                                                    style={{"cursor": "pointer"}}>
+                                      style={{"cursor": "pointer"}}
+                                      onClick={()=>{
+                                        history.push(`/blog-details?id=${b._id}`)
+                                    }}>
                                     read more&nbsp;&nbsp;&nbsp;{" "}
                                     <i className="fas fa-arrow-right"></i>
                                   </div>
@@ -218,7 +204,10 @@ function Home() {
                                     {b.shortDescription.substr(0,36)}...
                                   </p>
                                   <div className="color-green mt-3"
-                                  style={{"cursor": "pointer"}}>
+                                  style={{"cursor": "pointer"}}
+                                    onClick={()=>{
+                                      history.push(`/blog-details?id=${b._id}`)
+                                  }}>
                                     read more&nbsp;&nbsp;&nbsp;{" "}
                                     <i className="fas fa-arrow-right"></i>
                                   </div>

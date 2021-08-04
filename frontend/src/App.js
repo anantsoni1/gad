@@ -30,6 +30,7 @@ import AdminGuardedRoute from "./components/guards/AdminLayout";
 import Donation from "./components/donations";
 import AdminInfo from "./components/Admin/info";
 import CovidLinks from "./components/Covid/links";
+import BlogDetails from './components/blogs/blogDetils';
 
 function App() {
   const location = useLocation();
@@ -44,6 +45,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/covid" component={Covid} />
             <Route exact path="/blogs" component={Blogs} />
+            <Route exact path="/blog-details" component={BlogDetails} />
             <Route exact path="/parents" component={Parents} />
             <Route exact path="/about" component={About} />
             <Route exact path="/principal" component={PrincipalDesk} />
@@ -131,6 +133,7 @@ function App() {
             <Route exact path="/career" component={Career} />
             <Route exact path="/team" component={Team} />
             <Route exact path="/blogs" component={Blogs} />
+            <Route exact path="/blog-details" component={BlogDetails} />
             <Route exact path="/covid-links" component={CovidLinks} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/donation" component={Donation} />

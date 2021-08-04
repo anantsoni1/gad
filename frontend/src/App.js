@@ -5,6 +5,7 @@ import About from "./components/about";
 import Covid from "./components/Covid";
 import PrincipalDesk from "./components/principalDesk/index";
 import Admissions from "./components/addmission/index";
+import Blogs from './components/blogs/blogs';
 import Career from "./components/career/index";
 import Team from "./components/team/index";
 import Contact from "./components/contact/index";
@@ -42,6 +43,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/covid" component={Covid} />
+            <Route exact path="/blogs" component={Blogs} />
             <Route exact path="/parents" component={Parents} />
             <Route exact path="/about" component={About} />
             <Route exact path="/principal" component={PrincipalDesk} />
@@ -128,6 +130,7 @@ function App() {
             <Route exact path="/admissions" component={Admissions} />
             <Route exact path="/career" component={Career} />
             <Route exact path="/team" component={Team} />
+            <Route exact path="/blogs" component={Blogs} />
             <Route exact path="/covid-links" component={CovidLinks} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/donation" component={Donation} />

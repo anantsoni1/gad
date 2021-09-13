@@ -12,6 +12,12 @@ body {
   width: 10px;
 }
 
+:root {
+  --primaryColor: #264861;
+  --secondaryColor: #04B1ED;
+  --tertiaryColor: #e0f6ff;
+}
+
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
@@ -41,4 +47,12 @@ body {
   border: none !important;
   outline: none !important;
   box-shadow: none;
+}
+
+.rbc-btn-group button {
+  background: var(--tertiaryColor) !important;
+  color: white;
+  border-radius: 4px;  
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
 }

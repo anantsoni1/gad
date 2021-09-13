@@ -37,11 +37,11 @@ app.use("/", route.init());
 app.use("/images", express.static(path.join("assets/images")));
 app.use("/files", express.static(path.join("assets/files")));
 
-app.listen(8080, () => {
-  console.log("Server is running on port : 8080");
-  // run this to create a admin only once on the first run
-  // createAdmin.createAdmin();
-});
+// app.listen(8080, () => {
+//   console.log("Server is running on port : 8080");
+//   // run this to create a admin only once on the first run
+//   // createAdmin.createAdmin();
+// });
 
 httpsServer.listen(8082, () => {
     console.log("Server is running on port : 1234");

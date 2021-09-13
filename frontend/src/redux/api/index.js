@@ -4,9 +4,9 @@ import axios from "axios";
 // export const imageUrl = "http://localhost:8080/";
 // export const fileUrl = "http://localhost:8080";
 
-export const url = "https://pigameapp.com:8082/api";
-export const imageUrl = "https://pigameapp.com:8082/";
-export const fileUrl = "https://pigameapp.com:8082";
+export const url = "https://backend.gadschool.com:8082/api";
+export const imageUrl = "https://backend.gadschool.com:8082/";
+export const fileUrl = "https://backend.gadschool.com:8082";
 
 // HOME
 export const getHomeData = () => axios.get(`${url}/getHomeData`);

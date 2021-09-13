@@ -9,10 +9,6 @@ const HomePageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  backgroundImg: {
-    type: String,
-    required: true,
-  },
   blogsHeading: {
     type: String,
     required: true,

@@ -18,7 +18,7 @@
       rgba(68, 68, 68, 0) 0%,
       #383838 100%
     ),
-    url("https://pigameapp.com:8082/images/backgroundHome.jpeg");
+    url("https://backend.gadschool.com:8082/images/backgroundHome.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

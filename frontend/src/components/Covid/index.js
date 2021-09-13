@@ -55,14 +55,14 @@ function Covid() {
                 </div>
                 <div className="d-flex justify-content-center">
                   <button className="btn text-white text-center btn-covid-purple mt-3">
-                    <a href="https://www.gadschool.com/wp-content/uploads/2021/04/April-28-2021-Restart-Safety-Plan-for-September-2021-G.A.D.-Elementary-School-1.pdf" style={{"color":"white"}} target="_blank">
+                    <a href="https://backend.gadschool.com:8082/files/April-28-2021-Restart-Safety-Plan-for-September-2021-G.A.D.-Elementary-School-1.pdf" style={{"color":"white"}} target="_blank">
                       Updated COVID-19 Health and Safety Plan 2021
                     </a>
                   </button>
                 </div>
                 <div className="d-flex justify-content-center">
                   <button className="btn text-white text-center btn-covid-blue my-3">
-                    <a href="https://www.gadschool.com/wp-content/uploads/2021/01/FH-Back-to-school_winter-21_QA.pdf" style={{"color":"white"}} target="_blank">
+                    <a href="https://backend.gadschool.com:8082/files/FH-Back-to-school_winter-21_QA.pdf" style={{"color":"white"}} target="_blank">
                       Fraser Health Back to School Plan-Winter 2021
                     </a>
                   </button>

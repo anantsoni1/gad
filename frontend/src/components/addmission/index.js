@@ -138,6 +138,9 @@ const Addmission = () => {
                       For More information click here to see{" "}
                       {formData?.links && formData?.links.length > 0
                         ? formData?.links.map((val, index) => {
+                          if (index==0) {
+                            return ;
+                          }
                             return (
                               <>
                                 <a href={val.link} target="_blank">{val.text}</a>

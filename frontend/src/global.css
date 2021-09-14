@@ -51,7 +51,7 @@ body {
 
 .rbc-btn-group button {
   background: var(--tertiaryColor) !important;
-  color: white;
+  color: rgb(0, 0, 0);
   border-radius: 4px;  
   cursor: pointer;
   transition: all 0.4s ease-in-out;

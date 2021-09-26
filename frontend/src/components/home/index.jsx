@@ -16,12 +16,17 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { Link, useHistory } from "react-router-dom";
 import { getBlogs } from "../../redux/actions/blogs";
 import alertImage from "../../assets/alert.jpg";
+import $ from "jquery";
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 
 function Home() {
   const infoData = useSelector((state) => state?.info?.getInfoData);
   const dispatch = useDispatch();
   const history = useHistory();
-  const blogs = useSelector(state => {return state?.blogs?.getBlogsData?.data});
+  const blogs = useSelector((state) => {
+    return state?.blogs?.getBlogsData?.data;
+  });
   const [displayGallery, setDisplayGallery] = useState(false);
   const [open, setOpen] = useState(false);
   const [openAlertDiv, setOpenAlertDiv] = useState(false);
@@ -43,7 +48,29 @@ function Home() {
   }, []);
   const homeData = useSelector((state) => state.home?.getHomeData);
   const galleryData = useSelector((state) => state?.gallery?.getGalleryData);
-
+  var backGroundimages = galleryData?.data?.map(
+    (data) => `${imageUrl}${data.img}`
+  );
+  var nextimage = 0;
+  // doSlideshow();
+  function doSlideshow() {
+    if (nextimage >= backGroundimages?.length) {
+      nextimage = 0;
+    }
+    if (backGroundimages?.length) {
+      $(".home-banner")
+        .css(
+          "background-image",
+          `linear-gradient(180deg,
+        rgba(68, 68, 68, 0) 0%,
+        #383838 100%
+      ),url("${backGroundimages[nextimage++]}")`
+        )
+        .fadeIn(500, function () {
+          setTimeout(doSlideshow, 10000);
+        });
+    }
+  }
   let images = [];
   galleryData?.data?.map((data) =>
     images.push({
@@ -69,15 +96,52 @@ function Home() {
               <p className="h5 py-2">{infoData?.data[0]?.text}</p>
             </div>
           </Modal>
-          <div className="home-banner">
-            <div className="home-heading text-white text-center">
+          {/* <div className="home-banner"> */}
+          <div className="slide-container">
+            <Slide Easing="ease" duration="5000">
+              {backGroundimages && backGroundimages.length
+                ? backGroundimages.map((slideImage, index) => (
+                    <div className="each-fade" key={index}>
+                      <div
+                        style={{
+                          backgroundImage: `linear-gradient(
+                            180deg,
+                            rgba(68, 68, 68, 0) 0%,
+                            #383838 100%
+                          ),url(${slideImage})`,
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "center",
+                          backgroundSize: "cover",
+                          minHeight: "80vh",
+                        }}
+                      >
+                        {/* <div
+                          className="main-heading"
+                          style={{ paddingTop: "45vh" }}
+                        >
+                          {homeData.slots[0].heading}
+                        </div> */}
+                      </div>
+                    </div>
+                  ))
+                : ""}
+            </Slide>
+            <div
+              className="home-sub-heading text-white"
+              style={{ paddingTop: "45vh" }}
+            >
+              {homeData.slots[0].heading} <br />
+              {homeData.slots[0].subHeading}
+            </div>
+            {/* </div> */}
+            {/* <div className="home-heading text-white text-center">
               <div className="main-heading" style={{ paddingTop: "45vh" }}>
                 {homeData.slots[0].heading}
               </div>
               <div className="home-sub-heading text-white">
                 {homeData.slots[0].subHeading}
               </div>
-            </div>
+            </div> */}
           </div>
           {openAlertDiv ? (
             <div>
@@ -131,94 +195,133 @@ function Home() {
                     {homeData.slots[0].blogsSubHeading}
                   </div>
                   <div className="row mt-md-5 mt-3">
-                    {blogs && blogs.length>0 ? (
-                      blogs.map((b,i)=>{
-                        if (i == 0) {
-                          return (
-                            <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
-                            <div className="update-card update-red">
-                              <div className="d-flex justify-content-between py-5 px-4">
-                                <div>
-                                  <div className="dates date-red">{(new Date(b.date)).getDate()}</div>
-                                  <div className="month text-center mt-2">{(new Date(b.date)).toLocaleString('default', { month: 'short' })}</div>
-                                </div>
-                                <div style={{ paddingLeft: "1.5rem" }}>
-                                  <div className="update-head">{b.title}</div>
-                                  <p className="text-muted">
-                                    {b.shortDescription.substr(0,36)}...
-                                  </p>
-                                  <div className="color-red mt-3"
-                                    style={{"cursor": "pointer"}}
-                                    onClick={()=>{
-                                      history.push(`/blog-details?id=${b._id}`)
-                                    }}>
-                                    read more&nbsp;&nbsp;&nbsp;{" "}
-                                    <i className="fas fa-arrow-right"></i>
+                    {blogs && blogs.length > 0
+                      ? blogs.map((b, i) => {
+                          if (i == 0) {
+                            return (
+                              <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
+                                <div className="update-card update-red">
+                                  <div className="d-flex justify-content-between py-5 px-4">
+                                    <div>
+                                      <div className="dates date-red">
+                                        {new Date(b.date).getDate()}
+                                      </div>
+                                      <div className="month text-center mt-2">
+                                        {new Date(b.date).toLocaleString(
+                                          "default",
+                                          { month: "short" }
+                                        )}
+                                      </div>
+                                    </div>
+                                    <div style={{ paddingLeft: "1.5rem" }}>
+                                      <div className="update-head">
+                                        {b.title}
+                                      </div>
+                                      <p className="text-muted">
+                                        {b.shortDescription.substr(0, 36)}...
+                                      </p>
+                                      <div
+                                        className="color-red mt-3"
+                                        style={{ cursor: "pointer" }}
+                                        onClick={() => {
+                                          history.push(
+                                            `/blog-details?id=${b._id}`
+                                          );
+                                        }}
+                                      >
+                                        read more&nbsp;&nbsp;&nbsp;{" "}
+                                        <i className="fas fa-arrow-right"></i>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                          )
-                        }
-                        if (i == 1) {
-                          return (
-                            <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
-                            <div className="update-card update-purple">
-                              <div className="d-flex justify-content-between py-5 px-4">
-                                <div>
-                                <div className="dates date-purple">{(new Date(b.date)).getDate()}</div>
-                                  <div className="month text-center mt-2">{(new Date(b.date)).toLocaleString('default', { month: 'short' })}</div>
-                                </div>
-                                <div style={{ paddingLeft: "1.5rem" }}>
-                                <div className="update-head">{b.title}</div>
-                                  <p className="text-muted">
-                                    {b.shortDescription.substr(0,36)}...
-                                  </p>
-                                  <div className="color-purple mt-3"
-                                      style={{"cursor": "pointer"}}
-                                      onClick={()=>{
-                                        history.push(`/blog-details?id=${b._id}`)
-                                    }}>
-                                    read more&nbsp;&nbsp;&nbsp;{" "}
-                                    <i className="fas fa-arrow-right"></i>
+                            );
+                          }
+                          if (i == 1) {
+                            return (
+                              <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
+                                <div className="update-card update-purple">
+                                  <div className="d-flex justify-content-between py-5 px-4">
+                                    <div>
+                                      <div className="dates date-purple">
+                                        {new Date(b.date).getDate()}
+                                      </div>
+                                      <div className="month text-center mt-2">
+                                        {new Date(b.date).toLocaleString(
+                                          "default",
+                                          { month: "short" }
+                                        )}
+                                      </div>
+                                    </div>
+                                    <div style={{ paddingLeft: "1.5rem" }}>
+                                      <div className="update-head">
+                                        {b.title}
+                                      </div>
+                                      <p className="text-muted">
+                                        {b.shortDescription.substr(0, 36)}...
+                                      </p>
+                                      <div
+                                        className="color-purple mt-3"
+                                        style={{ cursor: "pointer" }}
+                                        onClick={() => {
+                                          history.push(
+                                            `/blog-details?id=${b._id}`
+                                          );
+                                        }}
+                                      >
+                                        read more&nbsp;&nbsp;&nbsp;{" "}
+                                        <i className="fas fa-arrow-right"></i>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                          )
-                        }
-                        if (i == 2) {
-                          return (
-                            <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
-                            <div className="update-card update-green">
-                              <div className="d-flex justify-content-between py-5 px-4">
-                                <div>
-                                <div className="dates date-green">{(new Date(b.date)).getDate()}</div>
-                                  <div className="month text-center mt-2">{(new Date(b.date)).toLocaleString('default', { month: 'short' })}</div>
-                                </div>
-                                <div style={{ paddingLeft: "1.5rem" }}>
-                                <div className="update-head">{b.title}</div>
-                                  <p className="text-muted">
-                                    {b.shortDescription.substr(0,36)}...
-                                  </p>
-                                  <div className="color-green mt-3"
-                                  style={{"cursor": "pointer"}}
-                                    onClick={()=>{
-                                      history.push(`/blog-details?id=${b._id}`)
-                                  }}>
-                                    read more&nbsp;&nbsp;&nbsp;{" "}
-                                    <i className="fas fa-arrow-right"></i>
+                            );
+                          }
+                          if (i == 2) {
+                            return (
+                              <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
+                                <div className="update-card update-green">
+                                  <div className="d-flex justify-content-between py-5 px-4">
+                                    <div>
+                                      <div className="dates date-green">
+                                        {new Date(b.date).getDate()}
+                                      </div>
+                                      <div className="month text-center mt-2">
+                                        {new Date(b.date).toLocaleString(
+                                          "default",
+                                          { month: "short" }
+                                        )}
+                                      </div>
+                                    </div>
+                                    <div style={{ paddingLeft: "1.5rem" }}>
+                                      <div className="update-head">
+                                        {b.title}
+                                      </div>
+                                      <p className="text-muted">
+                                        {b.shortDescription.substr(0, 36)}...
+                                      </p>
+                                      <div
+                                        className="color-green mt-3"
+                                        style={{ cursor: "pointer" }}
+                                        onClick={() => {
+                                          history.push(
+                                            `/blog-details?id=${b._id}`
+                                          );
+                                        }}
+                                      >
+                                        read more&nbsp;&nbsp;&nbsp;{" "}
+                                        <i className="fas fa-arrow-right"></i>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                          )
-                        }
-                      })
-                    ) : ''}
+                            );
+                          }
+                        })
+                      : ""}
                     {/* <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-4">
                       <div className="update-card update-green">
                         <div className="d-flex justify-content-between py-5 px-4">
@@ -248,9 +351,9 @@ function Home() {
                   </div>
                   <div className="center">
                     <Link to="/parents">
-                    <button className="text-center text-white btn mt-5 comprehensive-btn">
-                      Explore Curricula
-                    </button>
+                      <button className="text-center text-white btn mt-5 comprehensive-btn">
+                        Explore Curricula
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -359,8 +462,8 @@ function Home() {
               </div>
             </div>
           </div>
-          <div id="home-carousel">
-            <Carousel>
+          {/* <div id="home-carousel"> */}
+          {/* <Carousel>
               <Carousel.Item>
                 <div className="carousel-flex container py-5 my-5">
                   <img src={person} className="img-fluid" alt="First slide" />
@@ -413,8 +516,8 @@ function Home() {
                   </div>
                 </div>
               </Carousel.Item>
-            </Carousel>
-          </div>
+            </Carousel> */}
+          {/* </div> */}
         </div>
       )}
     </>

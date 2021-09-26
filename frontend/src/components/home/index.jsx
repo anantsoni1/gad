@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetHomeData } from "../../redux/actions/home";
 import { GetInfoData } from "../../redux/actions/info";
 import { GetGalleryData } from "../../redux/actions/gallery";
-import { Carousel } from "react-bootstrap";
-import person from "../../assets/person.svg";
+import ReactPlayer from "react-player";
 import { imageUrl } from "../../redux/api/index";
 import { Alert } from "@material-ui/lab";
 import { AlertTitle } from "@material-ui/lab";
@@ -19,6 +18,7 @@ import alertImage from "../../assets/alert.jpg";
 import $ from "jquery";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import { Carousel } from "bootstrap";
 
 function Home() {
   const infoData = useSelector((state) => state?.info?.getInfoData);
@@ -360,6 +360,16 @@ function Home() {
               </div>
             </div>
           </div>
+          <ReactPlayer
+            url="https://www.youtube.com/embed/qw3bDRiF6Ew"
+            style={{margin: "10px auto"}}
+            controls
+          />
+          <ReactPlayer
+            url="https://www.youtube.com/embed/HxiOoSRBVNY"
+            style={{margin: "10px auto"}}
+            controls
+          />
           <div className="home-discover">
             <div className="container">
               <div className="row carousel-flex">
@@ -425,6 +435,16 @@ function Home() {
               </div>
             </div>
           </div>
+          <ReactPlayer
+            url="https://www.facebook.com/guruangaddevelementaryschool/videos/1041783069683018/"
+            style={{margin: "10px auto"}}
+            controls
+          />
+          <ReactPlayer
+            url="https://www.facebook.com/guruangaddevelementaryschool/videos/165834222037730/"
+            style={{margin: "10px auto"}}
+            controls
+          />
           <div className="features">
             <div className="container">
               <div className="row carousel-flex">
@@ -462,62 +482,6 @@ function Home() {
               </div>
             </div>
           </div>
-          {/* <div id="home-carousel"> */}
-          {/* <Carousel>
-              <Carousel.Item>
-                <div className="carousel-flex container py-5 my-5">
-                  <img src={person} className="img-fluid" alt="First slide" />
-                  <div className="flex-content">
-                    <p>
-                      We pride ourselves using the holistic approach to develop
-                      students academically, socially and emotionally. Students
-                      experience inquiry-based learning with real-life, hands-on
-                      workshops and lessons to enrich their understanding both
-                      in and outside of the classroom. Lorem Ipsum is simply
-                      dummy text of the printing and typesetting industry. Lorem
-                      Ipsum has been the industry's standard dummy text ever
-                      since the 1500s, when an unknown printer took a galley of
-                      type and scrambled it to make a type specimen book. It has
-                      survived not only five centuries, but also the leap into
-                      electronic typesetting, remaining essentially unchanged.
-                      It was popularised in the 1960s with the release of
-                      Letraset sheets containing Lorem Ipsum passages, and more
-                      recently with desktop publishing software like Aldus
-                      PageMaker including versions of Lorem Ipsum.
-                    </p>
-                    <h5 className="mt-3">John Doe</h5>
-                    <p className="mt-0 pt-0">Instructor</p>
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div className="carousel-flex container py-5 my-5">
-                  <img src={person} className="img-fluid" alt="Third slide" />
-                  <div className="flex-content">
-                    <p>
-                      We pride ourselves using the holistic approach to develop
-                      students academically, socially and emotionally. Students
-                      experience inquiry-based learning with real-life, hands-on
-                      workshops and lessons to enrich their understanding both
-                      in and outside of the classroom. Lorem Ipsum is simply
-                      dummy text of the printing and typesetting industry. Lorem
-                      Ipsum has been the industry's standard dummy text ever
-                      since the 1500s, when an unknown printer took a galley of
-                      type and scrambled it to make a type specimen book. It has
-                      survived not only five centuries, but also the leap into
-                      electronic typesetting, remaining essentially unchanged.
-                      It was popularised in the 1960s with the release of
-                      Letraset sheets containing Lorem Ipsum passages, and more
-                      recently with desktop publishing software like Aldus
-                      PageMaker including versions of Lorem Ipsum.
-                    </p>
-                    <h5 className="mt-3">John Doe</h5>
-                    <p className="mt-0 pt-0">Instructor</p>
-                  </div>
-                </div>
-              </Carousel.Item>
-            </Carousel> */}
-          {/* </div> */}
         </div>
       )}
     </>

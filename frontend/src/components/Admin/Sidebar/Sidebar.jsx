@@ -239,7 +239,7 @@ export default function MiniDrawer(props) {
               <ListItemText primary="Medical" />
             </Link>
           </ListItem>
-          <ListItem button>
+          {/* <ListItem button>
             <ListItemIcon>
               <Link to="/admin/team">
                 <strong>
@@ -250,7 +250,7 @@ export default function MiniDrawer(props) {
             <Link to="/admin/team">
               <ListItemText primary="Team" />
             </Link>
-          </ListItem>
+          </ListItem> */}
           <ListItem button>
             <ListItemIcon>
               <Link to="/admin/principal">

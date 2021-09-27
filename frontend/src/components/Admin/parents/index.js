@@ -855,7 +855,7 @@ function AdminParents() {
             </div>
           </AccordionDetails>
         </Accordion>
-        <Accordion
+        {/* <Accordion
           expanded={expanded === "panel2"}
           onChange={handleChange("panel2")}
         >
@@ -867,8 +867,8 @@ function AdminParents() {
             <div className="d-flex flex-lg-row flex-column align-items-center ">
               <p className="h5">Add School Newslater</p>
             </div>
-          </AccordionSummary>
-          <AccordionDetails>
+          </AccordionSummary> */}
+          {/* <AccordionDetails>
             <div className="user-table">
               <div class="d-flex justify-content-end align-items-center">
                 <button class="btn btn-primary px-4" onClick={handleShow2}>
@@ -937,7 +937,7 @@ function AdminParents() {
               </div>
             </div>
           </AccordionDetails>
-        </Accordion>
+        </Accordion> */}
         <Accordion
           expanded={expanded === "panel3"}
           onChange={handleChange("panel3")}

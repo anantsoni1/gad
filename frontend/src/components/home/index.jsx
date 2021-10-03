@@ -400,7 +400,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="kindergarten">
+          {/* <div className="kindergarten">
             <div className="container">
               <div className="row carousel-flex">
                 <div className="col-lg-10 col-md-12 col-sm-12 col-12">
@@ -423,7 +423,7 @@ function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="discover-bg-home text-white">
             <div className="container">
               <div className="row carousel-flex">

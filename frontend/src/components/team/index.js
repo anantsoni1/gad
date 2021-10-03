@@ -194,7 +194,7 @@ const Team = () => {
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Harsimar Dhillon
+                <span className="vertical-ruler">|</span> Harsimer Dhillon
               </p>
             </div>
           </div>
@@ -337,7 +337,6 @@ const Team = () => {
               </p>
             </div>
           </div>
-          <div className="hr-team mt-5 mb-2"></div>
           <div className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5">
             <div className="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12 px-lg-1 pt-md-3 pt-sm-5 pt-xs-5 px-md-1 px-3">
               <p className="h2">Kirtan</p>

@@ -30,15 +30,21 @@ function Covid() {
                 style={{"cursor": "pointer"}}>
                   QUICK LINKS: COVID-19 Resources
                 </div> */}
-                <div className="text-white text-center px-lg-0 mt-md-0 mt-3 mx-3 text-underline pb-2"
-                  style={{"cursor": "pointer"}}
-                 onClick={()=>{
-                   history.push('/covid-links')
-                 }}>
+                <div
+                  className="text-white text-center px-lg-0 mt-md-0 mt-3 mx-3 text-underline pb-2"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    history.push("/covid-links");
+                  }}
+                >
                   LINKS
                 </div>
                 <div className="text-white text-center px-lg-0 mt-md-0 mt-3 mx-3 text-underline pb-2">
-                  <a href="https://www.fraserhealth.ca/covid19#.X7b_YnBKi70" style={{"color":"white"}} target="_blank">
+                  <a
+                    href="https://www.fraserhealth.ca/covid19#.X7b_YnBKi70"
+                    style={{ color: "white" }}
+                    target="_blank"
+                  >
                     COVID19 SAFETY
                   </a>
                 </div>
@@ -55,14 +61,22 @@ function Covid() {
                 </div>
                 <div className="d-flex justify-content-center">
                   <button className="btn text-white text-center btn-covid-purple mt-3">
-                    <a href="https://backend.gadschool.com:8082/files/April-28-2021-Restart-Safety-Plan-for-September-2021-G.A.D.-Elementary-School-1.pdf" style={{"color":"white"}} target="_blank">
-                      Updated COVID-19 Health and Safety Plan 2021
+                    <a
+                      href="https://backend.gadschool.com:8082/files/disease.pdf"
+                      style={{ color: "white" }}
+                      target="_blank"
+                    >
+                      Communicable Disease Plan 2021
                     </a>
                   </button>
                 </div>
                 <div className="d-flex justify-content-center">
                   <button className="btn text-white text-center btn-covid-blue my-3">
-                    <a href="https://backend.gadschool.com:8082/files/FH-Back-to-school_winter-21_QA.pdf" style={{"color":"white"}} target="_blank">
+                    <a
+                      href="https://backend.gadschool.com:8082/files/FH-Back-to-school_winter-21_QA.pdf"
+                      style={{ color: "white" }}
+                      target="_blank"
+                    >
                       Fraser Health Back to School Plan-Winter 2021
                     </a>
                   </button>

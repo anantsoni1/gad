@@ -360,16 +360,6 @@ function Home() {
               </div>
             </div>
           </div>
-          <ReactPlayer
-            url="https://www.youtube.com/embed/qw3bDRiF6Ew"
-            style={{margin: "10px auto"}}
-            controls
-          />
-          <ReactPlayer
-            url="https://www.youtube.com/embed/HxiOoSRBVNY"
-            style={{margin: "10px auto"}}
-            controls
-          />
           <div className="home-discover">
             <div className="container">
               <div className="row carousel-flex">
@@ -435,16 +425,6 @@ function Home() {
               </div>
             </div>
           </div>
-          <ReactPlayer
-            url="https://www.facebook.com/guruangaddevelementaryschool/videos/1041783069683018/"
-            style={{margin: "10px auto"}}
-            controls
-          />
-          <ReactPlayer
-            url="https://www.facebook.com/guruangaddevelementaryschool/videos/165834222037730/"
-            style={{margin: "10px auto"}}
-            controls
-          />
           <div className="features">
             <div className="container">
               <div className="row carousel-flex">

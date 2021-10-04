@@ -31,6 +31,9 @@ import Donation from "./components/donations";
 import AdminInfo from "./components/Admin/info";
 import CovidLinks from "./components/Covid/links";
 import BlogDetails from './components/blogs/blogDetils';
+import Calendar from './components/calendar/index';
+import Policies from './components/policies/index';
+import Video from './components/video/index';
 
 function App() {
   const location = useLocation();
@@ -56,6 +59,9 @@ function App() {
             <Route exact path="/covid-links" component={CovidLinks} />
             <Route exact path="/donation" component={Donation} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/policies" component={Policies} />
+            <Route exact path="/calendar" component={Calendar} />
+            <Route exact path="/video" component={Video} />
             <AdminGuardedRoute
               exact
               path="/admin/dashboard"
@@ -138,6 +144,9 @@ function App() {
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/donation" component={Donation} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/policies" component={Policies} />
+            <Route exact path="/calendar" component={Calendar} />
+            <Route exact path="/video" component={Video} />
             <AdminGuardedRoute
               exact
               path="/admin/dashboard"

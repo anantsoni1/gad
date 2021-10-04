@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import "./style.css";
 import { NavLink, useLocation } from "react-router-dom";
 import Logo from "../../assets/Group_59.svg";
@@ -52,19 +53,68 @@ function NavbarComponent() {
                 Covid 19 Updates
               </Nav.Link>
             </NavLink>
-            <NavLink to="/about" activeClassName="activeNav">
+            <NavDropdown
+              eventKey={1}
+              className="navbar-hidden"
+              title="Overview"
+              id="basic-nav-dropdown"
+            >
+              <NavDropdown.Item>
+                <NavLink to="/principal" activeClassName="activeNav">
+                  <Nav.Link href="/principal">
+                    <div className="font-demi text-primaryColor">Principal</div>
+                  </Nav.Link>
+                </NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <NavLink to="/about" activeClassName="activeNav">
+                  <Nav.Link href="/about">
+                    <div className="font-demi text-primaryColor">About</div>
+                  </Nav.Link>
+                </NavLink>
+              </NavDropdown.Item>
+            </NavDropdown>
+            {/* <NavLink to="/about" activeClassName="activeNav">
               <Nav.Link href="/about" className="px-3 navbar-item text-center">
                 about
               </Nav.Link>
-            </NavLink>
-            <NavLink to="/parents" activeClassName="activeNav">
+            </NavLink> */}
+                       <NavDropdown
+              eventKey={1}
+              className="navbar-hidden"
+              title="Parents"
+              id="basic-nav-dropdown"
+            >
+              <NavDropdown.Item>
+                <NavLink to="/parents" activeClassName="activeNav">
+                  <Nav.Link href="/parents">
+                    <div className="font-demi text-primaryColor">Parents Support Group</div>
+                  </Nav.Link>
+                </NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <NavLink to="/policies" activeClassName="activeNav">
+                  <Nav.Link href="/policies">
+                    <div className="font-demi text-primaryColor">School Policies</div>
+                  </Nav.Link>
+                </NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <NavLink to="/calendar" activeClassName="activeNav">
+                  <Nav.Link href="/calendar">
+                    <div className="font-demi text-primaryColor">Calendar</div>
+                  </Nav.Link>
+                </NavLink>
+              </NavDropdown.Item>
+            </NavDropdown>
+            {/* <NavLink to="/calendar" activeClassName="activeNav">
               <Nav.Link
-                href="/parents"
+                href="/calendar"
                 className="px-3 navbar-item text-center"
               >
-                parents
+                C
               </Nav.Link>
-            </NavLink>
+            </NavLink> */}
             <NavLink to="/admissions" activeClassName="activeNav">
               <Nav.Link
                 href="/admissions"
@@ -73,14 +123,14 @@ function NavbarComponent() {
                 admissions
               </Nav.Link>
             </NavLink>
-            <NavLink to="/principal" activeClassName="activeNav">
+            {/* <NavLink to="/principal" activeClassName="activeNav">
               <Nav.Link
                 href="/principal"
                 className="px-3 navbar-item text-center"
               >
                 Principal
               </Nav.Link>
-            </NavLink>
+            </NavLink> */}
             <NavLink to="/career" activeClassName="activeNav">
               <Nav.Link href="/career" className="px-3 navbar-item text-center">
                 career
@@ -92,7 +142,10 @@ function NavbarComponent() {
               </Nav.Link>
             </NavLink>
             <NavLink to="/donation" activeClassName="activeNav">
-              <Nav.Link href="/donation" className="px-3 navbar-item text-center">
+              <Nav.Link
+                href="/donation"
+                className="px-3 navbar-item text-center"
+              >
                 DONATE
               </Nav.Link>
             </NavLink>

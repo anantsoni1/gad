@@ -1,0 +1,22 @@
+.nav-link {
+    bottom: 98.86%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 17px;
+    color: #0c171f !important;
+    text-transform: uppercase;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .nav-background {
+    background: #e5e5e5 !important;
+  }
+  .active {
+    color: #fff !important;
+    background: #3daceb;
+  }
+  a {
+    text-decoration: none;
+  }
+  

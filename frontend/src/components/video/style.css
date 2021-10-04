@@ -1,0 +1,15 @@
+.team {
+    background-color: #e5e5e5;
+  }
+  .hr-team {
+    background-color: #3daceb;
+    height: 10px;
+  }
+  .vertical-ruler {
+    background-color: #3daceb;
+    width: 20px;
+    height: auto;
+    color: #3daceb;
+    margin-right: 10px;
+  }
+  

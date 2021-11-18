@@ -128,7 +128,7 @@ const Team = () => {
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Naina Grewal
+                <span className="vertical-ruler">|</span> Sharndeep Jawanda
               </p>
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
@@ -384,11 +384,6 @@ const Team = () => {
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
                 <span className="vertical-ruler">|</span> Annrary Charles
-              </p>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
-              <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Namrata Lal
               </p>
             </div>
           </div>

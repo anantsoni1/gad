@@ -166,7 +166,7 @@ const Team = () => {
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Melanie Forget
+                <span className="vertical-ruler">|</span> Dilsher Aujla
               </p>
             </div>
           </div>

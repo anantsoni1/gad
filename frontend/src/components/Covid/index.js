@@ -59,7 +59,7 @@ function Covid() {
                   <p>{covidData.slots[0].paragraphTwo}</p>
                   <p>{covidData.slots[0].paragraphThree}</p>
                 </div>
-                <div className="d-flex justify-content-center">
+                {/* <div className="d-flex justify-content-center">
                   <button className="btn text-white text-center btn-covid-purple mt-3">
                     <a
                       href="https://backend.gadschool.com:8082/files/disease2.pdf"
@@ -80,7 +80,7 @@ function Covid() {
                       Communicable Disease Plan 2021 (updated)
                     </a>
                   </button>
-                </div>
+                </div> */}
                 <div className="d-flex justify-content-center">
                   <button className="btn text-white text-center btn-covid-purple mt-3">
                     <a
@@ -88,7 +88,7 @@ function Covid() {
                       style={{ color: "white" }}
                       target="_blank"
                     >
-                      Communicable Disease Plan 2021
+                      Communicable Disease Plan 2022
                     </a>
                   </button>
                 </div>

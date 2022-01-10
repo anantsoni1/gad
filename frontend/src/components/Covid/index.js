@@ -93,6 +93,17 @@ function Covid() {
                   </button>
                 </div>
                 <div className="d-flex justify-content-center">
+                  <button className="btn text-white text-center btn-covid-purple mt-3">
+                    <a
+                      href="https://backend.gadschool.com:8082/files/disease2.pdf"
+                      style={{ color: "white" }}
+                      target="_blank"
+                    >
+                      Communicable Disease Plan 2022 (summarized version)
+                    </a>
+                  </button>
+                </div>
+                <div className="d-flex justify-content-center">
                   <button className="btn text-white text-center btn-covid-blue my-3">
                     <a
                       href="https://backend.gadschool.com:8082/files/FH-Back-to-school_winter-21_QA.pdf"

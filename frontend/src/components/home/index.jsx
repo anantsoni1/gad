@@ -356,6 +356,20 @@ function Home() {
                       </button>
                     </Link>
                   </div>
+                  <div className="center">
+                    <Link to="https://backend.gadschool.com:8082/files/2022-2023-School-Supply-Lists.zip">
+                      <button className="text-center text-white btn mt-5 comprehensive-btn">
+                        School Supply List 2022-23
+                      </button>
+                    </Link>
+                  </div>
+                  <div className="center">
+                    <Link to="https://backend.gadschool.com:8082/files/Online-Order-Instructions.zip">
+                      <button className="text-center text-white btn mt-5 comprehensive-btn">
+                        Online Order Instructions
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

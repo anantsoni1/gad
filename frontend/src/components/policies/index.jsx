@@ -286,7 +286,7 @@ function Parents() {
         <div className="container">
           <div className="row pt-lg-5 pt-4">
             <div className="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12">
-              <h1>School Policies</h1>
+              <h1>School Policies 2023</h1>
             </div>
           </div>
           {schoolPolicyData?.data && schoolPolicyData?.data.length > 0

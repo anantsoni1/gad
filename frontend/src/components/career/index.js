@@ -28,7 +28,10 @@ const Career = () => {
                   <p>
                     <ul>
                       {careerData?.data[0]?.headingPoints.map((val) => {
-                        return <li key={val._id}>{val.point}</li>;
+                        return val.point === "Teacher (Intermediate- Grades 4 to 9)" ? <>
+                        <li key={val._id}>{val.point}</li>
+                        <li key={"abcde"}>STEMS (Computers)/ADST (Grades 4 to 9)</li>
+                        </> : <li key={val._id}>{val.point}</li>;;
                       })}
                     </ul>
                   </p>

@@ -13,6 +13,7 @@ const Career = () => {
       .catch(() => {});
   }, []);
   const careerData = useSelector((state) => state.careeer?.getCareerData);
+  // test commit
   return (
     <>
       {careerData && careerData?.data.length > 0 ? (

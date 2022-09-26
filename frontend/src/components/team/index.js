@@ -41,7 +41,7 @@ const Team = () => {
           <div className="row pt-1 px-lg-4 px-md-5">
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Manjit S Aulakh
+                <span className="vertical-ruler">|</span> Manjit S.Aulakh
               </p>
             </div>
           </div>
@@ -72,17 +72,22 @@ const Team = () => {
           <div className="row pt-1 px-lg-4 px-md-5">
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
+                <span className="vertical-ruler">|</span> Rachna
+              </p>
+            </div>
+            {/* <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
+              <p className="about-text font-weight-bold">
                 <span className="vertical-ruler">|</span> Raman Saran
               </p>
-            </div>
+            </div> */}
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Prajatka Trehan
+                <span className="vertical-ruler">|</span> Prajakta Trehan
               </p>
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Mandeep Kaur Sohal
+                <span className="vertical-ruler">|</span> Mandeep Sohal
               </p>
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
@@ -103,14 +108,21 @@ const Team = () => {
                 <span className="vertical-ruler">|</span> Rajwinder Bhangoo
               </p>
             </div>
+
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Pavan Bath
+                <span className="vertical-ruler">|</span> Dalbir Judge
+              </p>
+            </div>
+
+            <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
+              <p className="about-text font-weight-bold">
+                <span className="vertical-ruler">|</span> Sharndeep Jawanda
               </p>
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Baldish K Aujla
+                <span className="vertical-ruler">|</span> Dheeraj Devgon
               </p>
             </div>
           </div>
@@ -123,17 +135,7 @@ const Team = () => {
           <div className="row pt-1 px-lg-4 px-md-5">
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Dheeraj Devgon
-              </p>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
-              <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Sharndeep Jawanda
-              </p>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
-              <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Geetika Harjai
+                <span className="vertical-ruler">|</span> Ray Chin
               </p>
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
@@ -141,6 +143,16 @@ const Team = () => {
                 <span className="vertical-ruler">|</span> Brooke Westermann
               </p>
             </div>
+            <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
+              <p className="about-text font-weight-bold">
+                <span className="vertical-ruler">|</span> Geetika Harjai
+              </p>
+            </div>
+            {/* <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
+              <p className="about-text font-weight-bold">
+                <span className="vertical-ruler">|</span> Brooke Westermann
+              </p>
+            </div> */}
           </div>
           <div className="hr-team mt-5 mb-2"></div>
           <div className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5">
@@ -161,12 +173,12 @@ const Team = () => {
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Shruti Sharma
+                <span className="vertical-ruler">|</span> Navneet Cheema
               </p>
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Dilsher Aujla
+                <span className="vertical-ruler">|</span> Rajinder Sra
               </p>
             </div>
           </div>
@@ -189,14 +201,14 @@ const Team = () => {
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Rachel Grolman
+                <span className="vertical-ruler">|</span> Tejinder Kaur
               </p>
             </div>
-            <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
+            {/* <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
                 <span className="vertical-ruler">|</span> Harsimer Dhillon
               </p>
-            </div>
+            </div> */}
           </div>
           <div className="hr-team mt-5 mb-2"></div>
           <div className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5">
@@ -215,6 +227,11 @@ const Team = () => {
                 <span className="vertical-ruler">|</span> Sarabjit Singh
               </p>
             </div>
+            <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
+              <p className="about-text font-weight-bold">
+                <span className="vertical-ruler">|</span> Dhanya Padmam
+              </p>
+            </div>
           </div>
           <div className="hr-team mt-5 mb-2"></div>
           <div className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5">
@@ -230,12 +247,12 @@ const Team = () => {
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Pawandeep Kaur
+                <span className="vertical-ruler">|</span> Sandra Portillo Puro
               </p>
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Japanjot Kaur
+                <span className="vertical-ruler">|</span> Harsimer Dhillon
               </p>
             </div>
           </div>
@@ -248,7 +265,7 @@ const Team = () => {
           <div className="row pt-1 px-lg-4 px-md-5">
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Taylor Schollen
+                <span className="vertical-ruler">|</span> Negaar Tebyanian
               </p>
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
@@ -266,7 +283,7 @@ const Team = () => {
           <div className="row pt-1 px-lg-4 px-md-5">
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Pratibha Unni
+                <span className="vertical-ruler">|</span> Annrary Charles
               </p>
             </div>
           </div>
@@ -305,17 +322,17 @@ const Team = () => {
           <div className="row pt-1 px-lg-4 px-md-5">
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Gujinder K Marwah
+                <span className="vertical-ruler">|</span> Gurjinder K.Sandhu
               </p>
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Ipinderjit K Marwah
+                <span className="vertical-ruler">|</span> Ipinderjit K. Marwah
               </p>
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Amanjot K Sahni
+                <span className="vertical-ruler">|</span> Amanjot K. Sahni
               </p>
             </div>
           </div>
@@ -328,7 +345,7 @@ const Team = () => {
           <div className="row pt-1 px-lg-4 px-md-5">
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Didar S Sohi
+                <span className="vertical-ruler">|</span> Didar Sohi
               </p>
             </div>
           </div>
@@ -383,7 +400,25 @@ const Team = () => {
             </div>
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Annrary Charles
+                <span className="vertical-ruler">|</span> Karamvir Singh
+              </p>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
+              <p className="about-text font-weight-bold">
+                <span className="vertical-ruler">|</span> Punjabi: Pooja K.Sharma
+              </p>
+            </div>
+          </div>
+          <div className="hr-team mt-5 mb-2"></div>
+          <div className="row pt-lg-5 pt-4 pb-1 px-lg-4 px-md-5">
+            <div className="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12 px-lg-1 pt-md-3 pt-sm-5 pt-xs-5 px-md-1 px-3">
+              <p className="h2">ADST Primary</p>
+            </div>
+          </div>
+          <div className="row pt-1 px-lg-4 px-md-5">
+            <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
+              <p className="about-text font-weight-bold">
+                <span className="vertical-ruler">|</span> Ramandeep Singh
               </p>
             </div>
           </div>
@@ -433,7 +468,7 @@ const Team = () => {
             </div>
           </div>
           <div className="row pt-1 px-lg-4 px-md-5">
-          {/* <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
+            {/* <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
                 <span className="vertical-ruler">|</span> Swarnjit Sohi
               </p>
@@ -450,7 +485,7 @@ const Team = () => {
             </div> */}
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Yadveer Kaur
+                <span className="vertical-ruler">|</span> Anureet Kaur
               </p>
             </div>
           </div>
@@ -460,7 +495,7 @@ const Team = () => {
             </div>
           </div>
           <div className="row pt-1 px-lg-4 px-md-5">
-          <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
+            <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
                 <span className="vertical-ruler">|</span> Swarnjit Sohi
               </p>

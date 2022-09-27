@@ -41,7 +41,7 @@ const Team = () => {
           <div className="row pt-1 px-lg-4 px-md-5">
             <div className="col-12 col-md-6 col-lg-4 col-sm-12 col-xs-12 px-lg-1 py-md-3 py-sm-5 py-xs-5 px-md-1 px-3">
               <p className="about-text font-weight-bold">
-                <span className="vertical-ruler">|</span> Manjit S.Aulakh
+                <span className="vertical-ruler">|</span> Manjit S. Aulakh
               </p>
             </div>
           </div>

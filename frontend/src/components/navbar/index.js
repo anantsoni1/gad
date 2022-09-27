@@ -50,7 +50,7 @@ function NavbarComponent() {
             </NavLink>
             <NavLink to="/covid" activeClassName="activeNav">
               <Nav.Link href="/covid" className="px-3 navbar-item text-center">
-                Covid 19 Updates
+                Health and Safety
               </Nav.Link>
             </NavLink>
             <NavDropdown

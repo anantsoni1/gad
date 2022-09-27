@@ -13,7 +13,7 @@ function Footer(props) {
         <div className="col-md-6 col-lg-3 col-sm-12 col-xs-12 py-3">
           <ul className="footer-list">
             <li className="py-1">
-              <p className="font-weight-bold">Usefull Links</p>
+              <p className="font-weight-bold">Useful Links</p>
             </li>
             <li className="py-1">
               <Link className="footer-link" to="/">

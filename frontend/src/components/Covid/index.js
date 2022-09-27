@@ -9,8 +9,8 @@ function Covid() {
   const history = useHistory();
   useEffect(() => {
     dispatch(GetCovidData())
-      .then((res) => {})
-      .catch(() => {});
+      .then((res) => { })
+      .catch(() => { });
   }, []);
   const covidData = useSelector((state) => state.covid?.getCovidData);
   console.log(covidData);
@@ -81,6 +81,21 @@ function Covid() {
                     </a>
                   </button>
                 </div> */}
+
+
+                <div className="d-flex justify-content-center">
+                  <button className="btn text-white text-center btn-covid-purple mt-3">
+                    <a
+                      href="https://backend.gadschool.com:8082/files/disease1.pdf"
+                      style={{ color: "white" }}
+                      target="_blank"
+                    >
+                      Communicable Disease Plan September 2022
+                    </a>
+                  </button>
+                </div>
+
+
                 <div className="d-flex justify-content-center">
                   <button className="btn text-white text-center btn-covid-purple mt-3">
                     <a
